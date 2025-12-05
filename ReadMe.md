@@ -1,9 +1,6 @@
 # WINAR – oTree Applications
 
 This repository contains the oTree applications developed for the **WINAR** research project, coordinated by *Rustam Romaniuc*.
-All instructions and user interfaces are written in English.
-
-If you plan to run this experiment in another country and language, please download the entire project and translate the necessary files (`__init__.py` and `*.html`) in each application folder. With development tools such as PyCharm and GitHub Copilot, this process is straightforward and efficient.
 
 ---
 
@@ -18,12 +15,6 @@ The full list of dependencies is provided in [`conda_env.yml`](./conda_env.yml).
 
 ## Installation
 
-Clone the repository:
-
-```bash
-git clone https://github.com/dimdub34/winar.git
-cd winar-otree
-```
 
 Create the conda environment:
 
