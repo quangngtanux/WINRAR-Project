@@ -1,0 +1,170 @@
+{{ block styles }}
+<link href="{{ static 'whistleblowing_counting/grids.css' }}" rel="stylesheet"/>
+{{ endblock }}
+
+{{ block title }}
+{{ if en }}
+Task 1: Counting 1's
+{{ elif fr }}
+Tâche 1: Comptage de 1
+{{ endif }}
+{{ endblock }}
+
+{{ block content }}
+<div class="text-end mb-3">
+    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#modal_content">
+        {{ if en }}
+        Instructions
+        {{ elif fr }}
+        Instructions
+        {{ endif }}
+    </button>
+</div>
+
+<div class="card bg-light mb-3">
+    <div class="card-body">
+        {{ if en }}
+        <p>
+            Select a grid by clicking on the corresponding button, count the number of 1's in
+            the grid, enter the value in the input widget and click on "Validate". Then click on another grid.
+        </p>
+
+        {{ elif fr }}
+        <p>
+            Sélectionnez une grille en cliquant sur le bouton correspondant, comptez le nombre de 1 dans
+            la grille, entrez la valeur dans la zone de saisie et cliquez sur "Valider". Ensuite, sélectionnez une
+            autre grille et répétez le processus.
+        </p>
+        {{ endif }}
+    </div>
+</div>
+
+<div class="text-center mb-3">
+    {{ for grid in loop_grid_number }}
+    <button type="button" id="id_g_{{forloop.counter}}" class="btn-secondary btn_grid_number my-1 mx-1"
+            style="width: 35px"
+            onclick="display_grid({{ forloop.counter }})">{{forloop.counter}}
+    </button>
+    {{ if forloop.counter == 20 or forloop.counter == 40 or forloop.counter == 60 or forloop.counter == 80 }}
+    <br>
+    {{ endif }}
+    {{ endfor }}
+</div>
+
+<div class="text-center">
+    <h6 class="text-info">
+        {{ if en }}
+        Grid
+        {{ elif fr }}
+        Grille
+        {{ endif }}
+        <span id="grid_number">1</span></h6>
+    <table class=" text-center mb-2 mx-auto">
+        {{ for i in loop_rows }}
+        <tr>
+            {{ for j in loop_cols }}
+            <td>
+                <input type="number" name="grid_cell" id="r{{i}}_c{{j}}" class="my_cell" readonly>
+            </td>
+            {{ endfor }}
+        </tr>
+        {{ endfor }}
+    </table>
+    <div class="form-group form-inline text-center mb-3">
+        <label for="grid_count">
+            {{ if en }}
+            Number of 1 in the grid:
+            {{ elif fr }}
+            Nombre de 1 dans la grille :
+            {{ endif }}
+            &nbsp;
+        </label>
+        <input type="number" class="form-control-sm text-center" name="grid_count" id="grid_count"
+               style="width: 80px">&nbsp;
+        <button type="button" class="btn btn-primary" id="btn_validate" onclick="validate();">
+            {{ if en }}
+            Validate
+            {{ elif fr }}
+            Valider
+            {{ endif }}
+        </button>
+    </div>
+</div>
+
+<input type="hidden" name="counting_performance" id="id_counting_performance" value="0">
+{{ include "global/InstructionsModal.html" }}
+
+{{ endblock }}
+
+{{ block scripts }}
+<script>
+    const grids = js_vars.grids;
+    let current_grid;
+    let grid_count = document.querySelector("#grid_count");  // input for the grid count
+    let input_score = document.querySelector("#id_counting_performance");  // field to store the score
+
+    function display_grid(grid_number) {
+        current_grid = grids[grid_number - 1];
+        // fill the grid with the values
+        document.querySelector("#grid_number").innerHTML = String(grid_number);
+        let grid_cells = document.querySelectorAll("input[type=number][name=grid_cell]");  // grid cells
+        let counter = 0;
+        for (let r of current_grid.grid) {
+            for (let c of r) {
+                grid_cells[counter].value = c;
+                counter++;
+            }
+        }
+        grid_count.value = "";  // empty the input field
+    }
+
+    function validate() {
+        let answer = Number(grid_count.value);  // get the answer from the input field
+        if (answer === current_grid["total"])
+            input_score.value = Number(input_score.value) + 1
+        let the_btn = document.querySelector(`#id_g_${current_grid['number']}`);
+        the_btn.classList.remove("bg-secondary");
+        the_btn.classList.add("bg-warning");
+        the_btn.disabled = true;
+        the_btn.setAttribute("title", String(answer));
+        grid_count.value = null;
+        current_grid = null;
+    }
+
+    function fill_auto() {
+        // Sélectionne tous les boutons de grille
+        const btn_grid_number = document.querySelectorAll(".btn_grid_number");
+
+        // Choisit un index aléatoire parmi les boutons
+        let randomIndex = Math.floor(Math.random() * btn_grid_number.length);
+        let selectedBtn = btn_grid_number[randomIndex];
+
+        // Vérifie que le bouton n'est pas déjà désactivé (grille déjà faite)
+        if (!selectedBtn.disabled) {
+            selectedBtn.click();
+
+            // On vérifie que la grille a bien été chargée avant de valider
+            if (current_grid) {
+                // Simule une réponse (50% de chance d'avoir juste)
+                grid_count.value = Math.random() <= 0.5 ? current_grid["total"] : Math.floor(Math.random() * 101);
+
+                // Clique sur valider
+                document.querySelector("#btn_validate").click();
+            }
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        display_grid(1);
+        const otree_timer = document.querySelector(".otree-timer");
+        otree_timer.classList.remove("alert", "alert-warning");
+        otree_timer.style.color = "DarkGoldenrod";
+        if (js_vars.fill_auto) {
+            setInterval(() => {
+                fill_auto();
+            }, Math.floor(Math.random() * 10000));
+        }
+    });
+
+</script>
+{{ endblock }}

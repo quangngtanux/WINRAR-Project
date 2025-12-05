@@ -1,0 +1,46 @@
+{{ block title }}
+{{ if en }}
+End of the experiment
+{{ elif fr }}
+Fin de l'expérience
+{{ endif }}
+{{ endblock }}
+
+{{ block content }}
+
+<div class="card bg-light mb-3">
+    <div class="card-body">
+        <h5>
+            {{ if en }}
+            Part 1
+            {{ elif fr }}
+            Partie 1
+            {{ endif }}
+        </h5>
+        <p>
+            {{ participant.vars.whistleblowing_effort.txt_final|safe }}
+        </p>
+
+        <h5>
+            {{ if en }}
+            Part 2
+            {{ elif fr }}
+            Partie 2
+            {{ endif }}
+        </h5>
+
+        <p>
+            {{ participant.vars.whistleblowing_game.txt_final|safe }}
+        </p>
+
+        <div class="card">
+            <div class="card-body">
+                <p>
+                    {{ participant.vars.whistleblowing_final.txt_final|safe }}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{ endblock }}
