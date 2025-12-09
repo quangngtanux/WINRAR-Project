@@ -5,8 +5,8 @@
 {{ block title }}
 {{ if en }}
 Task 1: Counting 1's
-{{ elif fr }}
-Tâche 1: Comptage de 1
+{{ elif vi }}
+Nhiệm vụ 1: Đếm số 1
 {{ endif }}
 {{ endblock }}
 
@@ -15,8 +15,8 @@ Tâche 1: Comptage de 1
     <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#modal_content">
         {{ if en }}
         Instructions
-        {{ elif fr }}
-        Instructions
+        {{ elif vi }}
+        Hướng dẫn
         {{ endif }}
     </button>
 </div>
@@ -31,9 +31,9 @@ Tâche 1: Comptage de 1
 
         {{ elif fr }}
         <p>
-            Sélectionnez une grille en cliquant sur le bouton correspondant, comptez le nombre de 1 dans
-            la grille, entrez la valeur dans la zone de saisie et cliquez sur "Valider". Ensuite, sélectionnez une
-            autre grille et répétez le processus.
+            Hãy chọn một bảng bằng cách nhấp vào nút tương ứng,
+đếm số lượng số 1 trong bảng, nhập giá trị vào ô nhập liệu và nhấp vào “Xác nhận”.
+Sau đó, chọn một bảng khác và lặp lại quy trình.
         </p>
         {{ endif }}
     </div>
@@ -74,8 +74,8 @@ Tâche 1: Comptage de 1
         <label for="grid_count">
             {{ if en }}
             Number of 1 in the grid:
-            {{ elif fr }}
-            Nombre de 1 dans la grille :
+            {{ elif vi }}
+           Số lượng số 1 trong bảng:
             {{ endif }}
             &nbsp;
         </label>
@@ -84,8 +84,8 @@ Tâche 1: Comptage de 1
         <button type="button" class="btn btn-primary" id="btn_validate" onclick="validate();">
             {{ if en }}
             Validate
-            {{ elif fr }}
-            Valider
+            {{ elif vi }}
+            Xác nhận
             {{ endif }}
         </button>
     </div>
