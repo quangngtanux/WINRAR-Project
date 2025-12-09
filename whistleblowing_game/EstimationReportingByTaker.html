@@ -5,8 +5,8 @@
 {{ block title }}
 {{ if en }}
 Part 2: Reporting estimation
-{{ elif fr }}
-Partie 2 : Estimation de signalement
+{{ elif vi }}
+Phần 2: Ước lượng việc báo cáo
 {{ endif }}
 {{ endblock }}
 
@@ -16,8 +16,8 @@ Partie 2 : Estimation de signalement
     <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#modal_content">
         {{ if en }}
         Instructions
-        {{ elif fr }}
-        Instructions
+        {{ elif vi }}
+        Hướng dẫn
         {{ endif }}
     </button>
 </div>
@@ -32,13 +32,16 @@ Partie 2 : Estimation de signalement
             Player who steals, and values in between indicate that you believe there is some chance that a Blue Player
             would report.
         </p>
-        {{ elif fr }}
+        {{ elif vi }}
         <p>
-            Quelles sont les chances qu'un des joueurs Bleus signale la décision d'un joueur Rouge de voler des ECU au
-            groupe Passif ? Veuillez indiquer votre réponse sur l'échelle ci-dessous, où 0 % signifie qu'il n'y a aucune
-            chance qu'un joueur Bleu signale, 100 % signifie que vous êtes certain qu'un joueur Bleu signale un
-            joueur Rouge qui vole, et les valeurs intermédiaires indiquent que vous pensez qu'il y a une certaine chance
-            qu'un joueur Bleu signale.
+            Khả năng một trong các người chơi Xanh báo cáo quyết định của một người chơi Đỏ ăn cắp ECU từ nhóm Thụ Động là bao nhiêu?
+            Vui lòng cho biết câu trả lời của bạn trên thang đo bên dưới, trong đó:
+
+            - 0% có nghĩa là không có khả năng nào người chơi Xanh sẽ báo cáo,
+
+            - 100% có nghĩa là bạn chắc chắn rằng một người chơi Xanh sẽ báo cáo người chơi Đỏ đang ăn cắp,
+
+            - và các giá trị ở giữa cho thấy bạn nghĩ rằng có một mức độ khả năng nhất định người chơi Xanh sẽ báo cáo.
         </p>
         {{ endif }}
     </div>

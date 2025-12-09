@@ -47,8 +47,8 @@
 {{ block title }}
 {{ if en }}
 Task 3: Sliders
-{{ elif fr }}
-Tâche 3 : Curseurs
+{{ elif vi }}
+Nhiệm vụ 3: Thanh trượt
 {{ endif }}
 {{ endblock }}
 
@@ -57,8 +57,8 @@ Tâche 3 : Curseurs
     <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#modal_content">
         {{ if en }}
         Instructions
-        {{ elif fr }}
-        Instructions
+        {{ elif vi }}
+        Hướng dẫn
         {{ endif }}
     </button>
 </div>
@@ -71,8 +71,10 @@ Tâche 3 : Curseurs
             and click on the <i>Validate</i> button. Then select another slider and repeat the process.
         </p>
 
-        {{ elif fr }}
+        {{ elif vi }}
         <p>
+            Chọn một mục tiêu bằng cách nhấn vào nút tương ứng, đặt thanh trượt vào đúng giá trị mục tiêu rồi nhấn vào nút <i>Xác Nhận</i>. 
+            Sau đó, chọn một mục tiêu khác và lặp lại quy trình.
             Sélectionnez une cible en cliquant sur le bouton correspondant, positionnez le curseur sur la valeur cible
             et cliquez sur le bouton <i>Valider</i>. Ensuite, sélectionnez une autre cible et répétez le processus.
         </p>
@@ -95,15 +97,15 @@ Tâche 3 : Curseurs
     <h6 class="text-info">
         {{ if en }}
         Slider
-        {{ elif fr }}
-        Slider
+        {{ elif vi }}
+        Thanh Trượt
         {{ endif }}
         <span id="slider_number">1</span></h6>
     <p class="fw-bold">
         {{ if en }}
         Target value:
         {{ elif fr }}
-        Valeur cible :
+        Giá trị mong muốn đạt được :
         {{ endif }}
         <span id="target_value">{{ sliders.0.target }}</span>
     </p>
@@ -133,8 +135,8 @@ Tâche 3 : Curseurs
     <button type="button" class="btn btn-primary" id="btn_validate" onclick="validate();">
         {{ if en }}
         Validate
-        {{ elif fr }}
-        Valider
+        {{ elif vi }}
+        Xác nhận
         {{ endif }}
     </button>
 </div>
@@ -173,15 +175,15 @@ Tâche 3 : Curseurs
 
     function fill_auto() {
         let btn_sliders = document.querySelectorAll(".btn_slider");
-        // Sélection d'un bouton au hasard
+        // Chọn một nút ngẫu nhiên
         let randomIndex = Math.floor(Math.random() * btn_sliders.length);
         let selectedBtn = btn_sliders[randomIndex];
 
-        // Vérification essentielle : le bouton est-il actif ?
+        // Bước kiểm tra quan trọng : nút có hoạt động không ?
         if (!selectedBtn.disabled) {
             selectedBtn.click();
 
-            // On s'assure que le slider est bien chargé
+            // Hãy đảm bảo rằng thanh trượt đã được sử dụng đúng cách
             if (current_slider) {
                 slider_input.value = Math.random() <= 0.5 ? Number(current_slider["target"]) : Math.floor(Math.random() * 100 + 1);
                 document.querySelector("#btn_validate").click();

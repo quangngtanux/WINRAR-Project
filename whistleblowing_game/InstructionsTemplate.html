@@ -148,156 +148,152 @@
     </div>
 </section>
 
-{{ elif fr }}
+{{ elif vi }}
 <section lang="fr">
     <article class="mb-4" data-description="intro">
-        <p><b>La composition des groupes est identique</b> à celle de la partie 1.</p>
+        <p><b>Nội dung của các nhóm là như nhau</b> như ở phần 1.</p>
         <p>
-            Le programme informatique sélectionnera aléatoirement un groupe parmi l’ensemble des groupes présents
-            dans cette salle. Ce groupe sera désigné comme le groupe <b><i>Passif</i></b>.
-            Les autres groupes seront désignés comme les groupes <b><i>Actifs</i></b>.
+            Chương trình máy tính sẽ chọn ngẫu nhiên một nhóm trong số tất cả các nhóm có mặt trong phòng này. Nhóm đó sẽ được chỉ định là nhóm <b><i>Thụ động</i></b>.
+            Những nhóm khác sẽ là nhóm <b><i>Chủ động</i></b>.
         </p>
         <p>
-            Les gains finaux individuels des membres du groupe <i>Passif</i> dépendront de leurs gains de la partie 1
-            et des décisions prises par les membres des groupes <i>Actifs</i> pendant la partie 2.
-            Comme les membres du groupe <i>Passif</i> ne prendront aucune décision dans cette partie,
-            les instructions ci-dessous concernent uniquement les membres des groupes <i>Actifs</i>.
+            Thu nhập cuối cùng của các thành viên trong nhóm<i>Thụ động</i> sẽ phụ thuộc vào thu nhập của họ ở phần 1 và các quyết định được đưa ra bởi các thành viên của các nhóm <i>Chủ động</i> trong phần 2.
+            Vì các thành viên của nhóm <i>Bị động</i> sẽ không đưa ra bất kỳ quyết định nào trong phần này, nên các hướng dẫn dưới đây chỉ áp dụng cho các thành viên của các nhóm <i>Chủ động</i>.
             <br>
-            Une fois que tous les participants auront lu ces instructions, vous serez informé(e)
-            <b>si vous appartenez au groupe <i>Passif</i> ou à l’un des groupes <i>Actifs</i></b>.
+            Khi tất cả người tham gia đã đọc xong các hướng dẫn này, bạn sẽ được thông báo…
+            <b> rằng bạn thuộc nhóm <i>Chủ động</i> hay thuộc nhóm <i>Bị động</i></b>.
         </p>
     </article>
 
     <article class="mb-4" data-description="roles">
-        <h5>Rôles et décisions dans les groupes Actifs</h5>
+        <h5>Vai trò và quyết định trong các Nhóm Chủ Động</h5>
         <p>
-            Dans chaque groupe <i>Actif</i>, le programme informatique attribuera aléatoirement un rôle aux joueurs.
-            Il y aura <b>un joueur Rouge et deux joueurs Bleus</b>.
+            Trong mỗi nhóm Chủ Động <i>(Actif)</i>i>, chương trình máy tính sẽ phân vai cho người chơi một cách ngẫu nhiên.
+            Sẽ có <b>một người chơi Đỏ và hai người chơi Xanh</b>.
         </p>
         <p>
-            Le joueur Rouge a la possibilité <b>d’augmenter ses gains en volant des ECU</b> au groupe <i>Passif</i>.
-            Concrètement, le joueur Rouge doit prendre une décision binaire : voler ou ne pas voler des ECU au groupe
-            Passif.
+            Người chơi Đỏ có khả năng <b>tăng tiền thửơng của mình bằng cách lấy cắp ECU</b> từ nhóm <i>Thụ động</i>.
+Cụ thể, người chơi Đỏ phải đưa ra một quyết định nhị phân: lấy cắp hoặc không lấy cắp ECU từ nhóm Thụ động.
+          
         </p>
         <p>
             <span class="text-decoration-underline">Fonctionnement :</span> <br>
-            Si le joueur Rouge décide de voler des ECU, il <b>gagne {{ STEALING_AMOUNT }} ECU</b>,
-            tandis que le groupe <i>Passif</i> <b>perd {{ STEALING_LOSS }} ECU</b> au total.
-            Cela signifie que chaque membre du groupe <i>Passif</i> perd {{ STEALING_LOSS_INDIV }} ECU
-            ({{ STEALING_LOSS_INDIV }} ECU × {{ PLAYERS_PER_GROUP }} = {{ STEALING_LOSS }} ECU).
-            Si le joueur Rouge ne vole pas, aucun changement n’a lieu et les gains de tous les participants restent
-            identiques à ceux de la partie 1.
+            Nếu người chơi Đỏ quyết định lấy cắp ECU, anh ta/ cô ta  <b>nhận được {{ STEALING_AMOUNT }} ECU </b>,
+            trong khi nhóm <i>Thụ động</i> <b>mất tổng cộng {{ STEALING_LOSS }} ECU</b>.
+
+                Điều đó có nghĩa là mỗi thành viên của nhóm Thụ động mất {{ STEALING_LOSS_INDIV }} ECU
+                ({{ STEALING_LOSS_INDIV }} ECU × {{ PLAYERS_PER_GROUP }} = {{ STEALING_LOSS }} ECU).
+
+                Nếu người chơi Đỏ không lấy cắp, thì không có sự thay đổi nào xảy ra và thu nhập của tất cả người tham gia vẫn giữ nguyên như ở phần 1.
+            
         </p>
-        <p>
-            Le vol est soumis à une <b>pénalité de {{ STEALING_PENALTY }} ECU</b>. Cependant, un joueur Rouge
-            qui décide de voler n’encourt cette pénalité que s’il est signalé par l’un des joueurs Bleus,
-            et même dans ce cas la pénalité n’est pas garantie.
+        <p> 
+            Hành vi lấy cắp chịu <b>một khoản phạt {{ STEALING_PENALTY }} ECU</b>.
+Tuy nhiên, một người chơi Đỏ quyết định lấy cắp chỉ bị phạt nếu bị một trong các người chơi Xanh tố giác,
+và ngay cả khi bị tố giác, khoản phạt này cũng không phải lúc nào cũng chắc chắn xảy ra.
+
         </p>
     </article>
 
     <article class="mb-4" data-description="reporting">
-        <h5>Règles de signalement</h5>
+        <h5>Luật báo cáo</h5>
         <p>
-            Dans chaque groupe <i>Actif</i>, les joueurs Bleus doivent décider s’ils souhaitent signaler le joueur Rouge
-            de leur groupe dans le cas où celui-ci déciderait de voler des ECU au groupe <i>Passif</i>.
-            Le signalement est anonyme et transmis à l’expérimentateur.
-            Si le joueur Rouge ne vole pas, il n’y a pas de signalement.
+            Trong nhóm <i>Chủ động</i>, Người chơi Xanh phải quyết định xem họ có muốn tố giác người chơi Đỏ
+trong trường hợp người chơi Đỏ quyết định lấy cắp ECU từ nhóm <i>Thụ động</i> hay không.
+Việc tố giác được thực hiện ẩn danh và gửi cho người phụ trách thí nghiệm.
+Nếu người chơi Đỏ không lấy cắp, thì không có tố giác nào.
         </p>
         <p>
-            Si un joueur Bleu décide de signaler le joueur Rouge et que ce dernier a volé des ECU,
-            le joueur Bleu paie un <b>coût de signalement de {{ REPORTING_COST }} ECU</b>
-            (déduit de ses gains de la partie 1).
+            If a Blue player decides to report the Red player and the Red player has stolen ECUs,
+the Blue player pays a reporting cost of {{ REPORTING_COST }} ECUs
+(which is deducted from their Part 1 earnings).
         </p>
         <ul>
             <li>
-                <u>Si le joueur Rouge a volé des ECU :</u> <br>
+                <u>Nếu người chơi Đỏ đã lấy cắp ECU :</u> <br>
                 <ul>
-                    <li>Le joueur Bleu qui signale paie un <b>coût de signalement de {{ REPORTING_COST }} ECU</b>.</li>
-                    <li>Le joueur Rouge signalé encourt une <b>pénalité de {{ STEALING_PENALTY }} ECU</b> avec une
-                        probabilité de {{ AUDIT_PROBABILITY_STR }} (déduite de ses gains de la partie 1 et des
-                        {{ STEALING_AMOUNT }} ECU volés), et aucune pénalité avec une probabilité de
+                    <li>Người chơi Xanh người tố giác phải trả <b>chi phí tố giác là {{ REPORTING_COST }} ECU</b>.</li>
+                    <li>NGười chơi đỏ bị tố giác sẽ bị phạt <b>một khoản phạt là{{ STEALING_PENALTY }} ECU</b> Với một khả năng là {{ AUDIT_PROBABILITY_STR }} (déduite de ses gains de la partie 1 et des
+                        {{ STEALING_AMOUNT }} ECU bị ăn cắp), hoặc không bị phạt gì cả với khả năng là
                         {{ NON_AUDIT_PROBABILITY_STR }}.
                     </li>
                     {{ if subsession.reward }}
-                    <li>Si le joueur Rouge est pénalisé, le joueur Bleu reçoit une <b>récompense de
+                    <li>Nếu người chơi đỏ bị phạt, người chơi xanh sẽ  <b>được bồi thường
                         {{ REPORTING_REWARD }} ECU</b>.
                     </li>
                     {{ endif }}
                 </ul>
             </li>
             <li>
-                <u>Si le joueur Rouge n’a pas volé d’ECU :</u> <br>
+                <u>Nếu người chơi Đỏ không lấy cắp ECU:</u> <br>
                 <ul>
-                    <li>Il n’y a <b>aucun signalement</b> de la part des joueurs Bleus.</li>
-                    <li>Il n’y a <b>aucune pénalité</b> pour le joueur Rouge.</li>
+                    <li>Không có <b>tố cáo nào</b> từ người chơi Xanh.</li>
+                    <li>Không có <b>hình phạt nào</b> cho người chơi Đỏ.</li>
                 </ul>
             </li>
         </ul>
     </article>
 
     <article class="mb-4" data-description="randomization">
-        <h5>Signalement aléatoire</h5>
+        <h5>Tố giác ngẫu nhiên</h5>
         <p>
-            Si le joueur Rouge a volé des ECU, <b>la décision d’un seul joueur Bleu</b> (signaler ou non)
-            du groupe sera sélectionnée aléatoirement par le programme informatique.
+            Nếu người chơi Đỏ đã lấy cắp ECU, quyết định của một người chơi Xanh duy nhất
+(tố giác hay không) trong nhóm sẽ được chọn ngẫu nhiên bởi chương trình máy tính.
         </p>
         <ul>
             <li>
-                Si la décision sélectionnée est de signaler, le joueur Bleu paie le coût de signalement et
-                le joueur Rouge est signalé.
+                Nếu quyết định được chọn là tố giác, thì người chơi Xanh trả chi phí tố giác
+và người chơi Đỏ bị tố giác.
             </li>
             <li>
-                Si la décision sélectionnée est de ne pas signaler, le joueur Rouge n’est pas signalé.
+                Nếu quyết định được chọn là không tố giác, thì người chơi Đỏ không bị tố giác.
             </li>
         </ul>
         <p>
-            La décision du joueur Bleu non sélectionné n’a aucun effet. <br>
-            Si le joueur Rouge n’a pas volé d’ECU, il ne se passe rien.
+            Quyết định của người chơi Xanh không được chọn thì không có tác dụng gì.
+Nếu người chơi Đỏ không lấy cắp ECU, thì không có gì xảy ra.
         </p>
     </article>
 
     <hr>
     <div class="card mt-4">
         <div class="card-header">
-            <h5>Résumé des points essentiels</h5>
+            <h5>Tóm tắt các điểm chính</h5>
         </div>
         <div class="card-body">
             <p>
-                Un groupe sera sélectionné aléatoirement comme <i>groupe Passif</i>.
-                Tous les autres groupes seront des <i>groupes Actifs</i>. <br>
-                Dans chaque groupe Actif :
+                Một nhóm sẽ được chọn ngẫu nhiên làm nhóm Thụ động.
+                Tất cả các nhóm còn lại sẽ là các nhóm Chủ động.
+                Trong mỗi nhóm Chủ động:
             </p>
             <ul>
-                <li>Un participant est joueur Rouge et deux participants sont joueurs Bleus.</li>
+                <li>Một người tham gia là người chơi Đỏ và hai người tham gia là người chơi Xanh.</li>
                 <li>
-                    Le joueur Rouge décide s’il souhaite ou non voler des ECU au groupe Passif
-                    (voler ajoute {{ STEALING_AMOUNT }} ECU à ses gains et retire {{ STEALING_LOSS }} ECU au groupe
-                    Passif).
+                    Người chơi Đỏ quyết định có muốn lấy cắp ECU từ nhóm Thụ động hay không
+(lấy cắp sẽ tăng thêm {{ STEALING_AMOUNT }} ECU vào thu nhập của anh ta và làm mất {{ STEALING_LOSS }} ECU của nhóm Thụ động).
                 </li>
                 <li>
-                    Les joueurs Bleus décident s’ils souhaitent signaler le joueur Rouge s’il vole des ECU.
+                    Người chơi Xanh quyết định xem họ có muốn tố giác người chơi Đỏ nếu anh ta lấy cắp ECU hay không.
                 </li>
                 <li>
-                    Si le joueur Rouge a volé des ECU :
+                    Nếu người chơi Đỏ lấy cắp ECU :
                     <ul>
-                        <li>Le programme sélectionne aléatoirement la décision d’un des deux joueurs Bleus.</li>
+                        <li>Chương trình chọn ngẫu nhiên quyết định của một trong hai người chơi Xanh.</li>
                         <li>
-                            Si la décision sélectionnée est de signaler, le joueur Bleu paie un coût de
-                            {{ REPORTING_COST }} ECU. Le joueur Rouge encourt une pénalité de
-                            {{ STEALING_PENALTY }} ECU avec une probabilité de {{ AUDIT_PROBABILITY_STR }}
-                            et aucune pénalité avec une probabilité de {{ NON_AUDIT_PROBABILITY_STR }}.
-                            {{ if subsession.reward }}
-                            Si le joueur Rouge est pénalisé, le joueur Bleu reçoit une récompense de
-                            {{ REPORTING_REWARD }} ECU.
+                            Nếu quyết định được chọn là tố giác, người chơi Xanh trả chi phí {{ REPORTING_COST }} ECU.
+                            Người chơi Đỏ chịu một khoản phạt {{ STEALING_PENALTY }} ECU với xác suất {{ AUDIT_PROBABILITY_STR }},
+                            và không bị phạt với xác suất {{ NON_AUDIT_PROBABILITY_STR }}.
+
+                            Nếu người chơi Đỏ bị phạt, người chơi Xanh nhận được một phần thưởng {{ REPORTING_REWARD }} ECU.
                             {{ endif }}
                         </li>
                         <li>
-                            Si la décision sélectionnée est de ne pas signaler, le joueur Rouge n’est pas signalé.
+                            Nếu quyết định được chọn là không tố giác, thì người chơi Đỏ không bị tố giác.
                         </li>
                     </ul>
                 </li>
                 <li>
-                    Si le joueur Rouge n’a pas volé d’ECU, il ne se passe rien (aucun signalement).
+                    Nếu người chơi Đỏ không lấy cắp ECU, thì không có gì xảy ra (không có tố giác nào).
                 </li>
             </ul>
         </div>

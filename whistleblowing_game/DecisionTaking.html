@@ -1,8 +1,8 @@
 {{ block title }}
 {{ if en }}
 Part 2: Stealing Decision
-{{ elif fr }}
-Partie 2 : Décision de vol d'ECU
+{{ elif vi }}
+Phần 2: Quyết định ăn cắp ECU
 {{ endif }}
 {{ endblock }}
 
@@ -12,8 +12,8 @@ Partie 2 : Décision de vol d'ECU
     <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#modal_content">
         {{ if en }}
         Instructions
-        {{ elif fr }}
-        Instructions
+        {{ elif vi }}
+        Hướng dẫn
         {{ endif }}
     </button>
 </div>
@@ -31,15 +31,14 @@ Partie 2 : Décision de vol d'ECU
             {{ STEALING_PENALTY }} ECU.
         </p>
 
-        {{ elif fr }}
+        {{ elif vi }}
         <p>
-            En tant que <b>Joueur Rouge</b>, vous devez décider si vous voulez voler des ECU au groupe Passif.
+            Là <b>Người chơi đỏ</b>, bạn phải quyết định xem bạn có muốn ăn cắp ECU từ nhóm Thụ Động hay không.
         </p>
         <p class="text-muted">
-            Pour rappel, si vous volez des ECU, l'une des décisions des deux joueurs Bleus sera choisie au hasard et
-            mise en œuvre. Si le joueur Bleu sélectionné a décidé de signaler, vous aurez une probabilité de
-            {{ AUDIT_PROBABILITY_STR }} d'être pénalisé(e). Si vous êtes pénalisé(e), vous paierez une pénalité de
-            {{ STEALING_PENALTY }} ECU.
+            Xin nhắc lại, nếu bạn ăn cắp ECU, một trong hai quyết định của người chơi Xanh sẽ được chọn ngẫu nhiên và thực hiện.
+            Nếu người chơi Xanh được chọn đã quyết định báo cáo, bạn sẽ có xác suất {{ AUDIT_PROBABILITY_STR }} bị phạt.
+            Nếu bạn bị phạt, bạn sẽ phải trả một khoản phạt là {{ STEALING_PENALTY }} ECU.
         </p>
         {{ endif }}
     </div>

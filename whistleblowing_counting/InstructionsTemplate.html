@@ -43,43 +43,39 @@
     </figure>
 </article>
 
-{{ elif fr }}
+{{ elif vi }}
 <article lang="fr">
     <p>
-        Durant {{ effort_duration }}, vous devrez <b>compter les "1" dans des grilles de
-        {{ GRID_SIZE.0 }} lignes et {{ GRID_SIZE.1 }} colonnes</b> composées uniquement de "0" et de "1".
-        Un total de {{ NUM_GRIDS }} grilles vous sera proposé.
+        Trong suốt {{ effort_duration }}, bạn sẽ phải đếm các “1” trong các bảng gồm
+{{ GRID_SIZE.0 }} hàng và {{ GRID_SIZE.1 }} cột, chỉ bao gồm “0” và “1”.
+Tổng cộng sẽ có {{ NUM_GRIDS }} bảng được đưa ra cho bạn.
     </p>
     <p>
-        Vous devez d’abord <b>sélectionner une grille</b> en cliquant sur un des {{ NUM_GRIDS }} boutons à disposition.
-        Une fois la grille affichée, comptez le nombre de "1" qu’elle contient, saisissez votre réponse dans la zone
-        prévue à cet effet, puis cliquez sur <i>Valider</i>. Le bouton de la grille résolue devient alors orange pour
-        vous indiquer que vous l’avez déjà comptée. Cliquez sur un autre bouton pour sélectionner une nouvelle grille
-        et recommencez le processus.
+        Trước hết, bạn phải chọn một bảng bằng cách nhấp vào một trong {{ NUM_GRIDS }} nút có sẵn.
+Khi bảng hiện ra, hãy đếm số lượng “1” trong bảng đó, nhập câu trả lời vào ô tương ứng, rồi nhấp Xác nhận.
+Nút của bảng đã hoàn thành sẽ chuyển sang màu cam để báo rằng bạn đã đếm bảng đó rồi.
+Nhấp vào một nút khác để chọn một bảng mới và tiếp tục quy trình.
     </p>
 
     {{ if subsession.treatment == INDIVIDUAL }}
     <p>
-        <b>Vos gains dépendent uniquement de votre propre performance</b>, ils ne dépendent
-        pas de la performance des autres membres de votre groupe. Pour chaque grille correctement comptée, vous
-        recevrez {{ PIECE_RATE }} ECU.
+        Thu nhập của bạn chỉ phụ thuộc vào hiệu suất của chính bạn,
+không phụ thuộc vào hiệu suất của các thành viên khác trong nhóm.
+Với mỗi bảng được đếm đúng, bạn sẽ nhận được {{ PIECE_RATE }} ECU.
     </p>
 
     {{ elif subsession.treatment == COOPERATION }}
     <p>
-        <b>Vos gains dans cette tâche dépendront du meilleur score dans le groupe.</b>
-        Le meilleur score est celui du membre du groupe qui aura correctement compté le nombre de "1" dans le plus
-        de grilles.
-        Pour chaque grille correctement comptée par le meilleur membre du groupe, chaque membre du groupe recevra
-        {{ PIECE_RATE }} ECU. Ainsi, plus vos coéquipiers obtiennent de bons résultats, plus vos gains seront
-        élevés.
+        Thu nhập của bạn trong nhiệm vụ này phụ thuộc vào điểm số cao nhất trong nhóm.
+Điểm cao nhất là điểm của thành viên đã đếm đúng số lượng “1” trong nhiều bảng nhất.
+Với mỗi bảng được đếm đúng bởi thành viên giỏi nhất, mỗi thành viên trong nhóm sẽ nhận được {{ PIECE_RATE }} ECU.
+Do đó, càng nhiều đồng đội của bạn đạt kết quả tốt, thu nhập của bạn càng cao.
     </p>
 
     {{ endif }}
 
     <p>
-        <b>Vous pouvez compléter autant de grilles que vous le souhaitez pendant les {{ effort_duration }} qui vous sont
-            allouées.</b> <br>
+        <b>Bạn có thể hoàn thành bao nhiêu bảng tùy bạn muốn trong khoảng thời gian {{ effort_duration }} được phân bổ cho bạn.</b> <br>
         Vous serez informé(e) de vos gains pour cette tâche à la fin de l'expérience.
     </p>
 

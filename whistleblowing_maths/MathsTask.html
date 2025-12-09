@@ -1,8 +1,8 @@
 {{ block title }}
 {{ if en }}
 Task 2: Additions
-{{ elif fr }}
-Tâche 2 : Additions
+{{ elif vi }}
+Nhiệm vụ 2: Phép cộng
 {{ endif }}
 {{ endblock }}
 
@@ -11,8 +11,8 @@ Tâche 2 : Additions
     <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#modal_content">
         {{ if en }}
         Instructions
-        {{ elif fr }}
-        Instructions
+        {{ elif vi }}
+        Hướng dẫn
         {{ endif }}
     </button>
 </div>
@@ -25,11 +25,10 @@ Tâche 2 : Additions
             in the input widget and click on "Validate". Then click on another operation and repeat the process.
         </p>
 
-        {{ elif fr }}
+        {{ elif vi }}
         <p>
-            Sélectionnez une opération en cliquant sur le bouton correspondant, calculez la somme, entrez la valeur
-            dans la zone de saisie et cliquez sur "Valider". Ensuite, sélectionnez une autre opération et répétez le
-            processus.
+            Chọn một phép tính bằng cách nhấp vào nút tương ứng, tính tổng, nhập giá trị vào ô nhập liệu và nhấp vào “Valider” (Xác nhận).
+Sau đó, chọn một phép tính khác và lặp lại quy trình.
         </p>
         {{ endif }}
     </div>
@@ -51,8 +50,8 @@ Tâche 2 : Additions
     <h6 class="text-info">
         {{ if en }}
         Operation
-        {{ elif fr }}
-        Opération
+        {{ elif vi }}
+        Phép tính
         {{ endif }}
         <span id="operation_number">1</span>
     </h6>
@@ -68,8 +67,8 @@ Tâche 2 : Additions
         <label for="operation_sum">
             {{ if en }}
             Sum of numbers:
-            {{ elif fr }}
-            Somme des nombres :
+            {{ elif vi }}
+            Tổng các con số :
             {{ endif }}
         </label>&nbsp;
         <input type="number" class="form-control d-inline text-center" name="operation_sum" id="operation_sum"
@@ -77,8 +76,8 @@ Tâche 2 : Additions
         <button type="button" class="btn btn-primary" id="btn_validate" onclick="validate();">
             {{ if en }}
             Validate
-            {{ elif fr }}
-            Valider
+            {{ elif vi }}
+            Xác nhận
             {{ endif }}
         </button>
     </div>
@@ -138,7 +137,7 @@ Tâche 2 : Additions
                 // Simule une réponse (50% de chance de réussite)
                 operation_sum.value = Math.random() <= 0.5 ? current_operation["total"] : Math.floor(Math.random() * 101);
 
-                // Valide
+                // Verifie
                 document.querySelector("#btn_validate").click();
             }
         }

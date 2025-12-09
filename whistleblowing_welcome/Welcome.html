@@ -9,8 +9,8 @@
 {{ block title }}
 {{ if en }}
 Welcome
-{{ elif fr }}
-Bienvenue
+{{ elif vi }}
+Xin Chào
 {{ endif }}
 {{ endblock }}
 
@@ -66,51 +66,42 @@ Bienvenue
             </p>
         </article>
 
-        {{ elif fr }}
+        {{ elif vi }}
         <article lang="fr">
             <p>
-                Vous êtes invité(e) à participer à une étude sur la prise de décision individuelle et collective.
-                Votre participation aidera à mieux comprendre comment les personnes interagissent avec les membres de
-                leur groupe et les autorités dans diverses situations.
+            Bạn được mời tham gia vào một nghiên cứu về việc ra quyết định cá nhân và tập thể. 
+                Sự tham gia của bạn sẽ giúp hiểu rõ hơn cách mọi người tương tác với các thành viên trong nhóm của mình,
+                và với các cơ quan có thẩm quyền trong nhiều tình huống khác nhau.
             </p>
             <p>
-                Votre participation est entièrement volontaire. Si vous acceptez de participer, vous recevrez une
-                rémunération fixe de <b>{{ session.config.participation_fee }}</b>, ainsi qu'un bonus dépendant
-                de vos décisions et de celles des autres participants.
-                L'expérience durera environ une heure.
+                Sự tham gia của bạn hoàn toàn mang tính tự nguyện. Nếu bạn đồng ý tham gia, bạn sẽ nhận được một khoản thù lao cố định
+                <b>{{ session.config.participation_fee }}</b>, cũng như một khoản thưởng phụ thuộc vào các quyết định của bạn và của những người tham gia khác.
+                Buổi thực nghiệm sẽ kéo dài khoảng một giờ.
             </p>
             <p>
-                Il n'y a aucun risque prévisible lié à votre participation à cette étude. Vous êtes libre de vous
-                retirer à
-                tout moment, pour n'importe quelle raison, sans aucune pénalité.
-                Veuillez toutefois noter que, dans la mesure où il s'agit d'une expérience de groupe, votre retrait
-                pourrait
-                affecter la participation des autres membres de votre groupe.
+                Đây là một buổi thử nghiệm không có bất kỳ rủi ro nào. 
+                Bạn hoàn toàn có thể rút lui bất cứ lúc nào, vì bất kỳ lý do gì, mà không phải chịu bất kỳ hình phạt nào.
+                Tuy nhiên, xin lưu ý rằng vì đây là một thí nghiệm theo nhóm, nên việc bạn rút lui có thể ảnh hưởng đến sự tham gia của các thành viên khác trong nhóm của bạn.
             </p>
 
-            <h5>Confidentialité et protection des données</h5>
+            <h5>Bảo mật và bảo vệ dữ liệu</h5>
             <p>
-                Toutes les données collectées dans le cadre de cette étude seront traitées exclusivement à des fins
-                scientifiques. Vos réponses resteront
-                <b>entièrement anonymes et confidentielles</b>. Aucune information permettant de vous identifier
-                ne sera collectée ou associée à vos décisions lors de l'expérience.
-                Aucune donnée ne sera transférée en dehors de l'Union européenne.
+                Tất cả các dữ liệu thu thập trong khuôn khổ nghiên cứu này sẽ chỉ được xử lý cho mục đích khoa học. 
+                Các câu trả lời của bạn sẽ được giữ kín
+                <b>hoàn toàn ẩn danh và được bảo mật.</b>. Không có thông tin nào cho phép nhận diện danh tính của bạn sẽ được thu thập hoặc gắn với các quyết định của bạn trong suốt quá trình thí nghiệm.
+                Không có dữ liệu nào sẽ được chuyển ra ngoài Liên minh Châu Âu.
             </p>
             <p>
-                Le responsable du traitement des données est Dimitri Dubois (CEE-M, CNRS, Université de Montpellier,
-                France).
-                Les destinataires des données sont : Rustam Romaniuc (MBS, Montpellier Business School), Dimitri Dubois
-                (CNRS, Université de Montpellier) et Andrea Guido (PSB, Paris School of Business).
+                Người phụ trách việc xử lý dữ liệu là Dimitri Dubois (CEE-M, CNRS, Đại học Montpellier, Pháp).
+                Những người nhận dữ liệu là: Rustam Romaniuc (MBS, Montpellier Business School), Dimitri Dubois (CNRS, Đại học Montpellier) và Andrea Guido (PSB, Paris School of Business).
             </p>
             <p>
-                Vous disposez d'un droit d'accès, de rectification ou de suppression de vos données. <br>
-                Pour exercer ces droits, vous pouvez contacter Dimitri Dubois à l'adresse suivante :
-                dimitri.dubois@umontpellier.fr.
+                Bạn có quyền truy cập, chỉnh sửa hoặc xóa dữ liệu của mình. Để thực hiện các quyền này, 
+                bạn có thể liên hệ với Dimitri Dubois theo địa chỉ sau: dimitri.dubois@umontpellier.fr.
             </p>
             <p>
-                Cette étude est financée par l'Agence Nationale de la Recherche (ANR), numéro de projet
-                ANR-21-CE26-0016. Pour toute question concernant cette étude, vous pouvez contacter Rustam Romaniuc à
-                l'adresse suivante : r.romaniuc@mbs-education.com.
+                Nghiên cứu này được tài trợ bởi Cơ quan Nghiên cứu Quốc gia Pháp (ANR), mã dự án ANR-21-CE26-0016. 
+                Nếu bạn có bất kỳ câu hỏi nào liên quan đến nghiên cứu này, bạn có thể liên hệ với Rustam Romaniuc theo địa chỉ sau: r.romaniuc@mbs-education.com.
             </p>
         </article>
         {{ endif }}
@@ -122,7 +113,7 @@ Bienvenue
         {{ if en }}
         Please confirm your consent to participate in this study by checking the box below:
         {{ elif fr }}
-        Merci de confirmer votre consentement à participer à cette étude en cochant la case ci-dessous :
+        Vui lòng xác nhận đồng ý tham gia cuộc thí nghiệm bằng cách đánh vào ô phía bên dưới :
         {{ endif }}
     </p>
     <p>
@@ -132,7 +123,7 @@ Bienvenue
             I have read and understood the information provided above. I voluntarily agree to participate in this
             study.
             {{ elif fr }}
-            J'ai lu et compris les informations fournies ci-dessus. J'accepte de participer à cette étude.
+            Tôi đã hiểu thông tin được cung cấp bên trên. Tôi hoàn toàn tự nguyện tham gia vào thí nghiệm này
             {{ endif }}
         </label>
     </p>
