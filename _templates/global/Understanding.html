@@ -1,6 +1,6 @@
 {{ block title }}
-{{ if fr }}
-Questionnaire de compréhension
+{{ if vi }}
+Bảng câu hỏi kiểm tra mức độ hiểu
 {{ else }}
 Understanding Questionnaire
 {{ endif }}
@@ -27,7 +27,7 @@ Understanding Questionnaire
         </div>
         {{ endfor }}
         <p class="form-control-errors" style="display: none;" id="error_{{question.question_id}}">
-            {{ if fr }} Ce n'est pas la bonne réponse.
+            {{ if vi }} Đây không phải là câu trả lời chính xác.
             {{ else }} This is not the correct answer.
             {{ endif }}
         </p>
