@@ -40,42 +40,36 @@
 {{ elif fr }}
 <article lang="fr">
     <p>
-        Durant {{ effort_duration }}, vous devrez <b>calculer des sommes de nombres.</b>
-        Un total de {{ NUM_OPERATIONS }} opérations vous sera proposé.
-        Chaque opération contient des nombres dont il faut calculer la somme.
+        Trong suốt {{ effort_duration }}, bạn sẽ phải <b>tính tổng các số.</b>
+        Tổng cộng sẽ có {{ NUM_OPERATIONS }} phép tính được đưa ra cho bạn.
+        Mỗi phép tính chứa các số và bạn cần tính ra tổng của chúng.
+    
     </p>
-    <p>
-        Vous devez d’abord <b>sélectionner une opération</b> en cliquant sur un des {{ NUM_OPERATIONS }} boutons à
-        disposition.
-        Une fois l'opération affichée, calculez la somme des nombres, saisissez votre réponse dans la zone
-        prévue à cet effet, puis cliquez sur <i>Valider</i>. Le bouton de l'opération correspondante devient alors
-        orange pour vous indiquer que vous l’avez déjà calculée. Cliquez sur un autre bouton pour sélectionner une
-        nouvelle opération et répétez le processus.
+    <p> Trước tiên, bạn phải <b>chọn một phép tính</b>  bằng cách nhấp vào một trong các nút {{ NUM_OPERATIONS }} có sẵn.
+Khi phép tính đã hiển thị, hãy tính tổng các số, nhập câu trả lời của bạn vào ô tương ứng, rồi nhấp vào <i>Valider</i> (Xác nhận).
+Nút của phép tính tương ứng sẽ chuyển sang màu cam để cho bạn biết rằng bạn đã thực hiện phép tính đó.
+Sau đó, hãy nhấp vào một nút khác để chọn một phép tính mới và lặp lại quy trình.
+        
     </p>
     {{ if subsession.treatment == INDIVIDUAL }}
     <p>
-        <b>Vos gains dépendent uniquement de votre propre performance</b>, ils ne dépendent pas de la
-        performance des autres membres de votre groupe. Pour chaque opération correctement calculée, vous
-        recevrez {{ PIECE_RATE }} ECU.
+    <b>Thu nhập của bạn chỉ phụ thuộc vào hiệu suất của chính bạn</b>, không phụ thuộc vào hiệu suất của các thành viên khác trong nhóm.
+Với mỗi phép tính được thực hiện đúng, bạn sẽ nhận được {{ PIECE_RATE }} ECU.
     </p>
     {{ elif subsession.treatment == COOPERATION }}
     <p>
-        <b>Vos gains dans cette tâche dépendront du meilleur score dans le groupe.</b>
-        Le meilleur score dans le groupe est celui du membre de votre groupe qui a réussi à calculer le plus
-        d'opérations.
-        Pour chaque opération correctement calculée par le meilleur membre du groupe, chaque membre du groupe recevra
-        {{ PIECE_RATE }} ECU.
-        Ainsi, plus vos coéquipiers obtiennent de bons résultats dans cette tâche, plus vos gains seront élevés.
+        <b>Thu nhập của bạn trong nhiệm vụ này sẽ phụ thuộc vào điểm cao nhất trong nhóm.</b>
+Điểm cao nhất trong nhóm là điểm của thành viên trong nhóm đã thực hiện đúng nhiều phép tính nhất.
+Với mỗi phép tính được thực hiện đúng bởi thành viên có thành tích tốt nhất trong nhóm, mỗi thành viên trong nhóm sẽ nhận được {{ PIECE_RATE }} ECU.
+Vì vậy, đồng đội của bạn càng đạt kết quả tốt trong nhiệm vụ này, thu nhập của bạn sẽ càng cao.
     </p>
     {{ endif }}
     <p>
-        <b>Vous pouvez calculer autant d'opérations que vous le souhaitez pendant les {{ effort_duration }} qui vous
-            sont allouées.</b> <br>
-        Vous serez informé(e) de vos gains pour cette tâche à la fin de l'expérience.
+        <b>Bạn có thể thực hiện bao nhiêu phép tính tùy ý trong khoảng thời gian {{ effort_duration }} được phân bổ cho bạn.</b> <br>
+        Bạn sẽ được thông báo về thu nhập của mình cho nhiệm vụ này vào cuối buổi thí nghiệm.
     </p>
     <figure class="text-center">
-        <figcaption class="fst-italic text-muted fw-bold text-center">Capture d'écran : les cellules orange sont celles
-            qui ont déjà été validées.
+        <figcaption class="fst-italic text-muted fw-bold text-center">Ảnh chụp màn hình: các ô màu cam là những ô đã được xác nhận.
         </figcaption>
         <img class="img-thumbnail mx-auto" alt="screenshot" src="{{ static 'whistleblowing_maths/screenshot_fr.png' }}">
     </figure>
