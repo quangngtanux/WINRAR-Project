@@ -1,8 +1,8 @@
 {{ block title }}
 {{ if en }}
 Part 2: Reporting Decision
-{{ elif fr }}
-Partie 2 : Décision de signalement
+{{ elif vi }}
+Phần 2: Quyết định báo cáo
 {{ endif }}
 {{ endblock }}
 
@@ -12,8 +12,8 @@ Partie 2 : Décision de signalement
     <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#modal_content">
         {{ if en }}
         Instructions
-        {{ elif fr }}
-        Instructions
+        {{ elif vi }}
+        Hướng dẫn
         {{ endif }}
     </button>
 </div>
@@ -36,22 +36,19 @@ Partie 2 : Décision de signalement
             <br>
             One of the two Blue Players decisions will be randomly selected by the computer program to be implemented.
         </p>
-        {{ elif fr }}
+        {{ elif vi }}
         <p>
-            En tant que <b>joueur Bleu</b>, vous devez décider si vous souhaitez signaler le joueur Rouge de votre
-            groupe s'il vole des ECU au groupe Passif.
+            Là <b>người chơi Xanh</b>, bạn phải quyết định xem bạn có muốn báo cáo người chơi Đỏ trong nhóm của mình nếu người đó ăn cắp ECU từ nhóm Thụ Động hay không.
         </p>
         <p class="text-muted">
-            Pour rappel, si le joueur Rouge vole des ECU au groupe Passif et que vous le signalez, vous paierez un
-            coût de signalement de {{ REPORTING_COST }} ECU et le joueur Rouge sera signalé.
-            Si le joueur Rouge est puni (probabilité de {{ AUDIT_PROBABILITY_STR }}),
+            Xin nhắc lại, nếu người chơi Đỏ ăn cắp ECU từ nhóm Thụ Động và bạn báo cáo người đó, bạn sẽ phải trả một chi phí báo cáo là {{ REPORTING_COST }} ECU và người chơi Đỏ sẽ bị báo cáo.
+            Nếu người chơi Đỏ bị trừng phạt (xác suất {{ AUDIT_PROBABILITY_STR }}),
             {{ if subsession.reward }}
-            vous recevrez une récompense de {{ REPORTING_REWARD }} ECU et
+            bạn sẽ nhận được một phần thưởng là {{ REPORTING_REWARD }} ECU và
             {{ endif }}
-            il paiera une pénalité de {{ STEALING_PENALTY }} ECU.
+            người chơi Đỏ sẽ phải chịu một khoản phạt là {{ STEALING_PENALTY }} ECU.
             <br>
-            L'une des deux décisions des joueurs Bleus sera sélectionnée au hasard par le programme informatique pour
-            être mise en œuvre.
+            Một trong hai quyết định của người chơi Xanh sẽ được chương trình máy tính chọn ngẫu nhiên để thực hiện.
         </p>
         {{ endif }}
     </div>
