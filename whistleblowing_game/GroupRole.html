@@ -1,8 +1,8 @@
 {{ block title }}
 {{ if en }}
 Part 2: Information about your group
-{{ elif fr }}
-Partie 2 : Informations sur votre groupe
+{{ elif vi }}
+Phần 2: Thông tin về nhóm của bạn
 {{ endif }}
 {{ endblock }}
 
@@ -12,8 +12,8 @@ Partie 2 : Informations sur votre groupe
     <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#modal_content">
         {{ if en }}
         Instructions
-        {{ elif fr }}
-        Instructions
+        {{ elif vi }}
+        Hướng dẫn
         {{ endif }}
     </button>
 </div>
@@ -38,17 +38,18 @@ Partie 2 : Informations sur votre groupe
         {{ elif fr }}
         <p>
             {{ if group.active }}
-            Votre groupe a été assigné aléatoirement à un <b>Groupe Actif</b>.
-            Pour rappel, dans chaque groupe actif, les joueurs sont assignés aux rôles suivants : Un Joueur Rouge et
-            Deux Joueurs Bleus. Vous avez été assigné au rôle de
-            {{ if player.taker }}
-            <b>Joueur Rouge</b>.
-            {{ else }}
-            <b>Joueur Bleu</b>.
-            {{ endif }}
-            {{ else }}
-            Votre groupe a été assigné aléatoirement à un <b>Groupe Inactif</b>.
-            {{ endif }}
+            Nhóm của bạn đã được phân vào một <b>Nhóm Chủ động (Groupe Actif) một cách ngẫu nhiên.</b>
+Xin nhắc lại, trong mỗi nhóm chủ động, người chơi được phân vào các vai trò sau: Một Người chơi Đỏ và Hai Người chơi Xanh. Bạn đã được phân vào vai trò:
+
+{{ if player.taker }}
+Người chơi Đỏ (Joueur Rouge).
+{{ else }}
+Người chơi Xanh (Joueur Bleu).
+{{ endif }}
+
+{{ else }}
+Nhóm của bạn đã được phân vào một Nhóm Thụ động (Groupe Inactif) một cách ngẫu nhiên.
+{{ endif }}
         </p>
         {{ endif }}
     </div>
