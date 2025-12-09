@@ -9,8 +9,8 @@
 {{ block title }}
 {{ if en }}
 Part 3: Questionnaires
-{{ elif fr }}
-Partie 3: Questionnaires
+{{ elif vi }}
+Phần 3: Bảng câu hỏi
 {{ endif }}
 {{ endblock }}
 
@@ -27,9 +27,8 @@ Partie 3: Questionnaires
             {{ if en }}
             When you decide whether something is right or wrong, to what extent are the following considerations
             relevant to your thinking? Please rate each statement.
-            {{ elif fr }}
-            Quand vous décidez si quelque chose est vrai ou faux, dans quelle mesure les considérations suivantes
-            sont pertinentes pour vous ?
+            {{ elif vi }}
+            Khi bạn quyết định một điều gì đó là đúng hay sai, mức độ quan trọng của các yếu tố sau đối với bạn là như thế nào?
             {{ endif }}
         </p>
         {{ formfield "fairness_1" }}
@@ -41,8 +40,8 @@ Partie 3: Questionnaires
         <p class="text-muted fw-bold">
             {{ if en }}
             Please read the following sentences and indicate your agreement or disagreement.
-            {{ elif fr }}
-            Indiquez votre accord/désaccord sur les phrases suivantes.
+            {{ elif vi }}
+            Hãy cho biết mức độ đồng ý hoặc không đồng ý của bạn đối với các câu sau đây.
             {{ endif }}
         </p>
         {{ formfield "fairness_3" }}
