@@ -61,10 +61,7 @@ SESSION_CONFIGS = [
     dict(
         name="whistleblowing_questionnaire_only",
         display_name="Whistleblowing - Questionnaire Only",
-        app_sequence=[
-            'whistleblowing_welcome',
-            'whistleblowing_questionnaires'
-        ],
+        app_sequence=['whistleblowing_questionnaires'],
         num_demo_participants=6,
         real_world_currency_per_point=0.1,
         participation_fee=5.00,

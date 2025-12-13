@@ -30,21 +30,27 @@ Bảng câu hỏi
             Suppose you have earned {{ 1000|cu }}, but you have to give away the money to two other people.
             You can’t keep any of the money for yourself. Assume that these two people have the same
             standard of living. One is a friend of yours and the other one is a stranger.
+
+            {{ elif fr }}
+            Supposons que vous ayez gagné {{ 1000|cu }}, mais que vous deviez donner l'argent à deux autres personnes.
+            Vous ne pouvez pas garder l'argent pour vous-même. Supposons que ces deux personnes aient le même
+            niveau de vie. L'une est une amie à vous et l'autre est une inconnue.
+
             {{ elif vi }}
-            Giả sử bạn đã kiếm được {{ 1000|cu }}, nhưng bạn phải cho toàn bộ số tiền này cho hai người khác. 
-            Bạn không được giữ lại gì cho mình. 
-            Giả sử hai người này có cùng mức sống. 
+            Giả sử bạn đã kiếm được {{ 1000|cu }}, nhưng bạn phải cho toàn bộ số tiền này cho hai người khác.
+            Bạn không được giữ lại gì cho mình.
+            Giả sử hai người này có cùng mức sống.
             Một người là bạn của bạn và người kia là một người xa lạ.
             {{ endif }}
         </p>
         <label class="col-form-label small" for="id_share_friend_stranger">
             {{ fields_labels.share_friend_stranger }}
-            <output id="share_friend_stranger_out" for="id_share_friend_stranger" class="ms-1 fw-bold">0</output>
+            <output id="share_friend_stranger_out" for="id_share_friend_stranger" class="ms-1 fw-bold">----</output>
         </label>
         <div class="mb-3" style="width: 80%">
             <input type="range" min="0" max="1000" step="1" name="share_friend_stranger"
-                    id="id_share_friend_stranger" style="width:100%" value="0"
-                    oninput="share_friend_stranger_out.value=this.value">
+                   id="id_share_friend_stranger" style="width:100%" value="0" class="untouched"
+                   oninput="share_friend_stranger_out.value=this.value">
             <div class="ticks mt-0">
                 <span>0</span><span>1000</span>
             </div>
@@ -58,12 +64,46 @@ Bảng câu hỏi
 {{ next_button }}
 {{ endif }}
 
+<p class="text-danger visually-hidden mt-3">
+    {{ if en }}
+    Please move the cursor before proceeding.
+    {{ elif fr }}
+    Veuillez déplacer le curseur avant de continuer.
+    {{ elif vi }}
+    Vui lòng di chuyển con trỏ trước khi tiếp tục.
+    {{ endif }}
+</p>
+
+
 {{ endblock }}
 
 {{ block scripts }}
 <script src="{{ static 'global/fill_auto.js' }}"></script>
 <script>
     document.addEventListener('DOMContentLoaded', () => {
+        const inputElements = document.querySelectorAll('input[type=range]');
+        const btn_next = document.querySelector('.otree-btn-next');
+        const errorMsg = document.querySelector('.text-danger');
+
+        inputElements.forEach((input) => {
+            input.addEventListener("input", () => {
+                input.classList.remove("untouched");
+                errorMsg.classList.add('visually-hidden');
+            });
+        });
+
+        btn_next.addEventListener("click", (event) => {
+            const invalidInput = Array.from(inputElements).find(input => input.classList.contains("untouched"));
+            if (invalidInput) {
+                event.preventDefault();
+                errorMsg.classList.remove('visually-hidden');
+                invalidInput.focus();
+                setTimeout(() => {
+                    errorMsg.classList.add('visually-hidden');
+                }, 3000);
+            }
+        });
+
         if (js_vars.fill_auto)
             fill_auto();
     });
