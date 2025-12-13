@@ -1,0 +1,95 @@
+{{ block styles }}
+<style>
+    input[type=number] {
+        width: 80px;
+        text-align: center;
+    }
+</style>
+{{ endblock }}
+
+{{ block title }}
+{{ endblock }}
+
+{{ block content }}
+<div class="card bg-light mb-3">
+    <div class="card-body">
+        {{ formfield "climate_knowledge" label=fields_labels.climate_knowledge }}
+    </div>
+</div>
+
+<div class="card bg-light mb-3">
+    <div class="card-body">
+        {{ if en }}
+        <p>
+            For the next question, we would like you to rank the items according to the greenhouse gas emissions they
+            emit,
+            to the best of your knowledge (where 1 is the item that emits the most and 3 is the item that emits the
+            least).
+            The greenhouse gas emissions of a product are those emitted at all steps involved in its production and
+            distribution.
+        </p>
+        {{ elif fr }}
+        <p>
+            Pour la question suivante, nous vous demandons de classer les éléments selon les émissions de gaz à effet de
+            serre qu'ils émettent, au mieux de vos connaissances (où 1 est l'élément qui émet le plus et 3 est l'élément
+            qui
+            émet le moins). Les émissions de gaz à effet de serre d'un produit sont celles émises à toutes les étapes
+            impliquées dans sa production et sa distribution.
+        </p>
+        {{ elif vi }}
+        <p>
+            Đối với câu hỏi tiếp theo, chúng tôi muốn bạn xếp hạng các mục theo lượng khí nhà kính mà chúng phát thải,
+            theo hiểu biết tốt nhất của bạn (trong đó 1 là mục phát thải nhiều nhất và 3 là mục phát thải ít nhất).
+            Lượng khí nhà kính của một sản phẩm là lượng khí phát thải ở tất cả các bước liên quan đến việc sản xuất và
+            phân phối sản phẩm đó.
+        </p>
+        {{ endif }}
+
+        {{ formfield "rank_coal" label=fields_labels.rank_coal }}
+        {{ formfield "rank_gas" label=fields_labels.rank_gas }}
+        {{ formfield "rank_nuclear" label=fields_labels.rank_nuclear }}
+    </div>
+</div>
+
+{{ next_button }}
+
+<p class="form-control-errors visually-hidden">
+    {{ if en }}
+    Please ensure that all ranks are unique.
+    {{ elif fr }}
+    Veuillez vous assurer que tous les rangs sont uniques.
+    {{ elif vi }}
+    Vui lòng đảm bảo rằng tất cả các hạng mục đều là duy nhất.
+    {{ endif }}
+</p>
+{{ endblock }}
+
+{{ block scripts }}
+<script src="{{ static 'global/fill_auto.js' }}"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelector(".otree-btn-next").addEventListener("click", (e) => {
+            if (!ckeck_ranks()) {
+                e.preventDefault();
+            }
+        })
+        if (js_vars.fill_auto)
+            fill_auto();
+    });
+
+    function ckeck_ranks() {
+        const coal = parseInt(forminputs.rank_coal.value);
+        const gas = parseInt(forminputs.rank_gas.value);
+        const nuclear = parseInt(forminputs.rank_nuclear.value);
+
+        if (coal === gas || coal === nuclear || gas === nuclear) {
+            document.querySelector(".form-control-errors").classList.remove("visually-hidden");
+            setTimeout(() => {
+                document.querySelector(".form-control-errors").classList.add("visually-hidden");
+            }, 2000)
+            return false;
+        }
+        return true;
+    }
+</script>
+{{ endblock }}

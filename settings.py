@@ -13,11 +13,11 @@ SESSION_CONFIG_DEFAULTS = dict(
     fill_auto=False,
     test=False
 )
-DEBUG = True
+DEBUG = False
 
 LANGUAGE_CODE = 'EN'
 REAL_WORLD_CURRENCY_CODE = 'VND'
-REAL_WORLD_CURRENCY_DECIMAL_PLACES = 0
+REAL_WORLD_CURRENCY_DECIMAL_PLACES = 2
 
 SESSION_CONFIGS = [
     dict(
@@ -73,5 +73,19 @@ SESSION_CONFIGS = [
         treatment='cooperation',
         reward=False,
         doc="<p class='text-warning fw-bold'>The minimum is 6 participants.</p>"
+    ),
+    dict(
+        name="whistleblowing_climate_questionnaire_only",
+        display_name="Whistleblowing - Climate Questionnaire Only",
+        app_sequence=['climate_questionnaire'],
+        num_demo_participants=6,
+        real_world_currency_per_point=0.1,
+        participation_fee=5.00,
+        country="Vietnam",
+        language="vi",
+        treatment='cooperation',
+        reward=False,
+        doc="<p class='text-warning fw-bold'>The minimum is 6 participants.</p>"
     )
+
 ]

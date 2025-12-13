@@ -1,0 +1,121 @@
+{{ block title }}
+{{ endblock }}
+
+{{ block content }}
+
+<div class="form-control mb-1">
+    {{ formfield "info_freq" label=fields_labels.info_freq }}
+</div>
+
+<div class="form-control mb-1">
+    <p>
+        {{ if en }}
+        In the past 3 months, did you consume news from the following sources?
+        Please answer on a scale of 1 to 7, where <b>1</b> is a type of media you used <b>infrequently</b>, and <b>7</b>
+        is a type of media that you used <b>frequently</b>.
+        {{ elif fr }}
+        Pendant les 3 mois dernièrs, à quelle fréquence avez-vous utilisé les médias suivants pour vous informer ?
+        Évaluez chaque source sur une échelle de 1 (rarement) à 7 (fréquemment).
+        {{ elif vi }}
+        Trong 3 tháng qua, bạn đã tiếp nhận tin tức từ các nguồn sau với tần suất như thế nào?
+        Vui lòng trả lời trên thang điểm từ 1 đến 7, trong đó <b>1</b> là loại phương tiện bạn sử dụng <b>ít thường
+        xuyên</b>,
+        và <b>7</b> là loại phương tiện bạn sử dụng <b>thường xuyên</b>.
+        {{ endif }}
+    </p>
+    <table class="table table-sm">
+        <tbody>
+        <tr>
+            <th class="text-center"></th>
+            <th class="text-center">1</th>
+            <th class="text-center">2</th>
+            <th class="text-center">3</th>
+            <th class="text-center">4</th>
+            <th class="text-center">5</th>
+            <th class="text-center">6</th>
+            <th class="text-center">7</th>
+        </tr>
+        {{ for field, field_label in fields_labels.items }}
+        {{ if field in fields_radios }}
+        <tr>
+            <td>{{ field_label|safe }}</td>
+            {{ for i in range(1, 8) }}
+            <td class="text-center">
+                <input type="radio" class="form-check-input" name="{{ field }}" value="{{ i }}" required>
+            </td>
+            {{ endfor }}
+        </tr>
+        {{ endif }}
+        {{ endfor}}
+        </tbody>
+    </table>
+</div>
+
+<div class="form-control mb-1">
+    {{ formfield "climate_info_freq" label=fields_labels.climate_info_freq }}
+</div>
+
+<div class="form-control mb-3">
+    <p>
+        {{ if en }}
+        In the past 3 months, did you consume news <b>about climate change</b> from the following sources?
+        Please answer on a scale of 1 to 7, where <b>1</b> is a type of media you used <b>infrequently</b>, and
+        <b>7</b> is a type of media that you used <b>frequently</b>.
+
+        {{ elif fr }}
+        La semaine dernière, à quelle fréquence avez-vous utilisé les médias suivants pour vous informer ?
+        Évaluez chaque source sur une échelle de 1 (rarement) à 7 (fréquemment).
+
+        {{ elif vi }}
+        Trong 3 tháng qua, bạn đã tiếp nhận tin tức <b>về biến đổi khí hậu</b> từ các nguồn sau với tần suất như thế
+        nào?
+        Vui lòng trả lời trên thang điểm từ 1 đến 7, trong đó <b>1</b> là loại phương tiện bạn sử dụng <b>ít thường
+        xuyên</b>.
+
+        {{ endif }}
+    </p>
+    <table class="table table-sm">
+        <tbody>
+        <tr>
+            <th class="text-center"></th>
+            <th class="text-center">1</th>
+            <th class="text-center">2</th>
+            <th class="text-center">3</th>
+            <th class="text-center">4</th>
+            <th class="text-center">5</th>
+            <th class="text-center">6</th>
+            <th class="text-center">7</th>
+        </tr>
+        {{ for field, field_label in fields_labels.items }}
+        {{ if field in fields_radios_climate }}
+        <tr>
+            <td>{{ field_label|safe }}</td>
+            {{ for i in range(1, 8) }}
+            <td class="text-center">
+                <input type="radio" class="form-check-input" name="{{ field }}" value="{{ i }}" required>
+            </td>
+            {{ endfor }}
+        </tr>
+        {{ endif }}
+        {{ endfor}}
+        </tbody>
+    </table>
+</div>
+
+{{ if vi }}
+<button class="btn btn-primary otree-btn-next">Tiếp tục</button>
+{{ else }}
+{{ next_button }}
+{{ endif }}
+
+{{ endblock }}
+
+{{ block scripts }}
+<script src="{{ static 'global/fill_auto.js' }}"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        if (js_vars.fill_auto)
+            fill_auto();
+    });
+</script>
+{{ endblock }}

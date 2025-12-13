@@ -1,0 +1,108 @@
+{{ block styles }}
+<style>
+    textarea {
+        height: 400px;
+    }
+</style>
+{{ endblock }}
+
+{{ block title }}
+{{ if en }}
+What is climate change?
+{{ elif fr }}
+Qu'est-ce que le changement climatique ?
+{{ elif vi }}
+Biến đổi khí hậu là gì?
+{{ endif }}
+{{ endblock }}
+
+{{ block content }}
+
+<div class="card bg-light mb-3">
+    <div class="card-body">
+        {{ if en }}
+        <p>
+            In what follows you will read a text reporting a common definition of climate change with some examples and
+            facts. Please, read it carefully. You will then be asked some questions on this topic.
+        </p>
+        {{ elif fr }}
+        <p>
+            Dans ce qui suit, vous lirez un texte présentant une définition courante du changement climatique avec
+            quelques exemples et
+            faits. Veuillez le lire attentivement. On vous posera ensuite quelques questions sur ce sujet.
+        </p>
+        {{ elif vi }}
+        <p>
+            Trong phần tiếp theo, bạn sẽ đọc một văn bản báo cáo định nghĩa chung về biến đổi khí hậu với một số ví dụ
+            và
+            sự thật. Vui lòng đọc kỹ. Sau đó, bạn sẽ được hỏi một số câu hỏi về chủ đề này.
+        </p>
+        {{ endif }}
+    </div>
+</div>
+
+<div class="card bg-light mb-3">
+    <div class="card-body">
+        {{ if en }}
+        <p>
+            Climate change is commonly referred to long-term shifts in temperatures and extreme weather patterns.
+            Recently, you may have noticed that climate change has been getting some attention in the news and public
+            discourse.
+        </p>
+        <p>
+            An example of phenomena linked to climate change is the fact that average temperatures today are between
+            1.34°C and 1.41°C higher than those observed in the period 1850-1900. Besides temperature increase, other
+            examples are the presence of more frequent and intense extreme weather events, rising sea levels, and
+            shrinking ice sheets.
+        </p>
+
+        {{ elif fr }}
+        <p>
+            Le changement climatique est communément défini comme des modifications à long terme des températures et des
+            modèles météorologiques extrêmes.
+            Récemment, vous avez peut-être remarqué que le changement climatique a retenu l'attention dans les
+            actualités et le discours public.
+        </p>
+        <p>
+            Un exemple de phénomène lié au changement climatique est le fait que les températures moyennes aujourd'hui
+            sont entre 1,34°C et 1,41°C plus élevées que celles observées pendant la période 1850-1900. Outre
+            l'augmentation de la température, d'autres
+            exemples sont la présence d'événements météorologiques extrêmes plus fréquents et intenses, l'élévation du
+            niveau de la mer et la fonte des calottes glaciaires.
+        </p>
+        {{ elif vi }}
+        <p>
+            Biến đổi khí hậu thường được đề cập đến như những thay đổi dài hạn về nhiệt độ và các kiểu thời tiết khắc
+            nghiệt.
+            Gần đây, bạn có thể đã nhận thấy rằng biến đổi khí hậu đang nhận được sự chú ý trên tin tức và trong các
+            diễn đàn công cộng.
+        </p>
+        <p>
+            Một ví dụ về các hiện tượng liên quan đến biến đổi khí hậu là nhiệt độ trung bình ngày nay cao hơn từ
+            1,34°C đến 1,41°C so với nhiệt độ được quan sát trong giai đoạn 1850-1900. Bên cạnh sự gia tăng nhiệt độ,
+            các
+            ví dụ khác là sự hiện diện của các hiện tượng thời tiết khắc nghiệt thường xuyên và dữ dội hơn, mực nước
+            biển dâng cao và
+            các tảng băng bị thu hẹp.
+        </p>
+        {{ endif }}
+    </div>
+</div>
+
+{{ if vi }}
+<button class="btn btn-primary otree-btn-next">Tiếp tục</button>
+{{ else }}
+{{ next_button }}
+{{ endif }}
+
+{{ endblock }}
+
+{{ block scripts }}
+<script src="{{ static 'global/fill_auto.js' }}"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        if (js_vars.fill_auto)
+            fill_auto();
+    });
+</script>
+{{ endblock }}

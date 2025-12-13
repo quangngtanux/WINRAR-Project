@@ -1,0 +1,123 @@
+{{ block styles }}
+<style>
+    input[type=number] {
+        width: 80px;
+        text-align: center;
+    }
+
+    textarea {
+        height: 400px;
+    }
+</style>
+{{ endblock }}
+
+{{ block title }}
+{{ endblock }}
+
+{{ block content }}
+
+<div class="card bg-light mb-3">
+    <div class="card-body">
+        {{ formfield "policy_fight" label=fields_labels.policy_fight }}
+    </div>
+</div>
+
+<div class="card bg-light mb-3">
+    <div class="card-body">
+        {{ if en }}
+        <p>
+            In the first question, you explained your opinion on the causes of climate change.
+        </p>
+        <p>
+            In particular, you wrote:
+        </p>
+
+        {{ elif fr }}
+        <p>
+            Dans la première question, vous avez expliqué votre opinion sur les causes du changement climatique.
+        </p>
+        <p>
+            En particulier, vous avez écrit :
+        </p>
+
+        {{ elif vi }}
+        <p>
+            Trong câu hỏi đầu tiên, bạn đã giải thích quan điểm của mình về nguyên nhân của biến đổi khí hậu.
+        </p>
+        <p>
+            Cụ thể, bạn đã viết:
+        </p>
+        {{ endif }}
+
+        <div class="form-control mb-1">
+            <p>
+                <i>"{{ player.narrative_elicitation }}"</i>
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="card bg-light mb-3">
+    <div class="card-body">
+        {{ if en }}
+        <p>
+            Based on your explanation, what <b>measures</b> and <b>solutions</b> do you think your country’s government
+            should consider to fight climate change?
+        </p>
+        <p>
+            If you think no action should be taken to fight climate change, explain why you think so. [min. 25 words]
+        </p>
+        {{ elif fr }}
+        <p>
+            Sur la base de votre explication, quelles <b>mesures</b> et <b>solutions</b> pensez-vous que le gouvernement
+            de votre pays devrait envisager pour lutter contre le changement climatique ?
+        </p>
+        <p>
+            Si vous pensez qu'aucune action ne doit être entreprise pour lutter contre le changement climatique,
+            expliquez
+            pourquoi vous le pensez. [min. 25 mots]
+        </p>
+        {{ elif vi }}
+        <p>
+            Dựa trên lời giải thích của bạn, những <b>biện pháp</b> và <b>giải pháp</b> nào bạn nghĩ rằng chính phủ
+            của quốc gia bạn nên xem xét để chống lại biến đổi khí hậu?
+        </p>
+        <p>
+            Nếu bạn nghĩ rằng không nên thực hiện hành động nào để chống lại biến đổi khí hậu, hãy giải thích lý do tại
+            sao bạn lại nghĩ như vậy. [tối thiểu 25 từ]
+        </p>
+
+        {{ endif }}
+
+
+        {{ formfield "policy_narrative" label=""}}
+
+    </div>
+</div>
+
+
+{{ if vi }}
+<button class="btn btn-primary otree-btn-next">Tiếp tục</button>
+{{ else }}
+{{ next_button }}
+{{ endif }}
+{{ endblock }}
+
+{{ block scripts }}
+<script src="{{ static 'global/fill_auto.js' }}"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        if (js_vars.fill_auto)
+            fill_auto();
+
+        // Disable paste for the policy field
+        const narrField = document.getElementById('id_policy_narrative');
+        if (narrField) {
+            narrField.addEventListener('paste', function (e) {
+                e.preventDefault();
+            });
+        }
+    });
+</script>
+
+{{ endblock }}

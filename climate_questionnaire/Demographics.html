@@ -1,0 +1,31 @@
+{{ block title }}
+{{ endblock }}
+
+{{ block content }}
+
+<div class="card bg-light mb-3">
+    <div class="card-body">
+        {{ for field, field_label in fields_labels.items }}
+        {{ formfield field label=field_label }}
+        {{ endfor }}
+    </div>
+</div>
+
+{{ if vi }}
+<button class="btn btn-primary otree-btn-next">Tiếp tục</button>
+{{ else }}
+{{ next_button }}
+{{ endif }}
+
+{{ endblock }}
+
+{{ block scripts }}
+<script src="{{ static 'global/fill_auto.js' }}"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        if (js_vars.fill_auto)
+            fill_auto();
+    });
+
+</script>
+{{ endblock }}

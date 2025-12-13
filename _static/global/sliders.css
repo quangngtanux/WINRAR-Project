@@ -1,48 +1,69 @@
-.ticks {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.85rem;
-    padding: 0 6px;
-    margin-top: 0.2rem;
-    color: #666;
-}
-
-input[type=range] {
-    -webkit-appearance: none;
-    width: 100%;
-    height: 13px;
-    border-radius: 5px;
-    background: #eaecee;
-    outline: none;
-    margin: 6px 0;
-}
-
-input[type=range]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 20px;
-    height: 20px;
-    background: var(--bs-primary);
-    border-radius: 50%;
-    cursor: pointer;
-    box-shadow: 0 0 3px #eaecee;
-}
-
-input[type=range]::-moz-range-thumb {
-    width: 20px;
-    height: 20px;
-    background: #007bff;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    box-shadow: 0 0 3px rgba(0,0,0,0.4);
-}
-
+/* Conteneur des labels sous le slider */
 .ticks {
     display: flex;
     justify-content: space-between;
     font-size: 0.9rem;
-    padding: 0 4px;
-    margin-top: -8px;
+    padding: 0 6px; /* Alignement visuel avec le centre du curseur */
+    margin-top: 0.25rem;
     color: #666;
+}
+
+/* La barre du slider (Track) */
+input[type=range] {
+    -webkit-appearance: none; /* Nécessaire pour Chrome/Safari */
+    width: 100%;
+    height: 12px; /* Légèrement ajusté pour les calculs */
+    border-radius: 5px;
+    background: #eaecee;
+    outline: none;
+    margin: 10px 0; /* Espace suffisant pour ne pas couper le curseur */
+    cursor: pointer;
+}
+
+/* Accessibilité : Focus clavier */
+input[type=range]:focus {
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25); /* Style Bootstrap par défaut */
+}
+
+/* Le curseur (Thumb) - Chrome, Safari, Opera */
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 24px;  /* Un peu plus grand pour faciliter le clic */
+    height: 24px;
+    background: var(--bs-success); /* Utilisation de la variable Bootstrap */
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid #fff; /* Petit bord blanc pour le contraste */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    margin-top: -6px;
+    transition: background .15s ease-in-out, transform .15s ease;
+}
+
+/* Le curseur (Thumb) - Firefox */
+input[type=range]::-moz-range-thumb {
+    width: 24px;
+    height: 24px;
+    background: var(--bs-success); /* Cohérence avec Webkit */
+    border: 2px solid #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: background .15s ease-in-out, transform .15s ease;
+}
+
+/* Effet au survol (Optionnel mais recommandé pour l'UX) */
+input[type=range]::-webkit-slider-thumb:hover,
+input[type=range]::-moz-range-thumb:hover {
+    transform: scale(1.1);
+}
+
+/* GESTION DE L'ÉTAT "NON TOUCHÉ" */
+/* Masque le curseur tant que l'utilisateur n'a pas interagi */
+input[type=range].untouched::-webkit-slider-thumb {
+    opacity: 0;
+}
+
+input[type=range].untouched::-moz-range-thumb {
+    opacity: 0;
 }

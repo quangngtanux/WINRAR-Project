@@ -1,0 +1,290 @@
+{{ block styles }}
+<style>
+    textarea {
+        height: 400px;
+    }
+
+    table.mpl-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    table.mpl-table td {
+        padding: 8px 10px;
+        vertical-align: middle;
+        text-align: center;
+    }
+
+    .header {
+        font-weight: bold;
+        text-align: center;
+        padding-bottom: 10px;
+    }
+</style>
+{{ endblock }}
+
+{{ block title }}
+{{ endblock }}
+
+{{ block content }}
+
+<div class="card bg-light mb-3">
+    <div class="card-body">
+        {{ if en }}
+        <article lang="en">
+            <p>
+                Thanks for giving your opinion on the facts explaining climate change.
+            </p>
+            <p>
+                Now, we give you the opportunity to <b>share</b> your opinion about climate change with <b>future
+                participants in this study</b>.
+            </p>
+            <p>
+                To determine whether your opinion will be given to future participants, you will make some decisions in
+                an
+                incentivized task.
+            </p>
+            <p>
+                In this task, you have to select one of the following two options in each of the following decisions.
+            </p>
+            <ul>
+                <li>Option A: Give my opinion to future participants</li>
+                <li>Option B: Receive a given monetary amount</li>
+            </ul>
+            <p>
+                For every tenth participant, we will randomly select one of the decisions (one row of the table below),
+                and
+                implement it.
+            </p>
+            <p>
+                For example, if you select "Option A" to the first row, and that row is randomly selected, we will give
+                your opinion to future participants. If you select "Option B" instead, and that row is selected, you
+                will
+                receive 0.01 cents.
+            </p>
+            <p>Payments will be done at the end of the survey.</p>
+            <p>Indicate below the option you prefer for each decision.</p>
+        </article>
+
+        {{ elif fr }}
+        <article lang="fr">
+            <p> Merci d'avoir donné votre avis sur les faits expliquant le changement climatique. </p>
+            <p>
+                Maintenant, nous vous donnons l'opportunité de <b>partager</b> votre opinion sur le changement
+                climatique avec les <b>futurs participants à cette étude</b>.
+            </p>
+            <p>
+                Pour déterminer si votre opinion sera transmise aux futurs participants, vous prendrez des décisions
+                dans une tâche incitative.
+            </p>
+            <p>
+                Dans cette tâche, vous devez sélectionner l'une des deux options suivantes pour chacune des décisions
+                ci-dessous.
+            </p>
+            <ul>
+                <li>Option A : Donner mon avis aux futurs participants</li>
+                <li>Option B : Recevoir un montant monétaire donné</li>
+            </ul>
+            <p>
+                Pour chaque dixième participant, nous sélectionnerons au hasard l'une des décisions (une ligne du
+                tableau ci-dessous) et l'appliquerons.
+            </p>
+            <p>
+                Par exemple, si vous sélectionnez "Option A" pour la première ligne, et que cette ligne est sélectionnée
+                au hasard, nous donnerons votre avis aux futurs participants. Si vous sélectionnez "Option B" à la
+                place, et que cette ligne est sélectionnée, vous recevrez 0,01$.
+            </p>
+            <p>Les paiements seront effectués à la fin de l'étude.</p>
+            <p>Indiquez ci-dessous l'option que vous préférez pour chaque décision.</p>
+        </article>
+
+        {{ elif vi }}
+        <article lang="vi">
+            <p> Cảm ơn bạn đã đưa ra ý kiến về các sự thật giải thích biến đổi khí hậu. </p>
+            <p>
+                Bây giờ, chúng tôi cho bạn cơ hội <b>chia sẻ</b> ý kiến của mình về biến đổi khí hậu với <b>những người
+                tham gia tương lai trong nghiên cứu này</b>.
+            </p>
+            <p>
+                Để xác định xem ý kiến của bạn có được đưa cho những người tham gia tương lai hay không, bạn sẽ đưa ra
+                một số quyết định trong một nhiệm vụ có khuyến khích.
+            </p>
+            <p>
+                Trong nhiệm vụ này, bạn phải chọn một trong hai lựa chọn sau đây trong mỗi quyết định dưới đây.
+            </p>
+            <ul>
+                <li>Lựa chọn A: Chia sẻ ý kiến của tôi cho những người tham gia tương lai</li>
+                <li>Lựa chọn B: Nhận một khoản tiền nhất định</li>
+            </ul>
+            <p>
+                Đối với mỗi mười người tham gia, chúng tôi sẽ chọn ngẫu nhiên một trong các quyết định (một hàng của
+                bảng dưới đây) và thực hiện nó.
+            </p>
+            <p>
+                Ví dụ, nếu bạn chọn "Lựa chọn A" ở hàng đầu tiên, và hàng đó được chọn ngẫu nhiên, chúng tôi sẽ đưa ý
+                kiến của bạn cho những người tham gia tương lai. Nếu bạn chọn "Lựa chọn B" thay vào đó, và hàng đó được
+                chọn, bạn sẽ nhận được 0.01$.
+            </p>
+            <p>Các khoản thanh toán sẽ được thực hiện vào cuối cuộc khảo sát.</p>
+            <p>Chỉ ra bên dưới lựa chọn bạn thích cho mỗi quyết định.</p>
+
+        </article>
+        {{ endif }}
+
+        <table class="mpl-table">
+            <tr>
+                <td class="header">
+                    {{ if en }} Option A
+                    {{ elif fr }} Option A
+                    {{ elif vi }} Lựa chọn A
+                    {{ endif }}
+                </td>
+                <td></td>
+                <td class="header">
+                    {{ if en }} Option B
+                    {{ elif fr }} Option B
+                    {{ elif vi }} Lựa chọn B
+                    {{ endif }}
+                </td>
+            </tr>
+
+            <!-- 0.01 -->
+            <tr>
+                <td>
+                    {{ if en }} Share my opinion
+                    {{ elif fr }} Partager mon opinion
+                    {{ elif vi }} Chia sẻ ý kiến của tôi
+                    {{ endif }}
+                </td>
+                <td>{{ form.choice_1 }}</td>
+                <td>{{ 0.01|cu }}
+                    {{ if en }} for me
+                    {{ elif fr }} pour moi
+                    {{ elif vi }} cho tôi
+                    {{ endif }}
+                </td>
+            </tr>
+
+            <!-- 0.25 -->
+            <tr>
+                <td>
+                    {{ if en }} Share my opinion
+                    {{ elif fr }} Partager mon opinion
+                    {{ elif vi }} Chia sẻ ý kiến của tôi
+                    {{ endif }}
+                </td>
+                <td>{{ form.choice_2 }}</td>
+                <td>{{0.25|cu}}
+                    {{ if en }} for me
+                    {{ elif fr }} pour moi
+                    {{ elif vi }} cho tôi
+                    {{ endif }}
+                </td>
+            </tr>
+
+            <!-- 0.50 -->
+            <tr>
+                <td>
+                    {{ if en }} Share my opinion
+                    {{ elif fr }} Partager mon opinion
+                    {{ elif vi }} Chia sẻ ý kiến của tôi
+                    {{ endif }}
+                </td>
+                <td>{{ form.choice_3 }}</td>
+                <td>{{0.50|cu}}
+                    {{ if en }} for me
+                    {{ elif fr }} pour moi
+                    {{ elif vi }} cho tôi
+                    {{ endif }}
+                </td>
+            </tr>
+
+            <!-- 1 -->
+            <tr>
+                <td>
+                    {{ if en }} Share my opinion
+                    {{ elif fr }} Partager mon opinion
+                    {{ elif vi }} Chia sẻ ý kiến của tôi
+                    {{ endif }}
+                </td>
+                <td>{{ form.choice_4 }}</td>
+                <td>{{1|cu}}
+                    {{ if en }} for me
+                    {{ elif fr }} pour moi
+                    {{ elif vi }} cho tôi
+                    {{ endif }}
+                </td>
+            </tr>
+
+            <!-- 2.50 -->
+            <tr>
+                <td>
+                    {{ if en }} Share my opinion
+                    {{ elif fr }} Partager mon opinion
+                    {{ elif vi }} Chia sẻ ý kiến của tôi
+                    {{ endif }}
+                </td>
+                <td>{{ form.choice_5 }}</td>
+                <td>{{1.50|cu}}
+                    {{ if en }} for me
+                    {{ elif fr }} pour moi
+                    {{ elif vi }} cho tôi
+                    {{ endif }}
+                </td>
+            </tr>
+
+            <!-- 5 -->
+            <tr>
+                <td>
+                    {{ if en }} Share my opinion
+                    {{ elif fr }} Partager mon opinion
+                    {{ elif vi }} Chia sẻ ý kiến của tôi
+                    {{ endif }}
+                </td>
+                <td>{{ form.choice_6 }}</td>
+                <td>{{2.00|cu}}
+                    {{ if en }} for me
+                    {{ elif fr }} pour moi
+                    {{ elif vi }} cho tôi
+                    {{ endif }}
+                </td>
+            </tr>
+
+            <!-- 10 -->
+            <tr>
+                <td>
+                    {{ if en }} Share my opinion
+                    {{ elif fr }} Partager mon opinion
+                    {{ elif vi }} Chia sẻ ý kiến của tôi
+                    {{ endif }}
+                </td>
+                <td>{{ form.choice_7 }}</td>
+                <td>{{2.50|cu}}
+                    {{ if en }} for me
+                    {{ elif fr }} pour moi
+                    {{ elif vi }} cho tôi
+                    {{ endif }}
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+{{ if vi }}
+<button class="btn btn-primary otree-btn-next">Tiếp tục</button>
+{{ else }}
+{{ next_button }}
+{{ endif }}
+
+{{ endblock }}
+
+{{ block scripts }}
+<script src="{{ static 'global/fill_auto.js' }}"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        if (js_vars.fill_auto)
+            fill_auto();
+    });
+</script>
+{{ endblock }}

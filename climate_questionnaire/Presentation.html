@@ -1,0 +1,198 @@
+{{ block styles }}
+<link rel="stylesheet" href="{{ static 'climate_questionnaire/climate_questionnaire.css' }}">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+{{ endblock }}
+
+{{ block title }}
+<div class="text-center mb-4">
+    {{ if en }}
+    Welcome to this survey
+    {{ elif fr }}
+    Bienvenue dans ce questionnaire
+    {{ elif vi }}
+    Chào mừng bạn đến với bảng câu hỏi
+    {{ endif }}
+</div>
+{{ endblock }}
+
+{{ block content }}
+<div class="row justify-content-center">
+    <div class="col-md-10 col-lg-8">
+
+        <div class="card experiment-card mb-4">
+            <div class="card-body p-4">
+
+                <div class="intro-icon">
+                    <i class="bi bi-info-circle"></i>
+                </div>
+
+                <div class="text-start">
+                    {{ if en }}
+                    <article lang="en">
+                        <h3>Participant Information Statement</h3>
+                        <br>
+                        <p>
+                            <b>What does the study involve?</b>
+                            This study consists of a simple task and short questionnaires.
+
+                            Your response will remain completely anonymous.
+
+                            There are no right or wrong answers; we are simply interested in your honest views, whatever
+                            they may be.
+                            <br><br>
+
+                            <b>Who is carrying out the study?</b>
+                            The study is being conducted by a team of research at different universities in France
+                            (Paris
+                            School of Business, University of Montpellier). For any question, you can contact
+                            a.guido@psbedu.paris. <br><br>
+
+                            <b>How much time will the study take?</b>
+                            The questionnaire lasts approximately 5 to 10 minutes, and you can stop at any time.
+                            <br><br>
+
+                            <b>Will the study benefit me?</b>
+                            Respondents who complete the study will receive the posted remuneration into their Prolific
+                            account. This study may include bonus payments.<br><br>
+
+                            <b>What about my data?</b>
+                            All aspects of the study, including results, will be anonymous and only the researchers will
+                            have access to all the responses.
+                        </p>
+                        <p>
+                            To continue, please click on "Start the questionnaire".
+                        </p>
+
+                        <hr class="my-4">
+
+                        <p class="text-muted-small">
+                            If you do not wish to participate, you can click on the
+                            <i>Skip</i> button below.
+                        </p>
+                    </article>
+
+                    {{ elif fr }}
+                    <article lang="fr">
+                        <h3>Déclaration d'information du participant</h3>
+                        <br>
+                        <p>
+                            <b>En quoi consiste l'étude ?</b>
+                            Cette étude consiste en une tâche simple et de courts questionnaires.
+
+                            Votre réponse restera entièrement anonyme.
+
+                            Il n'y a pas de bonnes ou de mauvaises réponses ; nous sommes simplement intéressés par vos
+                            opinions honnêtes, quelles qu'elles soient.
+                            <br><br>
+
+                            <b>Qui mène l'étude ?</b>
+                            L'étude est menée par une équipe de chercheurs de différentes universités en France (Paris
+                            School of Business, Université de Montpellier). Pour toute question, vous pouvez contacter
+                            a.guido@psbedu.paris. <br><br>
+
+                            <b>Combien de temps durera l'étude ?</b>
+                            Le questionnaire dure environ 5 à 10 minutes, et vous pouvez vous arrêter à tout moment.
+                            <br><br>
+
+                            <b>L'étude me sera-t-elle bénéfique ?</b>
+                            Les répondants qui terminent l'étude recevront la rémunération affichée sur leur compte
+                            Prolific. Cette étude peut inclure des paiements bonus.<br><br>
+
+                            <b>Qu'en est-il de mes données ?</b>
+                            Tous les aspects de l'étude, y compris les résultats, seront anonymes et seuls les
+                            chercheurs auront accès à toutes les réponses.
+                        </p>
+                        <p>
+                            Pour continuer, veuillez cliquer sur "Participer".
+                        </p>
+
+                        <hr class="my-4">
+
+                        <p class="text-muted-small">
+                            Si vous ne souhaitez pas participer, vous pouvez cliquer sur le bouton
+                            <i>Passer</i> ci-dessous.
+                        </p>
+                    </article>
+
+                    {{ elif vi }}
+                    <article lang="vi">
+                        <h3>Tuyên bố thông tin người tham gia</h3>
+                        <br>
+                        <p>
+                            <b>Nghiên cứu bao gồm những gì?</b>
+                            Nghiên cứu này bao gồm một nhiệm vụ đơn giản và các bảng câu hỏi ngắn.
+
+                            Câu trả lời của bạn sẽ hoàn toàn ẩn danh.
+
+                            Không có câu trả lời đúng hay sai; chúng tôi chỉ đơn giản quan tâm đến quan điểm trung thực
+                            của bạn, dù chúng là gì.
+                            <br><br>
+
+                            <b>Ai đang thực hiện nghiên cứu?</b>
+                            Nghiên cứu đang được thực hiện bởi một nhóm nghiên cứu tại các trường đại học khác nhau ở
+                            Pháp (Trường Kinh doanh Paris, Đại học Montpellier). Mọi thắc mắc, bạn có thể liên hệ
+                            a.guido@psbedu.paris. <br><br>
+
+                            <b>Nghiên cứu sẽ mất bao nhiêu thời gian?</b>
+                            Bảng câu hỏi kéo dài khoảng 5 đến 10 phút, và bạn có thể dừng lại bất cứ lúc nào. <br><br>
+
+                            <b>Nghiên cứu có lợi cho tôi không?</b>
+                            Những người trả lời hoàn thành nghiên cứu sẽ nhận được thù lao đã đăng vào tài khoản
+                            Prolific của họ. Nghiên cứu này có thể bao gồm các khoản thanh toán thưởng.<br><br>
+
+                            <b>Còn dữ liệu của tôi thì sao?</b>
+                            Tất cả các khía cạnh của nghiên cứu, bao gồm cả kết quả, sẽ được ẩn danh và chỉ các nhà
+                            nghiên cứu mới có quyền truy cập vào tất cả các câu trả lời.
+                        </p>
+                        <p>
+                            Để tiếp tục, vui lòng nhấp vào "Tham gia".
+                        </p>
+
+                        <hr class="my-4">
+
+                        <p class="text-muted-small">
+                            Nếu bạn không muốn tham gia, bạn có thể nhấp vào nút
+                            <i>Bỏ qua</i> bên dưới.
+                        </p>
+                    </article>
+                    {{ endif }}
+                </div>
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-between align-items-center">
+            <button class="btn btn-outline-danger" name="skip" value="True">
+                <i class="bi bi-x-circle me-1"></i>
+                {{ if en }} Do not participate {{ elif fr }} Ne pas participer {{ elif vi }} Không tham gia {{ endif }}
+            </button>
+
+            <button class="btn btn-primary" name="skip" value="False">
+                {{ if en }} Participate {{ elif fr }} Participer {{ elif vi }} Tham gia {{ endif }}
+                <i class="bi bi-arrow-right ms-1"></i>
+            </button>
+        </div>
+
+    </div>
+</div>
+{{ endblock }}
+
+{{ block scripts }}
+<script>
+    function fill_auto() {
+        setTimeout(function () {
+            // Logique aléatoire pour tester les deux boutons
+            if (Math.random() > 0.5) {
+                document.querySelector('button[name="skip"][value="True"]').click();
+            } else {
+                document.querySelector('button[name="skip"][value="False"]').click();
+            }
+        }, 2000);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        if (js_vars.fill_auto) {
+            fill_auto();
+        }
+    });
+</script>
+{{ endblock }}
