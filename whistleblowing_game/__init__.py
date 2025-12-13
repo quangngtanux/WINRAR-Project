@@ -29,6 +29,11 @@ class Subsession(BaseSubsession):
     def creating_session(self):
         self.reward = self.session.config.get("reward", False)
 
+        if "lang" not in self.session.vars:
+            lang = self.session.config.get("language", "en")
+            self.session.vars["lang"] = lang
+            self.session.vars["lang_dict"] = dict(en=lang == "en", fr=lang == "fr", vi=lang == "vi")
+
         if "groups" not in self.session.vars:
             self.group_randomly()
             self.session.vars["groups"] = self.get_group_matrix()

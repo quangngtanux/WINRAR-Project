@@ -46,11 +46,11 @@ Phần 2: Ước lượng việc báo cáo
 
 <label for="id_estimation_reporting" class="col-form-label">
     {{ fields_labels.estimation_reporting }}
-    <span class="fw-bold"><output id="id_estimation_reporting_output" class="ms-1">0</output>%</span>
+    <span class="fw-bold"><output id="id_estimation_reporting_output" class="ms-1">---</output>&nbsp;%</span>
 </label>
 <div class="mb-3" style="width: 75%">
     <input type="range" name="estimation_reporting" id="id_estimation_reporting"
-           min="0" max="100" step="1" style="width: 100%" value="0"
+           min="0" max="100" step="1" style="width: 100%" value="0" class="untouched"
             oninput="id_estimation_reporting_output.value=this.value">
     <div class="ticks mt-0">
         <span>0</span><span>100</span>
@@ -63,6 +63,17 @@ Phần 2: Ước lượng việc báo cáo
 {{ next_button }}
 {{ endif }}
 
+<p class="text-danger visually-hidden mt-3">
+    {{ if en }}
+    Please move the cursor before proceeding.
+    {{ elif fr }}
+    Veuillez déplacer le curseur avant de continuer.
+    {{ elif vi }}
+    Vui lòng di chuyển con trỏ trước khi tiếp tục.
+    {{ endif }}
+</p>
+
+
 {{ include "global/InstructionsModal.html" }}
 
 {{ endblock }}
@@ -71,6 +82,29 @@ Phần 2: Ước lượng việc báo cáo
 <script src="{{ static 'global/fill_auto.js' }}"></script>
 <script>
     document.addEventListener('DOMContentLoaded', () => {
+                const inputElements = document.querySelectorAll('input[type=range]');
+        const btn_next = document.querySelector('.otree-btn-next');
+        const errorMsg = document.querySelector('.text-danger');
+
+        inputElements.forEach((input) => {
+            input.addEventListener("input", () => {
+                input.classList.remove("untouched");
+                errorMsg.classList.add('visually-hidden');
+            });
+        });
+
+        btn_next.addEventListener("click", (event) => {
+            const invalidInput = Array.from(inputElements).find(input => input.classList.contains("untouched"));
+            if (invalidInput) {
+                event.preventDefault();
+                errorMsg.classList.remove('visually-hidden');
+                invalidInput.focus();
+                setTimeout(() => {
+                    errorMsg.classList.add('visually-hidden');
+                }, 3000);
+            }
+        });
+
         if (js_vars.fill_auto)
             fill_auto();
     });

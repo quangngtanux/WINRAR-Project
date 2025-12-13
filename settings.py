@@ -27,7 +27,7 @@ SESSION_CONFIGS = [
             'whistleblowing_welcome',
             'whistleblowing_counting', 'whistleblowing_maths', 'whistleblowing_sliders', 'whistleblowing_ios',
             'whistleblowing_transition', 'whistleblowing_game',
-            # 'whistleblowing_questionnaires',
+            'whistleblowing_questionnaires',
             'whistleblowing_final'
         ],
         num_demo_participants=6,
@@ -46,7 +46,7 @@ SESSION_CONFIGS = [
             'whistleblowing_welcome',
             'whistleblowing_counting', 'whistleblowing_maths', 'whistleblowing_sliders', 'whistleblowing_ios',
             'whistleblowing_transition', 'whistleblowing_game',
-            # 'whistleblowing_questionnaires',
+            'whistleblowing_questionnaires',
             'whistleblowing_final'
         ],
         num_demo_participants=6,
@@ -58,6 +58,20 @@ SESSION_CONFIGS = [
         reward=True,
         doc="<p class='text-warning fw-bold'>The minimum is 6 participants.</p>"
     ),
+    dict(
+        name='whistleblowing_game_only',
+        display_name="Whistleblowing - Game only - With Reward",
+        app_sequence=['whistleblowing_game'],
+        num_demo_participants=6,
+        real_world_currency_per_point=0.1,
+        participation_fee=5.00,
+        country="Vietnam",
+        language="vi",
+        treatment='cooperation',
+        reward=True,
+        doc="<p class='text-warning fw-bold'>The minimum is 6 participants.</p>"
+    ),
+
     dict(
         name="whistleblowing_questionnaire_only",
         display_name="Whistleblowing - Questionnaire Only",
