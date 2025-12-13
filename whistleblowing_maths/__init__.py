@@ -119,9 +119,16 @@ class MyPage(Page):
         return dict(
             instructions_template_path="whistleblowing_maths/InstructionsTemplate.html",
             instructions_template_title=trans(dict(
-                en="Task 2 - Instructions", fr="Tâche 2 - Instructions", vi="Nhiệm vụ 2 - Hướng dẫn"), lang),
+                en="Task 2 - Instructions",
+                fr="Tâche 2 - Instructions",
+                vi="Nhiệm vụ 2 - Hướng dẫn"
+            ), lang),
             effort_duration=seconds_to_minutes(Config.EFFORT_DURATION),
-            timer_text=trans(dict(en="Remaining time:", fr="Temps restant :", vi="Thời gian còn lại:"), lang),
+            timer_text=trans(dict(
+                en="Remaining time:",
+                fr="Temps restant :",
+                vi="Thời gian còn lại:"
+            ), lang),
             **player.session.vars["lang_dict"],
             **player.session.vars["treatment_dict"],
             **Config.get_parameters()
@@ -195,7 +202,10 @@ class MathsEstimation(MyPage):
     def vars_for_template(player: Player):
         existing = MyPage.vars_for_template(player)
         maths_estimation_label = trans(dict(
-            en="Your guess:", fr="Votre estimation :", vi="Dự đoán của bạn:"), player.session.vars["lang"])
+            en="Your guess:",
+            fr="Votre estimation :",
+            vi="Dự đoán của bạn:"
+        ), player.session.vars["lang"])
         existing.update(maths_estimation_label=maths_estimation_label)
         return existing
 

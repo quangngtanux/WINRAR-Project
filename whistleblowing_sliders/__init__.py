@@ -122,10 +122,17 @@ class MyPage(Page):
         lang = player.session.vars["lang"]
         return dict(
             instructions_template_path="whistleblowing_sliders/InstructionsTemplate.html",
-            instructions_template_title=trans(
-                dict(en="Task 3 - Instructions", fr="Tâche 3 - Instructions", vi="Nhiệm vụ 3 - Hướng dẫn"), lang),
+            instructions_template_title=trans(dict(
+                en="Task 3 - Instructions",
+                fr="Tâche 3 - Instructions",
+                vi="Nhiệm vụ 3 - Hướng dẫn"
+            ), lang),
             effort_duration=seconds_to_minutes(Config.EFFORT_DURATION),
-            timer_text=trans(dict(en="Remaining time:", fr="Temps restant :", vi="Thời gian còn lại:"), lang),
+            timer_text=trans(dict(
+                en="Remaining time:",
+                fr="Temps restant :",
+                vi="Thời gian còn lại:"
+            ), lang),
             **player.session.vars["lang_dict"],
             **player.session.vars["treatment_dict"],
             **Config.get_parameters(),
@@ -198,7 +205,11 @@ class SlidersEstimation(MyPage):
         existing = MyPage.vars_for_template(player)
         lang = player.session.vars["lang"]
         existing.update(
-            sliders_estimation_label=trans(dict(en="Your guess:", fr="Votre estimation :", vi="Dự đoán của bạn:"), lang))
+            sliders_estimation_label=trans(dict(
+                en="Your guess:",
+                fr="Votre estimation :",
+                vi="Dự đoán của bạn:"
+            ), lang))
         return existing
 
     @staticmethod
