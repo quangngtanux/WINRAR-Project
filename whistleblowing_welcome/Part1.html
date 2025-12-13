@@ -1,8 +1,8 @@
 {{ block title }}
 {{ if en }}
 Part 1
-{{ elif fr }}
-Partie 1
+{{ elif vi }}
+Phần 1
 {{ endif }}
 {{ endblock }}
 
@@ -28,12 +28,15 @@ Partie 1
         {{ elif vi }}
         <article lang="fr">
             <p>
-                Trong phần 1, chương trình sẽ tạo thành <b> nhóm {{ 3 thành viên }} một cách tự động</b>. 
-                Bạn sẽ không biết các thành viên khác là ai, và họ cũng sẽ không biết bạn là ai.
+                Trong Phần 1, chương trình sẽ tự động chia thành các nhóm gồm <b>{{ C.PLAYERS_PER_GROUP }}</b> người.
+                Bạn sẽ không biết các thành viên khác là ai và họ cũng sẽ không biết bạn là ai.
             </p>
             <p>
-                Mỗi thành viên trong nhóm sẽ hoàn thành <b>3 nhiệm vụ</b>. cuối phần này, <b>một trong 3 nhiệm vụ sẽ được lụa chọn ngẫu nhiên bởi chương trình
-                </b>, và số tiền bạn nhận trong Phần 1 sẽ bằng với số tiền kiếm được trong nhiệm vụ được chọn đó. Bạn sẽ được thông báo nhiệm vụ nào được tính để trả tiền và số tiền bạn nhận trong nhiệm vụ đó vào cuối thí nghiệm.
+                Mỗi thành viên trong nhóm sẽ hoàn thành <b>3 nhiệm vụ</b>. cuối phần này, <b>một trong 3 nhiệm vụ sẽ
+                được lụa chọn ngẫu nhiên bởi chương trình</b>, và số tiền bạn nhận trong Phần 1 sẽ bằng với số tiền kiếm
+                được trong nhiệm vụ được chọn đó. Bạn sẽ
+                được thông báo nhiệm vụ nào được tính để trả tiền và số tiền bạn nhận trong nhiệm vụ đó vào cuối thí
+                nghiệm.
 
             </p>
         </article>
@@ -41,7 +44,11 @@ Partie 1
     </div>
 </div>
 
+{{ if vi }}
+<button class="btn btn-primary otree-btn-next">Tiếp tục</button>
+{{ else }}
 {{ next_button }}
+{{ endif }}
 
 {{ endblock }}
 

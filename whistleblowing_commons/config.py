@@ -1,9 +1,3 @@
-from settings import LANGUAGE_CODE
-
-language = {"en": False, "fr": False, LANGUAGE_CODE: True}
-_ = lambda s: s[LANGUAGE_CODE]
-
-
 class Config:
     PLAYERS_PER_GROUP = 3
 
@@ -41,8 +35,8 @@ class Config:
     DECISION_TIME = 90  # 1'30
     SOCIETY_OPTION_PAYOFF = 10
 
-
     @staticmethod
     def get_parameters():
         return {k: v for k, v in Config.__dict__.items() if not k.startswith("__") and not callable(v)
                 and isinstance(v, (int, float, str, bool, tuple, list, dict))}
+

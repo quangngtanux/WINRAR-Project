@@ -2,14 +2,11 @@ import random
 
 from otree.api import *
 
-from settings import LANGUAGE_CODE
+from whistleblowing_commons.functions import trans
 
 doc = """
 Transition between part 1 and part 2 of the experiment.
 """
-
-language = {"en": False, "fr": False, LANGUAGE_CODE: True}
-_ = lambda s: s[LANGUAGE_CODE]
 
 
 class C(BaseConstants):
@@ -43,14 +40,17 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     def set_txt_final(self):
+        lang = self.session.vars["lang"]
         self.payoff = self.participant.vars.get(self.group.selected_effort_task_name, {}).get("payoff", 0)
         self.participant.payoff = self.payoff
-        txt_final = _(
-            dict(en=f"Task {self.group.selected_effort_task_num} has been randomly selected by the computer program "
-                    f"to determine the payoff of your group.",
-                 fr=f"La tâche {self.group.selected_effort_task_num} a été aléatoirement sélectionnée par le programme "
-                    f"informatique pour déterminer le gain de votre groupe.")
-        )
+        txt_final = trans(dict(
+            en=f"Task {self.group.selected_effort_task_num} has been randomly selected by the computer program "
+               f"to determine the payoff of your group.",
+            fr=f"La tâche {self.group.selected_effort_task_num} a été aléatoirement sélectionnée par le programme "
+               f"informatique pour déterminer le gain de votre groupe.",
+            vi=f"Nhiệm vụ {self.group.selected_effort_task_num} đã được chương trình máy tính chọn ngẫu nhiên "
+               f"để xác định phần thưởng của nhóm bạn."
+        ), lang)
         txt_final += "<br>" + self.participant.vars.get(self.group.selected_effort_task_name, {}).get("txt_final", "")
 
         self.participant.vars["whistleblowing_effort"] = dict(
@@ -65,7 +65,7 @@ class Transition(Page):
     @staticmethod
     def vars_for_template(player: Player):
         return dict(
-            **language
+            **player.session.vars["lang_dict"]
         )
 
     @staticmethod
@@ -77,6 +77,24 @@ class Transition(Page):
 
 class TransitionWaitForAll(WaitPage):
     wait_for_all_groups = True
+
+    @staticmethod
+    def vars_for_template(player):
+        lang = player.session.vars["lang"]
+        title_text = trans(dict(
+            en="Please wait",
+            fr="Veuillez patienter",
+            vi="Vui lòng chờ"
+        ), lang)
+        body_text = trans(dict(
+            en="Waiting for the other participants",
+            fr="En attente des autres participants",
+            vi="Đang chờ các người tham gia khác"
+        ), lang)
+        return dict(
+            title_text=title_text,
+            body_text=body_text
+        )
 
     @staticmethod
     def after_all_players_arrive(subsession: Subsession):

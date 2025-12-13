@@ -24,23 +24,25 @@ Phần 2: Bảng câu hỏi
         </p>
         {{ elif vi }}
         <p>
-        Cảm ơn bạn đã trả lời các câu hỏi dưới đây liên quan đến trò chơi mà bạn vừa tham gia.        </p>
+            Cảm ơn bạn đã trả lời các câu hỏi dưới đây liên quan đến trò chơi mà bạn vừa tham gia.
+        </p>
         {{ endif }}
     </div>
 </div>
 
 <div class="mb-3">
-    {{ for field in form }}
+    {{ for field, field_label in fields_labels.items }}
     <div class="form-control mb-1">
-        <p>
-            {{ field.label|safe }}
-        </p>
-        {{ field }}
+        {{ formfield field label=field_label|safe }}
     </div>
     {{ endfor }}
 </div>
 
+{{ if vi }}
+<button class="btn btn-primary otree-btn-next">Tiếp tục</button>
+{{ else }}
 {{ next_button }}
+{{ endif }}
 
 {{ endblock }}
 

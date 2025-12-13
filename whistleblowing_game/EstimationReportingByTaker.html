@@ -35,12 +35,9 @@ Phần 2: Ước lượng việc báo cáo
         {{ elif vi }}
         <p>
             Khả năng một trong các người chơi Xanh báo cáo quyết định của một người chơi Đỏ ăn cắp ECU từ nhóm Thụ Động là bao nhiêu?
-            Vui lòng cho biết câu trả lời của bạn trên thang đo bên dưới, trong đó:
-
-            - 0% có nghĩa là không có khả năng nào người chơi Xanh sẽ báo cáo,
-
-            - 100% có nghĩa là bạn chắc chắn rằng một người chơi Xanh sẽ báo cáo người chơi Đỏ đang ăn cắp,
-
+            Vui lòng cho biết câu trả lời của bạn trên thang đo bên dưới, trong đó: <br>
+            - 0% có nghĩa là không có khả năng nào người chơi Xanh sẽ báo cáo, <br>
+            - 100% có nghĩa là bạn chắc chắn rằng một người chơi Xanh sẽ báo cáo người chơi Đỏ đang ăn cắp, <br>
             - và các giá trị ở giữa cho thấy bạn nghĩ rằng có một mức độ khả năng nhất định người chơi Xanh sẽ báo cáo.
         </p>
         {{ endif }}
@@ -48,7 +45,7 @@ Phần 2: Ước lượng việc báo cáo
 </div>
 
 <label for="id_estimation_reporting" class="col-form-label">
-    {{ form.estimation_reporting.label }}
+    {{ estimation_reporting_label }}
     <span class="fw-bold"><output id="id_estimation_reporting_output" class="ms-1">0</output>%</span>
 </label>
 <div class="mb-3" style="width: 75%">
@@ -60,7 +57,11 @@ Phần 2: Ước lượng việc báo cáo
     </div>
 </div>
 
+{{ if vi }}
+<button class="btn btn-primary otree-btn-next">Tiếp tục</button>
+{{ else }}
 {{ next_button }}
+{{ endif }}
 
 {{ include "global/InstructionsModal.html" }}
 

@@ -18,24 +18,26 @@ Nhiệm vụ 1: Ước lượng
 
 <div class="card bg-light mb-3">
     <div class="card-body">
-        {{ if subsession.treatment == INDIVIDUAL }}
+        {{ if individual }}
         <p>
             {{ if en }}
             You have now completed Task 1. Before proceeding to Task 2, please tell us your guess about the number of
             grids you successfully completed in Task 1.
             {{ elif vi }}
-            Bạn đã hoàn thành nhiệm vụ 1. Trước khi chuyển sang nhiệm vụ 2, vui lòng cho chúng tôi biết ước tính của bạn về số lượng bảng mà bạn đã hoàn thành trong nhiệm vụ 1.
+            Bạn đã hoàn thành nhiệm vụ 1. Trước khi chuyển sang nhiệm vụ 2, vui lòng cho chúng tôi biết ước tính của bạn
+            về số lượng bảng mà bạn đã hoàn thành trong nhiệm vụ 1.
             {{ endif }}
         </p>
 
-        {{ elif subsession.treatment == COOPERATION }}
+        {{ elif cooperation }}
         <p>
             {{ if en }}
             You have now completed Task 1. Before proceeding to Task 2, please tell us your guess about the number of
             grids the best scorer in your group has successfully completed in Task 1.
             {{ elif vi }}
             Bạn đã hoàn thành nhiệm vụ 1.
-            Trước khi chuyển sang nhiệm vụ 2, vui lòng cho chúng tôi biết ước tính của bạn về số lượng bảng mà người giỏi nhất trong nhóm của bạn đã hoàn thành trong nhiệm vụ 1.
+            Trước khi chuyển sang nhiệm vụ 2, vui lòng cho chúng tôi biết ước tính của bạn về số lượng bảng mà người
+            giỏi nhất trong nhóm của bạn đã hoàn thành trong nhiệm vụ 1.
             {{ endif }}
         </p>
         {{ endif }}
@@ -44,12 +46,16 @@ Nhiệm vụ 1: Ước lượng
 
 <div class="d-flex align-items-center mb-3">
     <label for="id_counting_estimation" class="me-2 mb-0">
-        {{ form.counting_estimation.label }}
+        {{ counting_estimation_label }}
     </label>
     {{ form.counting_estimation }}
 </div>
 
+{{ if vi }}
+<button class="btn btn-primary otree-btn-next">Tiếp tục</button>
+{{ else }}
 {{ next_button }}
+{{ endif }}
 
 {{ endblock }}
 

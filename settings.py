@@ -15,8 +15,9 @@ SESSION_CONFIG_DEFAULTS = dict(
 )
 DEBUG = True
 
-LANGUAGE_CODE = 'en'
-REAL_WORLD_CURRENCY_CODE = 'USD'
+LANGUAGE_CODE = 'EN'
+REAL_WORLD_CURRENCY_CODE = 'VND'
+REAL_WORLD_CURRENCY_DECIMAL_PLACES = 0
 
 SESSION_CONFIGS = [
     dict(
@@ -26,15 +27,17 @@ SESSION_CONFIGS = [
             'whistleblowing_welcome',
             'whistleblowing_counting', 'whistleblowing_maths', 'whistleblowing_sliders', 'whistleblowing_ios',
             'whistleblowing_transition', 'whistleblowing_game',
-            'whistleblowing_questionnaires',
+            # 'whistleblowing_questionnaires',
             'whistleblowing_final'
         ],
         num_demo_participants=6,
         real_world_currency_per_point=0.1,
         participation_fee=5.00,
-        country="France",
+        country="Vietnam",
+        language="vi",
         treatment='cooperation',
-        reward=False
+        reward=False,
+        doc="<p class='text-warning fw-bold'>The minimum is 6 participants.</p>"
     ),
     dict(
         name='whistleblowing_with_reward',
@@ -43,14 +46,32 @@ SESSION_CONFIGS = [
             'whistleblowing_welcome',
             'whistleblowing_counting', 'whistleblowing_maths', 'whistleblowing_sliders', 'whistleblowing_ios',
             'whistleblowing_transition', 'whistleblowing_game',
-            'whistleblowing_questionnaires',
+            # 'whistleblowing_questionnaires',
             'whistleblowing_final'
         ],
         num_demo_participants=6,
         real_world_currency_per_point=0.1,
         participation_fee=5.00,
-        country="France",
+        country="Vietnam",
+        language="vi",
         treatment='cooperation',
-        reward=True
+        reward=True,
+        doc="<p class='text-warning fw-bold'>The minimum is 6 participants.</p>"
     ),
+    dict(
+        name="whistleblowing_questionnaire_only",
+        display_name="Whistleblowing - Questionnaire Only",
+        app_sequence=[
+            'whistleblowing_welcome',
+            'whistleblowing_questionnaires'
+        ],
+        num_demo_participants=6,
+        real_world_currency_per_point=0.1,
+        participation_fee=5.00,
+        country="Vietnam",
+        language="vi",
+        treatment='cooperation',
+        reward=False,
+        doc="<p class='text-warning fw-bold'>The minimum is 6 participants.</p>"
+    )
 ]

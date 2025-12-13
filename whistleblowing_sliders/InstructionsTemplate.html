@@ -8,7 +8,7 @@
         Then select a new button and repeat the process.
     </p>
 
-    {{ if subsession.treatment == INDIVIDUAL }}
+    {{ if individual }}
     <p>
         <b>Your earnings depend solely on your own performance</b> in the task and do not
         depend on the performance of the other group members.
@@ -16,7 +16,7 @@
         If the slider is incorrectly positioned, your gain will remain unchanged.
     </p>
 
-    {{ elif subsession.treatment == COOPERATION }}
+    {{ elif cooperation }}
     <p>
         <b>Your earnings in this task will depend on the best scorer in the group.</b>
         The best scorer in the group is the group member who has correctly positioned the most sliders. For each slider
@@ -40,36 +40,42 @@
 {{ elif vi }}
 <article lang="vi">
     <p>
-        Trong suốt {{ effort_duration }} bạn phải <b>điều chỉnh thanh trượt đến một mục tiêu cố định </b>. Tổng cộng sẽ có {{ NUM_SLIDERS }} mục tiêu được đưa ra cho bạn.
+        Trong suốt {{ effort_duration }} bạn phải <b>điều chỉnh thanh trượt đến một mục tiêu cố định </b>. Tổng cộng sẽ
+        có {{ NUM_SLIDERS }} mục tiêu được đưa ra cho bạn.
     </p>
     <p>
         Trước hết, bạn phải chọn một giá trị mục tiêu bằng cách nhấp vào một trong các nút {{ NUM_SLIDERS }} có sẵn.
-Khi giá trị mục tiêu đã hiển thị, hãy đặt thanh trượt vào đúng vị trí mục tiêu rồi nhấp vào <i>Valider</i> (Xác nhận).
-Nút của mục tiêu tương ứng sẽ chuyển sang màu cam để cho bạn biết rằng bạn đã đặt xong mục tiêu đó.
-Sau đó, hãy chọn một mục tiêu mới và lặp lại quy trình.
+        Khi giá trị mục tiêu đã hiển thị, hãy đặt thanh trượt vào đúng vị trí mục tiêu rồi nhấp vào <i>Valider</i> (Xác
+        nhận).
+        Nút của mục tiêu tương ứng sẽ chuyển sang màu cam để cho bạn biết rằng bạn đã đặt xong mục tiêu đó.
+        Sau đó, hãy chọn một mục tiêu mới và lặp lại quy trình.
     </p>
-    {{ if subsession.treatment == INDIVIDUAL }}
+    {{ if individual }}
     <p>
-        <b>Thu nhập của bạn chỉ phụ thuộc vào hiệu suất của chính bạn</b>, không phụ thuộc vào hiệu suất của các thành viên khác trong nhóm.
-Với mỗi thanh trượt được đặt đúng vị trí, bạn sẽ nhận được {{ PIECE_RATE }} ECU.
+        <b>Thu nhập của bạn chỉ phụ thuộc vào hiệu suất của chính bạn</b>, không phụ thuộc vào hiệu suất của các thành
+        viên khác trong nhóm.
+        Với mỗi thanh trượt được đặt đúng vị trí, bạn sẽ nhận được {{ PIECE_RATE }} ECU.
     </p>
-    {{ elif subsession.treatment == COOPERATION }}
+    {{ elif cooperation }}
     <p>
         <b>Thu nhập của bạn sẽ phụ thuộc vào điểm cao nhất trong nhóm. </b>
-Điểm cao nhất trong nhóm là điểm của thành viên đã đặt đúng vị trí nhiều thanh trượt nhất.
-Với mỗi thanh trượt được đặt đúng bởi thành viên có thành tích tốt nhất trong nhóm, mỗi thành viên của nhóm sẽ nhận được {{ PIECE_RATE }} ECU.
-Vì vậy, đồng đội của bạn càng đạt kết quả tốt trong nhiệm vụ này, thu nhập của bạn sẽ càng cao.
+        Điểm cao nhất trong nhóm là điểm của thành viên đã đặt đúng vị trí nhiều thanh trượt nhất.
+        Với mỗi thanh trượt được đặt đúng bởi thành viên có thành tích tốt nhất trong nhóm, mỗi thành viên của nhóm sẽ
+        nhận được {{ PIECE_RATE }} ECU.
+        Vì vậy, đồng đội của bạn càng đạt kết quả tốt trong nhiệm vụ này, thu nhập của bạn sẽ càng cao.
     </p>
     {{ endif }}
     <p>
-        <b>Bạn có thể đặt bao nhiêu thanh trượt tùy ý trong khoảng thời gian {{ effort_duration }} được phân bổ cho bạn.</b> <br>
-Bạn sẽ được thông báo về thu nhập của mình cho nhiệm vụ này vào cuối buổi thí nghiệm.
+        <b>Bạn có thể đặt bao nhiêu thanh trượt tùy ý trong khoảng thời gian {{ effort_duration }} được phân bổ cho
+            bạn.</b> <br>
+        Bạn sẽ được thông báo về thu nhập của mình cho nhiệm vụ này vào cuối buổi thí nghiệm.
     </p>
     <figure class="text-center">
-        <figcaption class="fst-italic text-muted fw-bold text-center"> Ảnh chụp màn hình: các ô màu cam là những ô đã được xác nhận.
+        <figcaption class="fst-italic text-muted fw-bold text-center"> Ảnh chụp màn hình: các ô màu cam là những ô đã
+            được xác nhận.
         </figcaption>
         <img class="img-thumbnail mx-auto" alt="screenshot"
-             src="{{ static 'whistleblowing_sliders/screenshot_fr.png' }}">
+             src="{{ static 'whistleblowing_sliders/screenshot_vi.png' }}">
     </figure>
 </article>
 {{ endif }}

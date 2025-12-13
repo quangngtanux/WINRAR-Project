@@ -31,10 +31,11 @@ Phần 3: Bảng câu hỏi
             Khi bạn quyết định một điều gì đó là đúng hay sai, mức độ quan trọng của các yếu tố sau đối với bạn là như thế nào?
             {{ endif }}
         </p>
-        {{ formfield "fairness_1" }}
-        {{ formfield "fairness_2" }}
-        {{ formfield "loyalty_1" }}
-        {{ formfield "loyalty_2" }}
+        {{ formfield "fairness_1" label=fields_labels.fairness_1 }}
+        {{ formfield "loyalty_1" label=fields_labels.loyalty_1 }}
+        {{ formfield "fairness_2" label=fields_labels.fairness_2}}
+        {{ formfield "loyalty_1" label=fields_labels.loyalty_1 }}
+        {{ formfield "loyalty_2" label=fields_labels.loyalty_2 }}
     </div>
     <div class="form-control mb-1">
         <p class="text-muted fw-bold">
@@ -44,19 +45,23 @@ Phần 3: Bảng câu hỏi
             Hãy cho biết mức độ đồng ý hoặc không đồng ý của bạn đối với các câu sau đây.
             {{ endif }}
         </p>
-        {{ formfield "fairness_3" }}
-        {{ formfield "loyalty_3" }}
+        {{ formfield "fairness_3" label=fields_labels.fairness_3 }}
+        {{ formfield "loyalty_3" label=fields_labels.loyalty_3 }}
     </div>
     <div class="form-control mb-1">
-        {{ formfield "morally_good_person" }}
+        {{ formfield "morally_good_person" label=fields_labels.morally_good_person }}
     </div>
         <div class="form-control mb-1">
-        {{ formfield "friend_choice" }}
+        {{ formfield "friend_choice" label=fields_labels.friend_choice }}
     </div>
 
 </div>
 
+{{ if vi }}
+<button class="btn btn-primary otree-btn-next">Tiếp tục</button>
+{{ else }}
 {{ next_button }}
+{{ endif }}
 
 {{ endblock }}
 

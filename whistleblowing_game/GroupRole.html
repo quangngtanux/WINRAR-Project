@@ -35,27 +35,32 @@ Phần 2: Thông tin về nhóm của bạn
             Your group have been randomly assigned to an <b>Inactive Group</b>.
             {{ endif }}
         </p>
-        {{ elif fr }}
+        {{ elif vi }}
         <p>
             {{ if group.active }}
             Nhóm của bạn đã được phân vào một <b>Nhóm Chủ động (Groupe Actif) một cách ngẫu nhiên.</b>
-Xin nhắc lại, trong mỗi nhóm chủ động, người chơi được phân vào các vai trò sau: Một Người chơi Đỏ và Hai Người chơi Xanh. Bạn đã được phân vào vai trò:
+            Xin nhắc lại, trong mỗi nhóm chủ động, người chơi được phân vào các vai trò sau: Một Người chơi Đỏ và Hai
+            Người chơi Xanh. Bạn đã được phân vào vai trò:
 
-{{ if player.taker }}
-Người chơi Đỏ (Joueur Rouge).
-{{ else }}
-Người chơi Xanh (Joueur Bleu).
-{{ endif }}
+            {{ if player.taker }}
+            Người chơi Đỏ (Joueur Rouge).
+            {{ else }}
+            Người chơi Xanh (Joueur Bleu).
+            {{ endif }}
 
-{{ else }}
-Nhóm của bạn đã được phân vào một Nhóm Thụ động (Groupe Inactif) một cách ngẫu nhiên.
-{{ endif }}
+            {{ else }}
+            Nhóm của bạn đã được phân vào một Nhóm Thụ động (Groupe Inactif) một cách ngẫu nhiên.
+            {{ endif }}
         </p>
         {{ endif }}
     </div>
 </div>
 
+{{ if vi }}
+<button class="btn btn-primary otree-btn-next">Tiếp tục</button>
+{{ else }}
 {{ next_button }}
+{{ endif }}
 
 {{ include "global/InstructionsModal.html" }}
 

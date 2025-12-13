@@ -50,8 +50,8 @@ Phần 01: Bảng câu hỏi
                 Trước khi chuyển sang phần 2, vui lòng trả lời câu hỏi dưới đây.
             </p>
             <p>
-               Ngay khi bạn di chuyển thanh trượt bên dưới, một cặp hình tròn sẽ xuất hiện trong khung bên dưới.
-Vị trí của thanh trượt sẽ quyết định mức độ chồng lấn của các hình tròn.
+                Ngay khi bạn di chuyển thanh trượt bên dưới, một cặp hình tròn sẽ xuất hiện trong khung bên dưới.
+                Vị trí của thanh trượt sẽ quyết định mức độ chồng lấn của các hình tròn.
             </p>
             <ul>
                 <li>
@@ -68,7 +68,8 @@ Vị trí của thanh trượt sẽ quyết định mức độ chồng lấn c�
                 </li>
             </ul>
             <p>
-                Bạn phải hiểu mức độ chồng lấn đó như thể hiện <strong> mối quan hệ giữa bạn và các thành viên khác trong nhóm.</strong>.
+                Bạn phải hiểu mức độ chồng lấn đó như thể hiện <strong> mối quan hệ giữa bạn và các thành viên khác
+                trong nhóm.</strong>.
             </p>
         </article>
         {{ endif }}
@@ -128,7 +129,11 @@ Vị trí của thanh trượt sẽ quyết định mức độ chồng lấn c�
 
 <input type="hidden" name="ios_value" value="">
 
+{{ if vi }}
+<button class="btn btn-primary otree-btn-next">Tiếp tục</button>
+{{ else }}
 {{ next_button }}
+{{ endif }}
 
 <p class="form-control-errors" style="display: none;" id="error_ios">
     {{ if vi }}

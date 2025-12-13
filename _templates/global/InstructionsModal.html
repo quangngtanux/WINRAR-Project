@@ -2,7 +2,13 @@
     <div class="modal-dialog modal-dialog-scrollable modal-xl">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 class="modal-title">Instructions</h3>
+                <h3 class="modal-title">
+                    {{ if is_defined('instructions_template_title') }}
+                    {{ instructions_template_title }}
+                    {{ else }}
+                    Instructions
+                    {{ endif }}
+                </h3>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -10,7 +16,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                    {{ if fr }} Fermer {{ elif en }} Close {{ endif }}
+                    {{ if fr }} Fermer {{ else }} Close {{ endif }}
                 </button>
             </div>
         </div>

@@ -23,15 +23,18 @@ Phần 3: Bảng câu hỏi
 </div>
 
 <div class="mb-3">
-    {{ for field in form }}
+    {{ for field, field_label in fields_labels.items }}
     <div class="form-control mb-1">
-        <label class="col-form-label">{{ field.label }}</label> <br>
-        {{ field }}
+        {{ formfield field label=field_label|safe }}
     </div>
     {{ endfor }}
 </div>
 
+{{ if vi }}
+<button class="btn btn-primary otree-btn-next">Tiếp tục</button>
+{{ else }}
 {{ next_button }}
+{{ endif }}
 
 {{ endblock }}
 

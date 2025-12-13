@@ -29,11 +29,11 @@ Nhiệm vụ 1: Đếm số 1
             the grid, enter the value in the input widget and click on "Validate". Then click on another grid.
         </p>
 
-        {{ elif fr }}
+        {{ elif vi }}
         <p>
             Hãy chọn một bảng bằng cách nhấp vào nút tương ứng,
-đếm số lượng số 1 trong bảng, nhập giá trị vào ô nhập liệu và nhấp vào “Xác nhận”.
-Sau đó, chọn một bảng khác và lặp lại quy trình.
+            đếm số lượng số 1 trong bảng, nhập giá trị vào ô nhập liệu và nhấp vào “Xác nhận”.
+            Sau đó, chọn một bảng khác và lặp lại quy trình.
         </p>
         {{ endif }}
     </div>
@@ -55,8 +55,8 @@ Sau đó, chọn một bảng khác và lặp lại quy trình.
     <h6 class="text-info">
         {{ if en }}
         Grid
-        {{ elif fr }}
-        Grille
+        {{ elif vi }}
+        Bảng
         {{ endif }}
         <span id="grid_number">1</span></h6>
     <table class=" text-center mb-2 mx-auto">
@@ -75,9 +75,8 @@ Sau đó, chọn một bảng khác và lặp lại quy trình.
             {{ if en }}
             Number of 1 in the grid:
             {{ elif vi }}
-           Số lượng số 1 trong bảng:
+            Số lượng số 1 trong bảng:
             {{ endif }}
-            &nbsp;
         </label>
         <input type="number" class="form-control-sm text-center" name="grid_count" id="grid_count"
                style="width: 80px">&nbsp;
@@ -100,14 +99,13 @@ Sau đó, chọn một bảng khác và lặp lại quy trình.
 <script>
     const grids = js_vars.grids;
     let current_grid;
-    let grid_count = document.querySelector("#grid_count");  // input for the grid count
-    let input_score = document.querySelector("#id_counting_performance");  // field to store the score
+    let grid_count = document.querySelector("#grid_count");
+    let input_score = document.querySelector("#id_counting_performance");
 
     function display_grid(grid_number) {
         current_grid = grids[grid_number - 1];
-        // fill the grid with the values
         document.querySelector("#grid_number").innerHTML = String(grid_number);
-        let grid_cells = document.querySelectorAll("input[type=number][name=grid_cell]");  // grid cells
+        let grid_cells = document.querySelectorAll("input[type=number][name=grid_cell]");
         let counter = 0;
         for (let r of current_grid.grid) {
             for (let c of r) {
@@ -115,11 +113,11 @@ Sau đó, chọn một bảng khác và lặp lại quy trình.
                 counter++;
             }
         }
-        grid_count.value = "";  // empty the input field
+        grid_count.value = "";
     }
 
     function validate() {
-        let answer = Number(grid_count.value);  // get the answer from the input field
+        let answer = Number(grid_count.value);
         if (answer === current_grid["total"])
             input_score.value = Number(input_score.value) + 1
         let the_btn = document.querySelector(`#id_g_${current_grid['number']}`);
@@ -132,23 +130,13 @@ Sau đó, chọn một bảng khác và lặp lại quy trình.
     }
 
     function fill_auto() {
-        // Sélectionne tous les boutons de grille
         const btn_grid_number = document.querySelectorAll(".btn_grid_number");
-
-        // Choisit un index aléatoire parmi les boutons
         let randomIndex = Math.floor(Math.random() * btn_grid_number.length);
         let selectedBtn = btn_grid_number[randomIndex];
-
-        // Vérifie que le bouton n'est pas déjà désactivé (grille déjà faite)
         if (!selectedBtn.disabled) {
             selectedBtn.click();
-
-            // On vérifie que la grille a bien été chargée avant de valider
             if (current_grid) {
-                // Simule une réponse (50% de chance d'avoir juste)
                 grid_count.value = Math.random() <= 0.5 ? current_grid["total"] : Math.floor(Math.random() * 101);
-
-                // Clique sur valider
                 document.querySelector("#btn_validate").click();
             }
         }

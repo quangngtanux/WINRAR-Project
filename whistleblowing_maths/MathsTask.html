@@ -104,7 +104,7 @@ Sau đó, chọn một phép tính khác và lặp lại quy trình.
         for (let i = 0; i < operation_numbers.length; i++) {
             operation_numbers[i].innerText = current_operation["numbers"][i];
         }
-        operation_sum.value = "";  // clear the input
+        operation_sum.value = "";
     }
 
     function validate() {
@@ -121,23 +121,13 @@ Sau đó, chọn một phép tính khác và lặp lại quy trình.
     }
 
     function fill_auto() {
-        // Sélectionne tous les boutons d'opération
         const btn_operation_number = document.querySelectorAll(".btn_operation_number");
-
-        // Utilise la longueur réelle de la liste des boutons
         let randomIndex = Math.floor(Math.random() * btn_operation_number.length);
         let selectedBtn = btn_operation_number[randomIndex];
-
-        // Vérifie si le bouton est actif (pas encore validé)
         if (!selectedBtn.disabled) {
             selectedBtn.click();
-
-            // Vérifie que l'opération est bien chargée dans la variable globale
             if (current_operation) {
-                // Simule une réponse (50% de chance de réussite)
                 operation_sum.value = Math.random() <= 0.5 ? current_operation["total"] : Math.floor(Math.random() * 101);
-
-                // Verifie
                 document.querySelector("#btn_validate").click();
             }
         }
@@ -149,7 +139,6 @@ Sau đó, chọn một phép tính khác và lặp lại quy trình.
         otree_timer.classList.remove("alert", "alert-warning");
         otree_timer.style.color = "DarkGoldenrod";
 
-        // la touche "Entrée" ne valide pas l'opération
         document.querySelector("#operation_sum").addEventListener("keydown", function (event) {
             if (event.key === "Enter") {
                 event.preventDefault();

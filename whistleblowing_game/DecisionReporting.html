@@ -38,10 +38,12 @@ Phần 2: Quyết định báo cáo
         </p>
         {{ elif vi }}
         <p>
-            Là <b>người chơi Xanh</b>, bạn phải quyết định xem bạn có muốn báo cáo người chơi Đỏ trong nhóm của mình nếu người đó ăn cắp ECU từ nhóm Thụ Động hay không.
+            Là <b>người chơi Xanh</b>, bạn phải quyết định xem bạn có muốn báo cáo người chơi Đỏ trong nhóm của mình nếu
+            người đó ăn cắp ECU từ nhóm Thụ Động hay không.
         </p>
         <p class="text-muted">
-            Xin nhắc lại, nếu người chơi Đỏ ăn cắp ECU từ nhóm Thụ Động và bạn báo cáo người đó, bạn sẽ phải trả một chi phí báo cáo là {{ REPORTING_COST }} ECU và người chơi Đỏ sẽ bị báo cáo.
+            Xin nhắc lại, nếu người chơi Đỏ ăn cắp ECU từ nhóm Thụ Động và bạn báo cáo người đó, bạn sẽ phải trả một chi
+            phí báo cáo là {{ REPORTING_COST }} ECU và người chơi Đỏ sẽ bị báo cáo.
             Nếu người chơi Đỏ bị trừng phạt (xác suất {{ AUDIT_PROBABILITY_STR }}),
             {{ if subsession.reward }}
             bạn sẽ nhận được một phần thưởng là {{ REPORTING_REWARD }} ECU và
@@ -54,9 +56,13 @@ Phần 2: Quyết định báo cáo
     </div>
 </div>
 
-{{ formfields }}
+{{ formfield "reporting_decision" label=reporting_decision_label }}
 
+{{ if vi }}
+<button class="btn btn-primary otree-btn-next">Tiếp tục</button>
+{{ else }}
 {{ next_button }}
+{{ endif }}
 
 {{ include "global/InstructionsModal.html" }}
 

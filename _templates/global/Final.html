@@ -1,5 +1,5 @@
 {{ block title }}
-{{ if fr }} Kết thúc thí nghiệm {{ elif en }} End of the experiment {{ endif }}
+{{ if fr }} Fin de l'expérience {{ elif en }} End of the experiment {{ endif }}
 {{ endblock }}
 
 {{ block content }}
@@ -12,22 +12,16 @@
 
 <p class="text-muted mb-3">
     {{ if fr }}
-    Thanh toán của bạn sẽ được thực hiện bằng chuyển khoản ngân hàng thông qua nền tảng S2C2H của CNRS. <br>
-    Vui lòng nhấp vào nút bên dưới để điền vào biểu mẫu thanh toán thu nhập của bạn.
-Nếu bạn có bất kỳ câu hỏi nào, đừng ngần ngại liên hệ với người phụ trách thí nghiệm.
+    Votre paiement se fera par virement bancaire via la plateforme S2C2H du CNRS. <br>
+    Veuillez cliquer sur le bouton ci-dessous pour remplir le formulaire pour le paiement de vos gains. <br>
+    Si vous avez des questions, n'hésitez pas à contacter l'expérimentateur.
     {{ elif en }}
     Your payment will be made by bank transfer via the CNRS S2C2H platform. <br>
     Please click on the button below to fill out the form for the payment of your earnings. <br>
     If you have any questions, do not hesitate to contact the experimenter.
     {{ endif }}
 </p>
-<button type="button" class="btn btn-outline-primary" id="btn_payment">
-    {{ if fr }}
-    Điền vào mẫu thanh toán
-    {{ elif en }}
-    Fill out the form for payment
-    {{ endif }}
-</button>
+<button type="button" class="btn btn-outline-primary" id="btn_payment">Remplir le formulaire pour le paiement</button>
 
 {{ endblock }}
 

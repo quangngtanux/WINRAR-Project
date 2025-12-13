@@ -149,16 +149,19 @@
 </section>
 
 {{ elif vi }}
-<section lang="fr">
+<section lang="vi">
     <article class="mb-4" data-description="intro">
         <p><b>Nội dung của các nhóm là như nhau</b> như ở phần 1.</p>
         <p>
-            Chương trình máy tính sẽ chọn ngẫu nhiên một nhóm trong số tất cả các nhóm có mặt trong phòng này. Nhóm đó sẽ được chỉ định là nhóm <b><i>Thụ động</i></b>.
+            Chương trình máy tính sẽ chọn ngẫu nhiên một nhóm trong số tất cả các nhóm có mặt trong phòng này. Nhóm đó
+            sẽ được chỉ định là nhóm <b><i>Thụ động</i></b>.
             Những nhóm khác sẽ là nhóm <b><i>Chủ động</i></b>.
         </p>
         <p>
-            Thu nhập cuối cùng của các thành viên trong nhóm<i>Thụ động</i> sẽ phụ thuộc vào thu nhập của họ ở phần 1 và các quyết định được đưa ra bởi các thành viên của các nhóm <i>Chủ động</i> trong phần 2.
-            Vì các thành viên của nhóm <i>Bị động</i> sẽ không đưa ra bất kỳ quyết định nào trong phần này, nên các hướng dẫn dưới đây chỉ áp dụng cho các thành viên của các nhóm <i>Chủ động</i>.
+            Thu nhập cuối cùng của các thành viên trong nhóm<i>Thụ động</i> sẽ phụ thuộc vào thu nhập của họ ở phần 1 và
+            các quyết định được đưa ra bởi các thành viên của các nhóm <i>Chủ động</i> trong phần 2.
+            Vì các thành viên của nhóm <i>Bị động</i> sẽ không đưa ra bất kỳ quyết định nào trong phần này, nên các
+            hướng dẫn dưới đây chỉ áp dụng cho các thành viên của các nhóm <i>Chủ động</i>.
             <br>
             Khi tất cả người tham gia đã đọc xong các hướng dẫn này, bạn sẽ được thông báo…
             <b> rằng bạn thuộc nhóm <i>Chủ động</i> hay thuộc nhóm <i>Bị động</i></b>.
@@ -168,29 +171,31 @@
     <article class="mb-4" data-description="roles">
         <h5>Vai trò và quyết định trong các Nhóm Chủ Động</h5>
         <p>
-            Trong mỗi nhóm Chủ Động <i>(Actif)</i>i>, chương trình máy tính sẽ phân vai cho người chơi một cách ngẫu nhiên.
+            Trong mỗi nhóm Chủ Động <i>(Actif)</i>, chương trình máy tính sẽ phân vai cho người chơi một cách ngẫu
+            nhiên.
             Sẽ có <b>một người chơi Đỏ và hai người chơi Xanh</b>.
         </p>
         <p>
             Người chơi Đỏ có khả năng <b>tăng tiền thửơng của mình bằng cách lấy cắp ECU</b> từ nhóm <i>Thụ động</i>.
-Cụ thể, người chơi Đỏ phải đưa ra một quyết định nhị phân: lấy cắp hoặc không lấy cắp ECU từ nhóm Thụ động.
-          
+            Cụ thể, người chơi Đỏ phải đưa ra một quyết định nhị phân: lấy cắp hoặc không lấy cắp ECU từ nhóm Thụ động.
+
         </p>
         <p>
-            <span class="text-decoration-underline">Fonctionnement :</span> <br>
-            Nếu người chơi Đỏ quyết định lấy cắp ECU, anh ta/ cô ta  <b>nhận được {{ STEALING_AMOUNT }} ECU </b>,
+            <span class="text-decoration-underline">Cách thức hoạt động :</span> <br>
+            Nếu người chơi Đỏ quyết định lấy cắp ECU, anh ta/ cô ta <b>nhận được {{ STEALING_AMOUNT }} ECU </b>,
             trong khi nhóm <i>Thụ động</i> <b>mất tổng cộng {{ STEALING_LOSS }} ECU</b>.
 
-                Điều đó có nghĩa là mỗi thành viên của nhóm Thụ động mất {{ STEALING_LOSS_INDIV }} ECU
-                ({{ STEALING_LOSS_INDIV }} ECU × {{ PLAYERS_PER_GROUP }} = {{ STEALING_LOSS }} ECU).
+            Điều đó có nghĩa là mỗi thành viên của nhóm Thụ động mất {{ STEALING_LOSS_INDIV }} ECU
+            ({{ STEALING_LOSS_INDIV }} ECU × {{ PLAYERS_PER_GROUP }} = {{ STEALING_LOSS }} ECU).
 
-                Nếu người chơi Đỏ không lấy cắp, thì không có sự thay đổi nào xảy ra và thu nhập của tất cả người tham gia vẫn giữ nguyên như ở phần 1.
-            
+            Nếu người chơi Đỏ không lấy cắp, thì không có sự thay đổi nào xảy ra và thu nhập của tất cả người tham gia
+            vẫn giữ nguyên như ở phần 1.
+
         </p>
-        <p> 
+        <p>
             Hành vi lấy cắp chịu <b>một khoản phạt {{ STEALING_PENALTY }} ECU</b>.
-Tuy nhiên, một người chơi Đỏ quyết định lấy cắp chỉ bị phạt nếu bị một trong các người chơi Xanh tố giác,
-và ngay cả khi bị tố giác, khoản phạt này cũng không phải lúc nào cũng chắc chắn xảy ra.
+            Tuy nhiên, một người chơi Đỏ quyết định lấy cắp chỉ bị phạt nếu bị một trong các người chơi Xanh tố giác,
+            và ngay cả khi bị tố giác, khoản phạt này cũng không phải lúc nào cũng chắc chắn xảy ra.
 
         </p>
     </article>
@@ -199,26 +204,27 @@ và ngay cả khi bị tố giác, khoản phạt này cũng không phải lúc 
         <h5>Luật báo cáo</h5>
         <p>
             Trong nhóm <i>Chủ động</i>, Người chơi Xanh phải quyết định xem họ có muốn tố giác người chơi Đỏ
-trong trường hợp người chơi Đỏ quyết định lấy cắp ECU từ nhóm <i>Thụ động</i> hay không.
-Việc tố giác được thực hiện ẩn danh và gửi cho người phụ trách thí nghiệm.
-Nếu người chơi Đỏ không lấy cắp, thì không có tố giác nào.
+            trong trường hợp người chơi Đỏ quyết định lấy cắp ECU từ nhóm <i>Thụ động</i> hay không.
+            Việc tố giác được thực hiện ẩn danh và gửi cho người phụ trách thí nghiệm.
+            Nếu người chơi Đỏ không lấy cắp, thì không có tố giác nào.
         </p>
         <p>
             If a Blue player decides to report the Red player and the Red player has stolen ECUs,
-the Blue player pays a reporting cost of {{ REPORTING_COST }} ECUs
-(which is deducted from their Part 1 earnings).
+            the Blue player pays a reporting cost of {{ REPORTING_COST }} ECUs
+            (which is deducted from their Part 1 earnings).
         </p>
         <ul>
             <li>
                 <u>Nếu người chơi Đỏ đã lấy cắp ECU :</u> <br>
                 <ul>
                     <li>Người chơi Xanh người tố giác phải trả <b>chi phí tố giác là {{ REPORTING_COST }} ECU</b>.</li>
-                    <li>NGười chơi đỏ bị tố giác sẽ bị phạt <b>một khoản phạt là{{ STEALING_PENALTY }} ECU</b> Với một khả năng là {{ AUDIT_PROBABILITY_STR }} (déduite de ses gains de la partie 1 et des
+                    <li>NGười chơi đỏ bị tố giác sẽ bị phạt <b>một khoản phạt là{{ STEALING_PENALTY }} ECU</b> Với một
+                        khả năng là {{ AUDIT_PROBABILITY_STR }} (déduite de ses gains de la partie 1 et des
                         {{ STEALING_AMOUNT }} ECU bị ăn cắp), hoặc không bị phạt gì cả với khả năng là
                         {{ NON_AUDIT_PROBABILITY_STR }}.
                     </li>
                     {{ if subsession.reward }}
-                    <li>Nếu người chơi đỏ bị phạt, người chơi xanh sẽ  <b>được bồi thường
+                    <li>Nếu người chơi đỏ bị phạt, người chơi xanh sẽ <b>được bồi thường
                         {{ REPORTING_REWARD }} ECU</b>.
                     </li>
                     {{ endif }}
@@ -238,12 +244,12 @@ the Blue player pays a reporting cost of {{ REPORTING_COST }} ECUs
         <h5>Tố giác ngẫu nhiên</h5>
         <p>
             Nếu người chơi Đỏ đã lấy cắp ECU, quyết định của một người chơi Xanh duy nhất
-(tố giác hay không) trong nhóm sẽ được chọn ngẫu nhiên bởi chương trình máy tính.
+            (tố giác hay không) trong nhóm sẽ được chọn ngẫu nhiên bởi chương trình máy tính.
         </p>
         <ul>
             <li>
                 Nếu quyết định được chọn là tố giác, thì người chơi Xanh trả chi phí tố giác
-và người chơi Đỏ bị tố giác.
+                và người chơi Đỏ bị tố giác.
             </li>
             <li>
                 Nếu quyết định được chọn là không tố giác, thì người chơi Đỏ không bị tố giác.
@@ -251,7 +257,7 @@ và người chơi Đỏ bị tố giác.
         </ul>
         <p>
             Quyết định của người chơi Xanh không được chọn thì không có tác dụng gì.
-Nếu người chơi Đỏ không lấy cắp ECU, thì không có gì xảy ra.
+            Nếu người chơi Đỏ không lấy cắp ECU, thì không có gì xảy ra.
         </p>
     </article>
 
@@ -270,7 +276,8 @@ Nếu người chơi Đỏ không lấy cắp ECU, thì không có gì xảy ra.
                 <li>Một người tham gia là người chơi Đỏ và hai người tham gia là người chơi Xanh.</li>
                 <li>
                     Người chơi Đỏ quyết định có muốn lấy cắp ECU từ nhóm Thụ động hay không
-(lấy cắp sẽ tăng thêm {{ STEALING_AMOUNT }} ECU vào thu nhập của anh ta và làm mất {{ STEALING_LOSS }} ECU của nhóm Thụ động).
+                    (lấy cắp sẽ tăng thêm {{ STEALING_AMOUNT }} ECU vào thu nhập của anh ta và làm mất {{ STEALING_LOSS
+                    }} ECU của nhóm Thụ động).
                 </li>
                 <li>
                     Người chơi Xanh quyết định xem họ có muốn tố giác người chơi Đỏ nếu anh ta lấy cắp ECU hay không.
@@ -281,10 +288,12 @@ Nếu người chơi Đỏ không lấy cắp ECU, thì không có gì xảy ra.
                         <li>Chương trình chọn ngẫu nhiên quyết định của một trong hai người chơi Xanh.</li>
                         <li>
                             Nếu quyết định được chọn là tố giác, người chơi Xanh trả chi phí {{ REPORTING_COST }} ECU.
-                            Người chơi Đỏ chịu một khoản phạt {{ STEALING_PENALTY }} ECU với xác suất {{ AUDIT_PROBABILITY_STR }},
+                            Người chơi Đỏ chịu một khoản phạt {{ STEALING_PENALTY }} ECU với xác suất {{
+                            AUDIT_PROBABILITY_STR }},
                             và không bị phạt với xác suất {{ NON_AUDIT_PROBABILITY_STR }}.
-
-                            Nếu người chơi Đỏ bị phạt, người chơi Xanh nhận được một phần thưởng {{ REPORTING_REWARD }} ECU.
+                            {{ if subsession.reward }}
+                            Nếu người chơi Đỏ bị phạt, người chơi Xanh nhận được một phần thưởng {{ REPORTING_REWARD }}
+                            ECU.
                             {{ endif }}
                         </li>
                         <li>

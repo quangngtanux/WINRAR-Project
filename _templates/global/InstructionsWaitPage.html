@@ -2,18 +2,18 @@
 
 {{ block styles }}
 <style>
-/* cacher toute barre de progression qui n'est pas la nôtre */
-.progress:not(.custom-progress) {
-    display: none !important;
-}
+    /* cacher toute barre de progression qui n'est pas la nôtre */
+    .progress:not(.custom-progress) {
+        display: none !important;
+    }
 </style>
 {{ endblock }}
 
 {{ block title }}
-{{ if fr }}
-Vui lòng đợi &hellip;
+{{ if is_defined('instructions_template_title') }}
+{{ instructions_template_title }}
 {{ else }}
-Please wait &hellip;
+Instructions
 {{ endif }}
 {{ endblock }}
 

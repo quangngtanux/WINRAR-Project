@@ -1,6 +1,6 @@
 from otree.api import *
 import random
-from settings import LANGUAGE_CODE
+from whistleblowing_commons.functions import trans
 
 doc = """
 IOS11 <br/>
@@ -8,10 +8,6 @@ Baader, M., Starmer, C., Tufano, F. et al. Introducing IOS11 as an extended inte
 ‘Inclusion of Other in the Self’ scale to estimate relationship closeness. 
 Sci Rep 14, 8901 (2024). https://doi.org/10.1038/s41598-024-58042-6
 """
-
-language = {"en": False, "fr": False}
-language[LANGUAGE_CODE] = True
-_ = lambda s: s[LANGUAGE_CODE]
 
 
 class C(BaseConstants):
@@ -47,14 +43,14 @@ class IOSPage(Page):
     @staticmethod
     def vars_for_template(player: Player):
         return dict(
-            **language
+            **player.session.vars["lang_dict"]
         )
 
     @staticmethod
     def js_vars(player: Player):
         return dict(
             fill_auto=player.session.config.get("fill_auto", False),
-            **language
+            **player.session.vars["lang_dict"]
         )
 
     @staticmethod

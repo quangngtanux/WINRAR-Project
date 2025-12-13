@@ -9,14 +9,14 @@
         The button of the corresponding operation will then turn orange to indicate that you have already solved it.
         Then select a new operation and repeat the process.
     </p>
-    {{ if subsession.treatment == INDIVIDUAL }}
+    {{ if individual }}
     <p>
         <b>Your earnings depend solely on your own performance</b> in the task and do not depend on the performance of
         the other group members.
         If the entered number is correct, your gain will increase by {{ PIECE_RATE }} ECU. If it is incorrect, your
         gain will remain unchanged.
     </p>
-    {{ elif subsession.treatment == COOPERATION }}
+    {{ elif cooperation }}
     <p>
         <b>Your earnings in this task will depend on the best scorer in the group.</b>
         The best scorer in the group is the group member who has successfully completed the most operations. For each
@@ -37,41 +37,46 @@
     </figure>
 </article>
 
-{{ elif fr }}
-<article lang="fr">
+{{ elif vi }}
+<article lang="vi">
     <p>
         Trong suốt {{ effort_duration }}, bạn sẽ phải <b>tính tổng các số.</b>
         Tổng cộng sẽ có {{ NUM_OPERATIONS }} phép tính được đưa ra cho bạn.
         Mỗi phép tính chứa các số và bạn cần tính ra tổng của chúng.
-    
+
     </p>
-    <p> Trước tiên, bạn phải <b>chọn một phép tính</b>  bằng cách nhấp vào một trong các nút {{ NUM_OPERATIONS }} có sẵn.
-Khi phép tính đã hiển thị, hãy tính tổng các số, nhập câu trả lời của bạn vào ô tương ứng, rồi nhấp vào <i>Valider</i> (Xác nhận).
-Nút của phép tính tương ứng sẽ chuyển sang màu cam để cho bạn biết rằng bạn đã thực hiện phép tính đó.
-Sau đó, hãy nhấp vào một nút khác để chọn một phép tính mới và lặp lại quy trình.
-        
+    <p> Trước tiên, bạn phải <b>chọn một phép tính</b> bằng cách nhấp vào một trong các nút {{ NUM_OPERATIONS }} có sẵn.
+        Khi phép tính đã hiển thị, hãy tính tổng các số, nhập câu trả lời của bạn vào ô tương ứng, rồi nhấp vào <i>Valider</i>
+        (Xác nhận).
+        Nút của phép tính tương ứng sẽ chuyển sang màu cam để cho bạn biết rằng bạn đã thực hiện phép tính đó.
+        Sau đó, hãy nhấp vào một nút khác để chọn một phép tính mới và lặp lại quy trình.
+
     </p>
-    {{ if subsession.treatment == INDIVIDUAL }}
+    {{ if individual }}
     <p>
-    <b>Thu nhập của bạn chỉ phụ thuộc vào hiệu suất của chính bạn</b>, không phụ thuộc vào hiệu suất của các thành viên khác trong nhóm.
-Với mỗi phép tính được thực hiện đúng, bạn sẽ nhận được {{ PIECE_RATE }} ECU.
+        <b>Thu nhập của bạn chỉ phụ thuộc vào hiệu suất của chính bạn</b>, không phụ thuộc vào hiệu suất của các thành
+        viên khác trong nhóm.
+        Với mỗi phép tính được thực hiện đúng, bạn sẽ nhận được {{ PIECE_RATE }} ECU.
     </p>
-    {{ elif subsession.treatment == COOPERATION }}
+    {{ elif cooperation }}
     <p>
         <b>Thu nhập của bạn trong nhiệm vụ này sẽ phụ thuộc vào điểm cao nhất trong nhóm.</b>
-Điểm cao nhất trong nhóm là điểm của thành viên trong nhóm đã thực hiện đúng nhiều phép tính nhất.
-Với mỗi phép tính được thực hiện đúng bởi thành viên có thành tích tốt nhất trong nhóm, mỗi thành viên trong nhóm sẽ nhận được {{ PIECE_RATE }} ECU.
-Vì vậy, đồng đội của bạn càng đạt kết quả tốt trong nhiệm vụ này, thu nhập của bạn sẽ càng cao.
+        Điểm cao nhất trong nhóm là điểm của thành viên trong nhóm đã thực hiện đúng nhiều phép tính nhất.
+        Với mỗi phép tính được thực hiện đúng bởi thành viên có thành tích tốt nhất trong nhóm, mỗi thành viên trong
+        nhóm sẽ nhận được {{ PIECE_RATE }} ECU.
+        Vì vậy, đồng đội của bạn càng đạt kết quả tốt trong nhiệm vụ này, thu nhập của bạn sẽ càng cao.
     </p>
     {{ endif }}
     <p>
-        <b>Bạn có thể thực hiện bao nhiêu phép tính tùy ý trong khoảng thời gian {{ effort_duration }} được phân bổ cho bạn.</b> <br>
+        <b>Bạn có thể thực hiện bao nhiêu phép tính tùy ý trong khoảng thời gian {{ effort_duration }} được phân bổ cho
+            bạn.</b> <br>
         Bạn sẽ được thông báo về thu nhập của mình cho nhiệm vụ này vào cuối buổi thí nghiệm.
     </p>
     <figure class="text-center">
-        <figcaption class="fst-italic text-muted fw-bold text-center">Ảnh chụp màn hình: các ô màu cam là những ô đã được xác nhận.
+        <figcaption class="fst-italic text-muted fw-bold text-center">Ảnh chụp màn hình: các ô màu cam là những ô đã
+            được xác nhận.
         </figcaption>
-        <img class="img-thumbnail mx-auto" alt="screenshot" src="{{ static 'whistleblowing_maths/screenshot_fr.png' }}">
+        <img class="img-thumbnail mx-auto" alt="screenshot" src="{{ static 'whistleblowing_maths/screenshot_vi.png' }}">
     </figure>
 </article>
 {{ endif }}

@@ -9,6 +9,8 @@
 {{ block title }}
 {{ if en }}
 Welcome
+{{ elif fr }}
+Bienvenue
 {{ elif vi }}
 Xin Chào
 {{ endif }}
@@ -23,8 +25,7 @@ Xin Chào
             <p>
                 You are invited to take part in a <b>research study about individual and group decision-making</b>.
                 Your participation will help us better understand how people interact with group members and authorities
-                in
-                various situations.
+                in various situations.
             </p>
             <p>
                 Your participation is entirely voluntary. If you agree to participate, you will receive a <b>fixed fee
@@ -35,11 +36,9 @@ Xin Chào
             </p>
             <p>
                 There are no foreseeable risks associated with participating in this study. You are free to withdraw at
-                any
-                time, for any reason, without penalty.
+                any time, for any reason, without penalty.
                 Please note, however, that since this is a group experiment, your withdrawal may affect the
-                participation
-                of other group members.
+                participation of other group members.
             </p>
 
             <h5>Confidentiality and Data Protection</h5>
@@ -67,41 +66,48 @@ Xin Chào
         </article>
 
         {{ elif vi }}
-        <article lang="fr">
+        <article lang="vi">
             <p>
-            Bạn được mời tham gia vào một nghiên cứu về việc ra quyết định cá nhân và tập thể. 
+                Bạn được mời tham gia vào một nghiên cứu về việc ra quyết định cá nhân và tập thể.
                 Sự tham gia của bạn sẽ giúp hiểu rõ hơn cách mọi người tương tác với các thành viên trong nhóm của mình,
                 và với các cơ quan có thẩm quyền trong nhiều tình huống khác nhau.
             </p>
             <p>
-                Sự tham gia của bạn hoàn toàn mang tính tự nguyện. Nếu bạn đồng ý tham gia, bạn sẽ nhận được một khoản thù lao cố định
-                <b>{{ session.config.participation_fee }}</b>, cũng như một khoản thưởng phụ thuộc vào các quyết định của bạn và của những người tham gia khác.
+                Sự tham gia của bạn hoàn toàn mang tính tự nguyện. Nếu bạn đồng ý tham gia, bạn sẽ nhận được một khoản
+                thù lao cố định
+                <b>{{ session.config.participation_fee }}</b>, cũng như một khoản thưởng phụ thuộc vào các quyết định
+                của bạn và của những người tham gia khác.
                 Buổi thực nghiệm sẽ kéo dài khoảng một giờ.
             </p>
             <p>
-                Đây là một buổi thử nghiệm không có bất kỳ rủi ro nào. 
-                Bạn hoàn toàn có thể rút lui bất cứ lúc nào, vì bất kỳ lý do gì, mà không phải chịu bất kỳ hình phạt nào.
-                Tuy nhiên, xin lưu ý rằng vì đây là một thí nghiệm theo nhóm, nên việc bạn rút lui có thể ảnh hưởng đến sự tham gia của các thành viên khác trong nhóm của bạn.
+                Đây là một buổi thử nghiệm không có bất kỳ rủi ro nào.
+                Bạn hoàn toàn có thể rút lui bất cứ lúc nào, vì bất kỳ lý do gì, mà không phải chịu bất kỳ hình phạt
+                nào.
+                Tuy nhiên, xin lưu ý rằng vì đây là một thí nghiệm theo nhóm, nên việc bạn rút lui có thể ảnh hưởng đến
+                sự tham gia của các thành viên khác trong nhóm của bạn.
             </p>
 
             <h5>Bảo mật và bảo vệ dữ liệu</h5>
             <p>
-                Tất cả các dữ liệu thu thập trong khuôn khổ nghiên cứu này sẽ chỉ được xử lý cho mục đích khoa học. 
+                Tất cả các dữ liệu thu thập trong khuôn khổ nghiên cứu này sẽ chỉ được xử lý cho mục đích khoa học.
                 Các câu trả lời của bạn sẽ được giữ kín
-                <b>hoàn toàn ẩn danh và được bảo mật.</b>. Không có thông tin nào cho phép nhận diện danh tính của bạn sẽ được thu thập hoặc gắn với các quyết định của bạn trong suốt quá trình thí nghiệm.
+                <b>hoàn toàn ẩn danh và được bảo mật.</b>. Không có thông tin nào cho phép nhận diện danh tính của bạn
+                sẽ được thu thập hoặc gắn với các quyết định của bạn trong suốt quá trình thí nghiệm.
                 Không có dữ liệu nào sẽ được chuyển ra ngoài Liên minh Châu Âu.
             </p>
             <p>
                 Người phụ trách việc xử lý dữ liệu là Dimitri Dubois (CEE-M, CNRS, Đại học Montpellier, Pháp).
-                Những người nhận dữ liệu là: Rustam Romaniuc (MBS, Montpellier Business School), Dimitri Dubois (CNRS, Đại học Montpellier) và Andrea Guido (PSB, Paris School of Business).
+                Những người nhận dữ liệu là: Rustam Romaniuc (MBS, Montpellier Business School), Dimitri Dubois (CNRS,
+                Đại học Montpellier) và Andrea Guido (PSB, Paris School of Business).
             </p>
             <p>
-                Bạn có quyền truy cập, chỉnh sửa hoặc xóa dữ liệu của mình. Để thực hiện các quyền này, 
+                Bạn có quyền truy cập, chỉnh sửa hoặc xóa dữ liệu của mình. Để thực hiện các quyền này,
                 bạn có thể liên hệ với Dimitri Dubois theo địa chỉ sau: dimitri.dubois@umontpellier.fr.
             </p>
             <p>
-                Nghiên cứu này được tài trợ bởi Cơ quan Nghiên cứu Quốc gia Pháp (ANR), mã dự án ANR-21-CE26-0016. 
-                Nếu bạn có bất kỳ câu hỏi nào liên quan đến nghiên cứu này, bạn có thể liên hệ với Rustam Romaniuc theo địa chỉ sau: r.romaniuc@mbs-education.com.
+                Nghiên cứu này được tài trợ bởi Cơ quan Nghiên cứu Quốc gia Pháp (ANR), mã dự án ANR-21-CE26-0016.
+                Nếu bạn có bất kỳ câu hỏi nào liên quan đến nghiên cứu này, bạn có thể liên hệ với Rustam Romaniuc theo
+                địa chỉ sau: r.romaniuc@mbs-education.com.
             </p>
         </article>
         {{ endif }}
@@ -112,7 +118,7 @@ Xin Chào
     <p>
         {{ if en }}
         Please confirm your consent to participate in this study by checking the box below:
-        {{ elif fr }}
+        {{ elif vi }}
         Vui lòng xác nhận đồng ý tham gia cuộc thí nghiệm bằng cách đánh vào ô phía bên dưới :
         {{ endif }}
     </p>
@@ -122,14 +128,18 @@ Xin Chào
             {{ if en }}
             I have read and understood the information provided above. I voluntarily agree to participate in this
             study.
-            {{ elif fr }}
+            {{ elif vi }}
             Tôi đã hiểu thông tin được cung cấp bên trên. Tôi hoàn toàn tự nguyện tham gia vào thí nghiệm này
             {{ endif }}
         </label>
     </p>
 </div>
 
+{{ if vi }}
+<button class="btn btn-primary otree-btn-next">Tiếp tục</button>
+{{ else }}
 {{ next_button }}
+{{ endif }}
 
 <div class="row mt-5">
     <div class="col-1">
@@ -144,7 +154,6 @@ Xin Chào
     <div class="col-1">
         <img src="{{ static 'whistleblowing_welcome/ceem.png' }}" alt="Logo CEE-M">
     </div>
-
 </div>
 
 {{ endblock }}

@@ -7,10 +7,10 @@
 {{ endblock }}
 
 {{ block title }}
-{{ if vi }}
-Vui lòng đợi &hellip;
+{{ if is_defined('instructions_template_title') }}
+{{ instructions_template_title }}
 {{ else }}
-Please wait &hellip;
+Instructions
 {{ endif }}
 {{ endblock }}
 
@@ -22,11 +22,16 @@ Please wait &hellip;
 </div>
 
 <p class="fw-bold text-muted mb-3 fs-5">
+    {{ if is_defined('instructions_wait_text') }}
+    {{ instructions_wait_text }}
+    {{ else }}
     {{ if fr }}
-    Vui lòng đợi những người tham gia khác.
+    En attente des autres participants.
     {{ else }}
     Waiting for the other participants.
     {{ endif }}
+    {{ endif }}
+
 </p>
 
 <div class="card mb-3">

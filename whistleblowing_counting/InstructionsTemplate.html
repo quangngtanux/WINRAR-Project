@@ -12,7 +12,7 @@
         counted it. Click on another button to select another grid and repeat the process.
     </p>
 
-    {{ if subsession.treatment == INDIVIDUAL }}
+    {{ if individual }}
     <p>
         <b>Your earnings will depend solely on your own performance</b> in the task and do not depend on the performance
         of the other group members.
@@ -20,7 +20,7 @@
         gain will remain unchanged. <br>
     </p>
 
-    {{ elif subsession.treatment == COOPERATION }}
+    {{ elif cooperation }}
     <p>
         <b>Your earnings in this task will depend on the best scorer in the group.</b>
         The best scorer in the group is the group member who has successfully completed the most grids. For each grid
@@ -44,47 +44,49 @@
 </article>
 
 {{ elif vi }}
-<article lang="fr">
+<article lang="vi">
     <p>
         Trong suốt {{ effort_duration }}, bạn sẽ phải đếm các “1” trong các bảng gồm
-{{ GRID_SIZE.0 }} hàng và {{ GRID_SIZE.1 }} cột, chỉ bao gồm “0” và “1”.
-Tổng cộng sẽ có {{ NUM_GRIDS }} bảng được đưa ra cho bạn.
+        {{ GRID_SIZE.0 }} hàng và {{ GRID_SIZE.1 }} cột, chỉ bao gồm “0” và “1”.
+        Tổng cộng sẽ có {{ NUM_GRIDS }} bảng được đưa ra cho bạn.
     </p>
     <p>
         Trước hết, bạn phải chọn một bảng bằng cách nhấp vào một trong {{ NUM_GRIDS }} nút có sẵn.
-Khi bảng hiện ra, hãy đếm số lượng “1” trong bảng đó, nhập câu trả lời vào ô tương ứng, rồi nhấp Xác nhận.
-Nút của bảng đã hoàn thành sẽ chuyển sang màu cam để báo rằng bạn đã đếm bảng đó rồi.
-Nhấp vào một nút khác để chọn một bảng mới và tiếp tục quy trình.
+        Khi bảng hiện ra, hãy đếm số lượng “1” trong bảng đó, nhập câu trả lời vào ô tương ứng, rồi nhấp Xác nhận.
+        Nút của bảng đã hoàn thành sẽ chuyển sang màu cam để báo rằng bạn đã đếm bảng đó rồi.
+        Nhấp vào một nút khác để chọn một bảng mới và tiếp tục quy trình.
     </p>
 
-    {{ if subsession.treatment == INDIVIDUAL }}
+    {{ if individual }}
     <p>
         Thu nhập của bạn chỉ phụ thuộc vào hiệu suất của chính bạn,
-không phụ thuộc vào hiệu suất của các thành viên khác trong nhóm.
-Với mỗi bảng được đếm đúng, bạn sẽ nhận được {{ PIECE_RATE }} ECU.
+        không phụ thuộc vào hiệu suất của các thành viên khác trong nhóm.
+        Với mỗi bảng được đếm đúng, bạn sẽ nhận được {{ PIECE_RATE }} ECU.
     </p>
 
-    {{ elif subsession.treatment == COOPERATION }}
+    {{ elif cooperation }}
     <p>
         Thu nhập của bạn trong nhiệm vụ này phụ thuộc vào điểm số cao nhất trong nhóm.
-Điểm cao nhất là điểm của thành viên đã đếm đúng số lượng “1” trong nhiều bảng nhất.
-Với mỗi bảng được đếm đúng bởi thành viên giỏi nhất, mỗi thành viên trong nhóm sẽ nhận được {{ PIECE_RATE }} ECU.
-Do đó, càng nhiều đồng đội của bạn đạt kết quả tốt, thu nhập của bạn càng cao.
+        Điểm cao nhất là điểm của thành viên đã đếm đúng số lượng “1” trong nhiều bảng nhất.
+        Với mỗi bảng được đếm đúng bởi thành viên giỏi nhất, mỗi thành viên trong nhóm sẽ nhận được {{ PIECE_RATE }}
+        ECU.
+        Do đó, càng nhiều đồng đội của bạn đạt kết quả tốt, thu nhập của bạn càng cao.
     </p>
 
     {{ endif }}
 
     <p>
-        <b>Bạn có thể hoàn thành bao nhiêu bảng tùy bạn muốn trong khoảng thời gian {{ effort_duration }} được phân bổ cho bạn.</b> <br>
-        Vous serez informé(e) de vos gains pour cette tâche à la fin de l'expérience.
+        <b>Bạn có thể hoàn thành bao nhiêu bảng tùy bạn muốn trong khoảng thời gian {{ effort_duration }} được phân bổ
+            cho bạn.</b> <br>
+        Bạn sẽ được thông báo về thu nhập của mình cho nhiệm vụ này vào cuối thí nghiệm.
     </p>
 
     <figure class="text-center">
         <figcaption class="fst-italic text-muted fw-bold text-center">
-            Capture d'écran : les cellules orange sont celles déjà comptées.
+            Ảnh chụp màn hình: các ô màu cam là những ô đã được đếm.
         </figcaption>
         <img class="img-thumbnail mx-auto" alt="screenshot"
-             src="{{ static 'whistleblowing_counting/screenshot_fr.png' }}">
+             src="{{ static 'whistleblowing_counting/screenshot_vi.png' }}">
     </figure>
 </article>
 {{ endif }}

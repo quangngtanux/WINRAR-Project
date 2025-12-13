@@ -58,6 +58,9 @@ function change() {
     if (js_vars.fr) {
         you = "Vous";
         others = "Autres";
+    } else if (js_vars.vi) {
+        you = "Bạn";
+        others = "Người khác";
     }
     ctx.font = "bold 24px 'Helvetica Neue', Helvetica, Arial, sans-serif";
     ctx.fillStyle = "#1f2937"; // Gris très foncé (presque noir) pour le texte

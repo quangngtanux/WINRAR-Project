@@ -1,9 +1,10 @@
-from otree.api import *
 import random
-from settings import LANGUAGE_CODE
 from pathlib import Path
-from whistleblowing_commons.config import Config, language, _
-from whistleblowing_commons.functions import seconds_to_minutes
+
+from otree.api import *
+
+from whistleblowing_commons.config import Config
+from whistleblowing_commons.functions import trans, seconds_to_minutes
 
 doc = """
 Sliders effort task
@@ -19,10 +20,8 @@ class C(BaseConstants):
 
 
 class Subsession(BaseSubsession):
-    treatment = models.StringField()
-
     def compute_payoffs(self):
-        if self.treatment == Config.INDIVIDUAL:
+        if self.session.vars["treatment"] == Config.INDIVIDUAL:
             for p in self.get_players():
                 p.payoff_ecu = p.sliders_performance * Config.PIECE_RATE
                 p.set_txt_final()
@@ -36,7 +35,6 @@ class Subsession(BaseSubsession):
                     p.set_txt_final()
 
     def creating_session(self):
-        self.treatment = self.session.config["treatment"]
         if "groups" not in self.session.vars:
             self.group_randomly()
             self.session.vars["groups"] = self.get_group_matrix()
@@ -61,27 +59,33 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     sliders_performance = models.IntegerField()
-    sliders_estimation = models.IntegerField(label=_(dict(en="Your guess:", fr="Votre estimation :")), min=0, max=100)
+    sliders_estimation = models.IntegerField(min=0, max=100)
     payoff_ecu = models.FloatField()
 
     def set_txt_final(self):
+        lang = self.session.vars["lang"]
+        treatment = self.session.vars["treatment"]
         pluriel = lambda x: "s" if x > 1 else ""
-        txt_final = _(dict(
+
+        txt_final = trans(dict(
             en=f"You successfully placed {self.sliders_performance} slider{pluriel(self.sliders_performance)}.",
             fr=f"Vous avez correctement placé {self.sliders_performance} curseur{pluriel(self.sliders_performance)}.",
-        ))
+            vi=f"Bạn đã đặt đúng {self.sliders_performance} thanh trượt.",
+        ), lang)
         txt_final += "<br>"
 
-        if self.subsession.treatment == Config.INDIVIDUAL:
-            txt_final += _(dict(
+        if treatment == Config.INDIVIDUAL:
+            txt_final += trans(dict(
                 en=f"Your payoff is therefore equal to {self.sliders_performance} x {Config.PIECE_RATE} = "
                    f"{self.payoff_ecu} ECU.",
                 fr=f"Votre gain est donc égal à {self.sliders_performance} x {Config.PIECE_RATE} = "
                    f"{self.payoff_ecu} ECU.",
-            ))
+                vi=f"Số tiền thưởng của bạn là {self.sliders_performance} x {Config.PIECE_RATE} = "
+                   f"{self.payoff_ecu} ECU.",
+            ), lang)
 
         else:  # COOPERATION
-            txt_final += _(dict(
+            txt_final += trans(dict(
                 en=f"The best scorer in your group successfully placed {self.group.sliders_performance_group} "
                    f"slider{pluriel(self.group.sliders_performance_group)}. The payoff of each member of your "
                    f"group is therefore equal to {self.group.sliders_performance_group} x "
@@ -91,7 +95,12 @@ class Player(BasePlayer):
                    f"Le gain de chaque membre de votre groupe est donc égal à "
                    f"{self.group.sliders_performance_group} x "
                    f"{Config.PIECE_RATE} = {self.payoff_ecu} ECU.",
-            ))
+                vi=f"Thành viên trong nhóm của bạn có điểm cao nhất đã đặt đúng "
+                   f"{self.group.sliders_performance_group} thanh trượt. "
+                   f"Số tiền thưởng của mỗi thành viên trong nhóm của bạn là "
+                   f"{self.group.sliders_performance_group} x "
+                   f"{Config.PIECE_RATE} = {self.payoff_ecu} ECU.",
+            ), lang)
 
         self.participant.vars[app_name] = dict(
             txt_final=txt_final,
@@ -110,11 +119,15 @@ class Player(BasePlayer):
 class MyPage(Page):
     @staticmethod
     def vars_for_template(player: Player):
+        lang = player.session.vars["lang"]
         return dict(
             instructions_template_path="whistleblowing_sliders/InstructionsTemplate.html",
-            instructions_template_title=_(dict(en="Task 3 - Instructions", fr="Tâche 3 - Instructions")),
+            instructions_template_title=trans(
+                dict(en="Task 3 - Instructions", fr="Tâche 3 - Instructions", vi="Nhiệm vụ 3 - Hướng dẫn"), lang),
             effort_duration=seconds_to_minutes(Config.EFFORT_DURATION),
-            **language,
+            timer_text=trans(dict(en="Remaining time:", fr="Temps restant :", vi="Thời gian còn lại:"), lang),
+            **player.session.vars["lang_dict"],
+            **player.session.vars["treatment_dict"],
             **Config.get_parameters(),
         )
 
@@ -122,13 +135,14 @@ class MyPage(Page):
     def js_vars(player: Player):
         return dict(
             fill_auto=player.session.config.get("fill_auto", False),
-            **language,
+            **player.session.vars["lang_dict"],
+            **player.session.vars["treatment_dict"],
             **Config.get_parameters(),
         )
 
 
 class Instructions(MyPage):
-    template_name = "global/Instructions.html"
+    template_name = "whistleblowing_commons/templates/Instructions.html"
 
 
 class InstructionsWaitForAll(WaitPage):
@@ -137,14 +151,21 @@ class InstructionsWaitForAll(WaitPage):
 
     @staticmethod
     def vars_for_template(player):
-        return MyPage.vars_for_template(player)
+        existing = MyPage.vars_for_template(player)
+        existing.update(
+            body_text=trans(dict(
+                en="Waiting for the other participants.",
+                fr="En attente des autres participants.",
+                vi="Đang chờ những người tham gia khác."
+            ), player.session.vars["lang"])
+        )
+        return existing
 
 
 class SlidersTask(MyPage):
     form_model = "player"
     form_fields = ["sliders_performance"]
     timeout_seconds = Config.EFFORT_DURATION
-    timer_text = _(dict(en="Remaining time:", fr="Temps restant :"))
 
     @staticmethod
     def vars_for_template(player: Player):
@@ -171,6 +192,14 @@ class SlidersTask(MyPage):
 class SlidersEstimation(MyPage):
     form_model = "player"
     form_fields = ["sliders_estimation"]
+
+    @staticmethod
+    def vars_for_template(player: Player):
+        existing = MyPage.vars_for_template(player)
+        lang = player.session.vars["lang"]
+        existing.update(
+            sliders_estimation_label=trans(dict(en="Your guess:", fr="Votre estimation :", vi="Dự đoán của bạn:"), lang))
+        return existing
 
     @staticmethod
     def before_next_page(player: Player, timeout_happened):

@@ -1,8 +1,9 @@
 from otree.api import *
-from whistleblowing_commons.config import language
+
 doc = """
 Welcome App
 """
+
 
 class C(BaseConstants):
     NAME_IN_URL = 'whwel'
@@ -14,10 +15,25 @@ class C(BaseConstants):
 
 class Subsession(BaseSubsession):
     country = models.StringField()
+    language = models.StringField()
+    treatment = models.StringField()
 
 
 def creating_session(subsession: Subsession):
-    subsession.country = subsession.session.config["country"]
+    subsession.country = subsession.session.config.get("country", "France")
+    # language
+    lang_code = subsession.session.config.get("language", "en")
+    subsession.language = lang_code
+    subsession.session.vars["lang"] = lang_code
+    lang_dict = dict(en=lang_code == "en", fr=lang_code == "fr", vi=lang_code == "vi")
+    subsession.session.vars["lang_dict"] = lang_dict
+    # treatment
+    treat_code = subsession.session.config.get("treatment", "cooperation")
+    subsession.treatment = treat_code
+    subsession.session.vars["treatment"] = treat_code
+    treat_dict = dict(cooperation=treat_code == "cooperation", individual=treat_code == "individual")
+    subsession.session.vars["treatment_dict"] = treat_dict
+    # groups
     subsession.group_randomly()
     subsession.session.vars["groups"] = subsession.get_group_matrix()
 
@@ -38,9 +54,7 @@ class Player(BasePlayer):
 class MyPage(Page):
     @staticmethod
     def vars_for_template(player: Player):
-        return dict(
-            **language
-        )
+        return dict(**player.session.vars["lang_dict"], **player.session.vars["treatment_dict"])
 
     @staticmethod
     def js_vars(player: Player):

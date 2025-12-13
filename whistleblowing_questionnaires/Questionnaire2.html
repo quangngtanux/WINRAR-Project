@@ -38,7 +38,7 @@ Bảng câu hỏi
             {{ endif }}
         </p>
         <label class="col-form-label small" for="id_share_friend_stranger">
-            {{ form.share_friend_stranger.label }}
+            {{ fields_labels.share_friend_stranger }}
             <output id="share_friend_stranger_out" for="id_share_friend_stranger" class="ms-1 fw-bold">0</output>
         </label>
         <div class="mb-3" style="width: 80%">
@@ -52,7 +52,11 @@ Bảng câu hỏi
     </div>
 </div>
 
+{{ if vi }}
+<button class="btn btn-primary otree-btn-next">Tiếp tục</button>
+{{ else }}
 {{ next_button }}
+{{ endif }}
 
 {{ endblock }}
 

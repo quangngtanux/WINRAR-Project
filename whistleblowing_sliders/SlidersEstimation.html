@@ -9,7 +9,7 @@
 {{ block title }}
 {{ if en }}
 Task 3: Guessing stage
-{{ elif fr }}
+{{ elif vi }}
 Nhiệm vụ 3: dự đoán
 {{ endif }}
 {{ endblock }}
@@ -18,7 +18,7 @@ Nhiệm vụ 3: dự đoán
 
 <div class="card bg-light mb-3">
     <div class="card-body">
-        {{ if subsession.treatment == INDIVIDUAL }}
+        {{ if individual }}
         <p>
             {{ if en }}
             You have now completed Task 3. Before proceeding to Part 2, please tell us your guess about the number of
@@ -28,7 +28,7 @@ Nhiệm vụ 3: dự đoán
             {{ endif }}
         </p>
 
-        {{ elif subsession.treatment == COOPERATION }}
+        {{ elif cooperation }}
         <p>
             {{ if en }}
             You have now completed Task 3. Before proceeding to part 2, please tell us your guess about the number of
@@ -44,12 +44,16 @@ Nhiệm vụ 3: dự đoán
 
 <div class="d-flex align-items-center mb-3">
     <label for="id_sliders_estimation" class="me-2 mb-0">
-        {{ form.sliders_estimation.label }}
+        {{ sliders_estimation_label }}
     </label>
     {{ form.sliders_estimation }}
 </div>
 
+{{ if vi }}
+<button class="btn btn-primary otree-btn-next">Tiếp tục</button>
+{{ else }}
 {{ next_button }}
+{{ endif }}
 
 {{ endblock }}
 

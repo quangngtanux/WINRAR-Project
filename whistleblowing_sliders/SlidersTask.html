@@ -73,10 +73,9 @@ Nhiệm vụ 3: Thanh trượt
 
         {{ elif vi }}
         <p>
-            Chọn một mục tiêu bằng cách nhấn vào nút tương ứng, đặt thanh trượt vào đúng giá trị mục tiêu rồi nhấn vào nút <i>Xác Nhận</i>. 
+            Chọn một mục tiêu bằng cách nhấn vào nút tương ứng, đặt thanh trượt vào đúng giá trị mục tiêu rồi nhấn vào
+            nút <i>Xác Nhận</i>.
             Sau đó, chọn một mục tiêu khác và lặp lại quy trình.
-            Sélectionnez une cible en cliquant sur le bouton correspondant, positionnez le curseur sur la valeur cible
-            et cliquez sur le bouton <i>Valider</i>. Ensuite, sélectionnez une autre cible et répétez le processus.
         </p>
         {{ endif }}
     </div>
@@ -104,7 +103,7 @@ Nhiệm vụ 3: Thanh trượt
     <p class="fw-bold">
         {{ if en }}
         Target value:
-        {{ elif fr }}
+        {{ elif vi }}
         Giá trị mong muốn đạt được :
         {{ endif }}
         <span id="target_value">{{ sliders.0.target }}</span>
@@ -151,8 +150,8 @@ Nhiệm vụ 3: Thanh trượt
 <script>
     const sliders = js_vars.sliders;
     let current_slider;
-    let slider_input = document.querySelector("input[type=range][name=slider]");  // the slider
-    let input_score = document.querySelector("#id_sliders_performance");  // the hidden input for the score
+    let slider_input = document.querySelector("input[type=range][name=slider]");
+    let input_score = document.querySelector("#id_sliders_performance");
 
     function display_slider(slider_number) {
         current_slider = sliders[slider_number - 1];
@@ -175,15 +174,11 @@ Nhiệm vụ 3: Thanh trượt
 
     function fill_auto() {
         let btn_sliders = document.querySelectorAll(".btn_slider");
-        // Chọn một nút ngẫu nhiên
         let randomIndex = Math.floor(Math.random() * btn_sliders.length);
         let selectedBtn = btn_sliders[randomIndex];
 
-        // Bước kiểm tra quan trọng : nút có hoạt động không ?
         if (!selectedBtn.disabled) {
             selectedBtn.click();
-
-            // Hãy đảm bảo rằng thanh trượt đã được sử dụng đúng cách
             if (current_slider) {
                 slider_input.value = Math.random() <= 0.5 ? Number(current_slider["target"]) : Math.floor(Math.random() * 100 + 1);
                 document.querySelector("#btn_validate").click();
