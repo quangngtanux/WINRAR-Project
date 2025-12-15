@@ -69,13 +69,13 @@ def get_scale_agreement(lang):
 
 def get_scale_income(lang):
     return [
-        [0, trans(dict(en="From 0$ to 1250$", fr="De 0€ à 1250€", vi="Từ 0$ đến 1250$"), lang)],
-        [1, trans(dict(en="From 1250$ to 2000$", fr="De 1250€ à 2000€", vi="Từ 1250$ đến 2000$"), lang)],
-        [2, trans(dict(en="From 2000$ to 4000$", fr="De 2000€ à 4000€", vi="Từ 2000$ đến 4000$"), lang)],
-        [3, trans(dict(en="From 4000$ to 6000$", fr="De 4000€ à 6000€", vi="Từ 4000$ đến 6000$"), lang)],
-        [4, trans(dict(en="From 6000$ to 8000$", fr="De 6000€ à 8000€", vi="Từ 6000$ đến 8000$"), lang)],
-        [5, trans(dict(en="From 8000$ to 12,500$", fr="De 8000€ à 12 500€", vi="Từ 8000$ đến 12,500$"), lang)],
-        [6, trans(dict(en="More than 12,500$", fr="Plus de 12 500€", vi="Hơn 12,500$"), lang)],
+        [0, trans(dict(en="From 0$ to 1250$", fr="De 0€ à 1250€", vi="Từ 0$ đến 5.000.000 VND"), lang)],
+        [1, trans(dict(en="From 1250$ to 2000$", fr="De 1250€ à 2000€", vi="Từ 5.000.000 đến 10.000.000 VND"), lang)],
+        [2, trans(dict(en="From 2000$ to 4000$", fr="De 2000€ à 4000€", vi="Từ 10.000.000 đến 15.000.000 VND"), lang)],
+        [3, trans(dict(en="From 4000$ to 6000$", fr="De 4000€ à 6000€", vi="Từ 15.000.000 đến 30.000.000 VND"), lang)],
+        [4, trans(dict(en="From 6000$ to 8000$", fr="De 6000€ à 8000€", vi="Từ 30.000.000 đến 45.000.000 VND"), lang)],
+        [5, trans(dict(en="From 8000$ to 12,500$", fr="De 8000€ à 12 500€", vi="Từ 45.000.000 đến 60.000.000 VND"), lang)],
+        [6, trans(dict(en="More than 12,500$", fr="Plus de 12 500€", vi="Hơn 60.000.000"), lang)],
         [999, trans(dict(en="I prefer not to say", fr="Je préfère ne pas répondre", vi="Tôi không muốn trả lời"), lang)]
     ]
 
@@ -162,7 +162,7 @@ def expectations_policy_household_choices(player):
 
 def agreement_policy_choices(player):
     lang = player.session.vars['lang']
-    return get_scale_agreement(lang)
+    return get_scale_policy(lang)
 
 
 def climate_knowledge_choices(player):
@@ -371,12 +371,12 @@ class Lexicon:
         fr="La solution que j'ai mentionnée aiderait à limiter et/ou atténuer les conséquences du changement climatique",
         vi="Giải pháp tôi đề cập sẽ giúp hạn chế và/hoặc giảm thiểu hậu quả của biến đổi khí hậu"
     )
-    expectations_policy_house_label = dict(
+    expectations_policy_household_label = dict(
         en="My household will win or lose financially from the solution I mentioned",
         fr="Mon foyer gagnera ou perdra financièrement de la solution que j'ai mentionnée",
         vi="Hộ gia đình tôi sẽ thắng hay thua về mặt tài chính từ giải pháp tôi đề cập"
     )
-    agreement_policy_economy_label = dict(
+    agreement_policy_label = dict(
         en="Do you support or oppose the solution you provided?",
         fr="Êtes-vous favorable ou opposé(e) à la solution que vous avez fournie ?",
         vi="Bạn ủng hộ hay phản đối giải pháp bạn đã đưa ra?"
@@ -402,48 +402,54 @@ class Lexicon:
         vi="Xếp hạng nhà máy điện hạt nhân"
     )
     info_freq_label = dict(
-        en="Over the past 3 months, how often did you acquire information...",
-        fr="Au cours des 3 derniers mois...",
-        vi="Trong 3 tháng qua, bạn có thường xuyên tiếp nhận thông tin..."
+        en="Over the past 3 months, how often did you acquire information and/or news? For information and news we refer to national, international, and regional/local news, as well as other news facts.",
+        fr="Au cours des 3 derniers mois XXX",
+        vi="Trong 3 tháng qua, bạn có thường xuyên tiếp nhận thông tin XXX"
     )
-    use_tv_label = dict(en="Television", fr="Télévision", vi="Truyền hình")
-    use_newspapers_label = dict(en="Newspapers", fr="Journaux", vi="Báo chí")
-    use_radio_label = dict(en="Radio", fr="Radio", vi="Đài phát thanh")
-    use_social_label = dict(en="Social media", fr="Réseaux sociaux", vi="Mạng xã hội")
-    use_online_label = dict(en="Online websites", fr="Sites web en ligne", vi="Trang web trực tuyến")
-    use_newsletters_label = dict(en="Newsletters", fr="Bulletins d'information", vi="Bản tin")
+    use_tv_label = dict(en="Television (e.g., national news, cable news)", fr="Télévision", vi="Truyền hình")
+    use_newspapers_label = dict(en="Printed Newspapers", fr="Journaux", vi="Báo chí")
+    use_radio_label = dict(en="Radio or podcasts", fr="Radio", vi="Đài phát thanh")
+    use_social_label = dict(en="Social media platforms", fr="Réseaux sociaux", vi="Mạng xã hội")
+    use_online_label = dict(en="News media websites or apps", fr="Sites web en ligne", vi="Trang web trực tuyến")
+    use_newsletters_label = dict(en="Newsletters or email subscriptions", fr="Bulletins d'information", vi="Bản tin")
     climate_info_freq_label = dict(
-        en="...about climate change?",
-        fr="...sur le changement climatique ?",
-        vi="...về biến đổi khí hậu?"
+        en="Over the past 3 months, how often did you acquire information and/or news about <b>climate change</b>? For information and news we refer to national, international, and regional/local news, as well as other news facts.",
+        fr=" XXX sur le changement climatique ?",
+        vi=" XXX về biến đổi khí hậu?"
     )
-    use_tv_climate_label = dict(en="Television", fr="Télévision", vi="Truyền hình")
-    use_newspapers_climate_label = dict(en="Newspapers", fr="Journaux", vi="Báo chí")
-    use_radio_climate_label = dict(en="Radio", fr="Radio", vi="Đài phát thanh")
-    use_social_climate_label = dict(en="Social media", fr="Réseaux sociaux", vi="Mạng xã hội")
-    use_online_climate_label = dict(en="Online websites", fr="Sites web en ligne", vi="Trang web trực tuyến")
-    use_newsletters_climate_label = dict(en="Newsletters", fr="Bulletins d'information", vi="Bản tin")
+    use_tv_climate_label = dict(en="Television (e.g., national news, cable news)", fr="Télévision", vi="Truyền hình")
+    use_newspapers_climate_label = dict(en="Printed Newspapers", fr="Journaux", vi="Báo chí")
+    use_radio_climate_label = dict(en="Radio or podcasts", fr="Radio", vi="Đài phát thanh")
+    use_social_climate_label = dict(en="Social media platforms", fr="Réseaux sociaux", vi="Mạng xã hội")
+    use_online_climate_label = dict(en="News media websites or apps", fr="Sites web en ligne", vi="Trang web trực tuyến")
+    use_newsletters_climate_label = dict(en="Newsletters or email subscriptions", fr="Bulletins d'information", vi="Bản tin")
     climate_threat_label = dict(
-        en="Do you think climate change will be a threat...?",
-        fr="Pensez-vous que le changement climatique sera une menace...?",
-        vi="Bạn có nghĩ rằng biến đổi khí hậu sẽ là một mối đe dọa...?"
+        en="Do you think climate change will be a threat to people in your country in the next 20 years?",
+        fr="Pensez-vous que le changement climatique sera une menace XXX",
+        vi="Bạn có nghĩ rằng biến đổi khí hậu sẽ là một mối đe dọa... XXX"
     )
-    expectations_droughts_label = dict(en="Severe droughts", fr="Sécheresses sévères", vi="Hạn hán nghiêm trọng")
-    expectations_eruptions_label = dict(en="Volcanic eruptions", fr="Éruptions volcaniques", vi="Phun trào núi lửa")
-    expectations_sea_label = dict(en="Sea level rise", fr="Montée du niveau de la mer", vi="Mực nước biển dâng")
+    expectations_droughts_label = dict(en="Severe droughts and heatwaves", fr="Sécheresses sévères", vi="Hạn hán nghiêm trọng XXX")
+    expectations_eruptions_label = dict(en="More frequent volcanic eruptions", fr="Éruptions volcaniques", vi="Phun trào núi lửa")
+    expectations_sea_label = dict(en="Rising sea levels", fr="Montée du niveau de la mer", vi="Mực nước biển dâng")
     expectations_agriculture_label = dict(
-        en="Agricultural disruption", fr="Perturbation agricole", vi="Gián đoạn nông nghiệp")
-    expectations_living_label = dict(en="Living conditions", fr="Conditions de vie", vi="Điều kiện sống")
-    expectations_migration_label = dict(en="Human migration", fr="Migrations humaines", vi="Di cư của con người")
-    expectations_conflicts_label = dict(en="Conflicts", fr="Conflits", vi="Xung đột")
-    expectations_extinction_label = dict(en="Species extinction", fr="Extinction des espèces", vi="Tuyệt chủng loài")
+        en="Lower agricultural production", fr="Perturbation agricole", vi="Gián đoạn nông nghiệp")
+    expectations_living_label = dict(en="Drop in standards of living", fr="Conditions de vie", vi="Điều kiện sống")
+    expectations_migration_label = dict(en="Larger migration flows", fr="Migrations humaines", vi="Di cư của con người")
+    expectations_conflicts_label = dict(en="More armed conflicts", fr="Conflits", vi="Xung đột")
+    expectations_extinction_label = dict(en="Extinction of humankind", fr="Extinction des espèces", vi="Tuyệt chủng loài")
     limit_flying_label = dict(en="Limit flying", fr="Limiter les vols", vi="Hạn chế đi máy bay")
     limit_driving_label = dict(en="Limit driving", fr="Limiter la conduite", vi="Hạn chế lái xe")
-    electric_vehicle_label = dict(en="Electric vehicle", fr="Véhicule électrique", vi="Xe điện")
-    limit_beef_label = dict(en="Limit beef", fr="Limiter le boeuf", vi="Hạn chế thịt bò")
-    limit_heating_label = dict(en="Limit heating", fr="Limiter le chauffage", vi="Hạn chế sưởi ấm")
-    income_label = dict(en="Income question...", fr="Question revenu...", vi="Câu hỏi về thu nhập...")
-    education_label = dict(en="Education question...", fr="Question éducation...", vi="Câu hỏi về giáo dục...")
+    electric_vehicle_label = dict(en="Have an electric vehicle", fr="Véhicule électrique", vi="Xe điện")
+    limit_beef_label = dict(en="Limit beef consumption", fr="Limiter le boeuf", vi="Hạn chế thịt bò")
+    limit_heating_label = dict(en="Limit heating or cooling your home", fr="Limiter le chauffage", vi="Hạn chế sưởi ấm")
+    income_label = dict(en="Thinking about your household, what would you estimate is its total net monthly "
+                            "income on average (after taxes and deductions)? Please include salaries, pensions, family allowances, "
+                            "unemployment benefits, or any other regular income.",
+                        fr="Question revenu...",
+                        vi="Câu hỏi về thu nhập...")
+    education_label = dict(en="What is the highest education level that you have achieved?",
+                           fr="Question éducation...",
+                           vi="Câu hỏi về giáo dục...")
 
     @staticmethod
     def _get_field_label(field_name, lang):
