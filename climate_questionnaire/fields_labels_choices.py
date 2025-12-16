@@ -442,7 +442,7 @@ class Lexicon:
                         vi="Khi nghĩ về thu nhập của gia đình bố mẹ bạn, bạn ước tính thu nhập ròng trung bình hàng tháng của họ là bao nhiêu (sau khi trừ thuế và các khoản khấu trừ)? Vui lòng bao gồm lương, lương hưu, trợ cấp gia đình, trợ cấp thất nghiệp hoặc bất kỳ nguồn thu nhập định kỳ nào khác.")
     education_label = dict(en="What is the highest education level that you have achieved?",
                            fr="Question éducation...",
-                           vi="Câu hỏi về giáo dục...")
+                           vi="Bạn đã đạt được trình độ học vấn cao nhất là gì?")
 
     @staticmethod
     def _get_field_label(field_name, lang):
