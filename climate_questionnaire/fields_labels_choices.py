@@ -325,14 +325,9 @@ class Lexicon:
             "Il n'y a pas de bonne ou de mauvaise réponse, répondez selon votre opinion sincère et personnelle. <br> "
             "[min. 50 mots]"),
         vi=(
-            "Theo bạn, những nguyên nhân nào giải thích cho các hiện tượng được mô tả trong đoạn văn trước (chẳng hạn "
-            "như sự gia tăng nhiệt độ toàn cầu và các hiện tượng thời tiết cực đoan hơn)? <br><br>"
-            "Vui lòng mô tả <b>nguyên nhân</b> của các hiện tượng được cho là do biến đổi khí hậu, và "
-            "<b>giải thích</b> cách các nguyên nhân này góp phần vào các hiện tượng này và có thể liên quan với "
-            "nhau như thế nào. <br><br> "
-            "Hãy giải thích lý do của bạn bằng các câu hoàn chỉnh. "
-            "Không có câu trả lời đúng hay sai, hãy trả lời theo ý kiến chân thành và cá nhân của bạn. <br> "
-            "[tối thiểu 50 từ]")
+            "Theo bạn, nguyên nhân của các hiện tượng được miêu tả trong đoạn văn trước đó là gì? (chẳng hạn như các số liệu về mức tăng nhiệt độ trung bình toàn cầu và các hiện tượng thời tiết cực đoan)? <br><br>"
+            "Vui lòng mô tả các <b>nguyên nhân</b> của những hiện tượng biến đổi khí hậu, và <b>giải thích</b> tại sao những nguyên nhân này góp phần tạo ra các hiện tượng đó, cũng như các nguyên nhân này có thể liên hệ với nhau như thế nào. <br><br> "
+            "Hãy giải thích lập luận của bạn bằng các câu hoàn chỉnh. Không có câu trả lời đúng hay sai; hãy trả lời theo ý kiến cá nhân theo những gì bạn nghĩ của bạn. <br> [tối thiểu 50 từ]")
     )
     narrative_confidence_label = dict(
         en="On a scale from 0 (very unconfident) to 100 (very confident), how confident are you about the explanation "
