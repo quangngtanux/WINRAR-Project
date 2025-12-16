@@ -431,10 +431,10 @@ class Lexicon:
     expectations_conflicts_label = dict(en="More armed conflicts", fr="Conflits", vi="Các cuộc xung đột vũ trang xuất hiện nhiều hơn")
     expectations_extinction_label = dict(en="Extinction of humankind", fr="Extinction des espèces", vi="Loài người sẽ bị tuyệt chủng")
     limit_flying_label = dict(en="Limit flying", fr="Limiter les vols", vi="Hạn chế đi máy bay")
-    limit_driving_label = dict(en="Limit driving", fr="Limiter la conduite", vi="Hạn chế lái xe")
-    electric_vehicle_label = dict(en="Have an electric vehicle", fr="Véhicule électrique", vi="Xe điện")
-    limit_beef_label = dict(en="Limit beef consumption", fr="Limiter le boeuf", vi="Hạn chế thịt bò")
-    limit_heating_label = dict(en="Limit heating or cooling your home", fr="Limiter le chauffage", vi="Hạn chế sưởi ấm")
+    limit_driving_label = dict(en="Limit driving", fr="Limiter la conduite", vi="Hạn chế lái xe ô tô")
+    electric_vehicle_label = dict(en="Have an electric vehicle", fr="Véhicule électrique", vi="Sở hữu một phương tiện chạy điện")
+    limit_beef_label = dict(en="Limit beef consumption", fr="Limiter le boeuf", vi="Hạn chế tiêu thụ thịt bò")
+    limit_heating_label = dict(en="Limit heating or cooling your home", fr="Limiter le chauffage", vi="Hạn chế sưởi ấm hoặc làm mát nhà của bạn")
     income_label = dict(en="Thinking about your household, what would you estimate is its total net monthly "
                             "income on average (after taxes and deductions)? Please include salaries, pensions, family allowances, "
                             "unemployment benefits, or any other regular income.",
