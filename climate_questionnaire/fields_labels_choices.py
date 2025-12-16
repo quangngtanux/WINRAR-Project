@@ -408,7 +408,7 @@ class Lexicon:
     climate_info_freq_label = dict(
         en="Over the past 3 months, how often did you acquire information and/or news about <b>climate change</b>? For information and news we refer to national, international, and regional/local news, as well as other news facts.",
         fr=" XXX sur le changement climatique ?",
-        vi=" XXX về biến đổi khí hậu?"
+        vi="Trong 3 tháng vừa qua, bạn đã tiếp nhận thông tin và/hoặc tin tức <b>về biến đổi khí hậu</b> với tần suất như thế nào? Ở đây, “thông tin và tin tức” bao gồm tin tức quốc gia, quốc tế, khu vực/địa phương, cũng như các tin tức, sự kiện khác."
     )
     use_tv_climate_label = dict(en="Television (e.g., national news, cable news)", fr="Télévision", vi="Truyền hình")
     use_newspapers_climate_label = dict(en="Printed Newspapers", fr="Journaux", vi="Báo chí")
