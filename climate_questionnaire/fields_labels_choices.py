@@ -439,7 +439,7 @@ class Lexicon:
                             "income on average (after taxes and deductions)? Please include salaries, pensions, family allowances, "
                             "unemployment benefits, or any other regular income.",
                         fr="Question revenu...",
-                        vi="Câu hỏi về thu nhập...")
+                        vi="Khi nghĩ về thu nhập của gia đình bố mẹ bạn, bạn ước tính thu nhập ròng trung bình hàng tháng của họ là bao nhiêu (sau khi trừ thuế và các khoản khấu trừ)? Vui lòng bao gồm lương, lương hưu, trợ cấp gia đình, trợ cấp thất nghiệp hoặc bất kỳ nguồn thu nhập định kỳ nào khác.")
     education_label = dict(en="What is the highest education level that you have achieved?",
                            fr="Question éducation...",
                            vi="Câu hỏi về giáo dục...")
