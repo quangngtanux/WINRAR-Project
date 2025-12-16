@@ -8,7 +8,7 @@ from whistleblowing_commons.functions import trans
 # ======================================================================================================================
 def get_scale_action(lang):
     return [
-        [-2, trans(dict(en="Not at all", fr="Pas du tout", vi="Hoàn toàn không"), lang)],
+        [-2, trans(dict(en="Not at all", fr="Pas du tout", vi="Không hề"), lang)],
         [-1, trans(dict(en="-1", fr="-1", vi="-1"), lang)],
         [0, trans(dict(en="Moderately", fr="Modérément", vi="Vừa phải"), lang)],
         [1, trans(dict(en="1", fr="1", vi="1"), lang)],
