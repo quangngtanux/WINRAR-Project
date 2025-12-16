@@ -50,9 +50,11 @@
         {{ formfield "rank_nuclear" label=fields_labels.rank_nuclear }}
     </div>
 </div>
-
+{{ if vi }}
+<button class="btn btn-primary otree-btn-next">Tiếp tục</button>
+{{ else }}
 {{ next_button }}
-
+{{ endif }}
 <p class="form-control-errors visually-hidden">
     {{ if en }}
     Please ensure that all ranks are unique.
