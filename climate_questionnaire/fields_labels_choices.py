@@ -421,15 +421,15 @@ class Lexicon:
         fr="Pensez-vous que le changement climatique sera une menace XXX",
         vi="Bạn có nghĩ rằng biến đổi khí hậu sẽ là một mối đe dọa đối với người dân ở Việt Nam trong 20 năm tới không?"
     )
-    expectations_droughts_label = dict(en="Severe droughts and heatwaves", fr="Sécheresses sévères", vi="Hạn hán nghiêm trọng XXX")
-    expectations_eruptions_label = dict(en="More frequent volcanic eruptions", fr="Éruptions volcaniques", vi="Phun trào núi lửa")
-    expectations_sea_label = dict(en="Rising sea levels", fr="Montée du niveau de la mer", vi="Mực nước biển dâng")
+    expectations_droughts_label = dict(en="Severe droughts and heatwaves", fr="Sécheresses sévères", vi="Hạn hán nghiêm trọng và các đợt nắng nóng kéo dài")
+    expectations_eruptions_label = dict(en="More frequent volcanic eruptions", fr="Éruptions volcaniques", vi="Có nhiều vụ phun trào núi lửa hơn ")
+    expectations_sea_label = dict(en="Rising sea levels", fr="Montée du niveau de la mer", vi="Mực nước biển dâng cao")
     expectations_agriculture_label = dict(
-        en="Lower agricultural production", fr="Perturbation agricole", vi="Gián đoạn nông nghiệp")
-    expectations_living_label = dict(en="Drop in standards of living", fr="Conditions de vie", vi="Điều kiện sống")
-    expectations_migration_label = dict(en="Larger migration flows", fr="Migrations humaines", vi="Di cư của con người")
-    expectations_conflicts_label = dict(en="More armed conflicts", fr="Conflits", vi="Xung đột")
-    expectations_extinction_label = dict(en="Extinction of humankind", fr="Extinction des espèces", vi="Tuyệt chủng loài")
+        en="Lower agricultural production", fr="Perturbation agricole", vi="Sản lượng nông nghiệp thấp hơn")
+    expectations_living_label = dict(en="Drop in standards of living", fr="Conditions de vie", vi="Chất lượng sống giảm")
+    expectations_migration_label = dict(en="Larger migration flows", fr="Migrations humaines", vi="Dòng người di cư nhiều hơn")
+    expectations_conflicts_label = dict(en="More armed conflicts", fr="Conflits", vi="Các cuộc xung đột vũ trang xuất hiện nhiều hơn")
+    expectations_extinction_label = dict(en="Extinction of humankind", fr="Extinction des espèces", vi="Loài người sẽ bị tuyệt chủng")
     limit_flying_label = dict(en="Limit flying", fr="Limiter les vols", vi="Hạn chế đi máy bay")
     limit_driving_label = dict(en="Limit driving", fr="Limiter la conduite", vi="Hạn chế lái xe")
     electric_vehicle_label = dict(en="Have an electric vehicle", fr="Véhicule électrique", vi="Xe điện")
