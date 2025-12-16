@@ -69,7 +69,7 @@ def get_scale_agreement(lang):
 
 def get_scale_income(lang):
     return [
-        [0, trans(dict(en="From 0$ to 1250$", fr="De 0€ à 1250€", vi="Từ 0$ đến 5.000.000 VND"), lang)],
+        [0, trans(dict(en="From 0$ to 1250$", fr="De 0€ à 1250€", vi="Từ 0 đến 5.000.000 VND"), lang)],
         [1, trans(dict(en="From 1250$ to 2000$", fr="De 1250€ à 2000€", vi="Từ 5.000.000 đến 10.000.000 VND"), lang)],
         [2, trans(dict(en="From 2000$ to 4000$", fr="De 2000€ à 4000€", vi="Từ 10.000.000 đến 15.000.000 VND"), lang)],
         [3, trans(dict(en="From 4000$ to 6000$", fr="De 4000€ à 6000€", vi="Từ 15.000.000 đến 30.000.000 VND"), lang)],
