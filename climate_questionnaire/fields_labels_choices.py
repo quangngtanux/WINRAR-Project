@@ -18,12 +18,12 @@ def get_scale_action(lang):
 
 def get_scale_policy(lang):
     return [
-        [-2, trans(dict(en="Strongly oppose", fr="Fortement opposé(e)", vi="Phản đối mạnh mẽ"), lang)],
+        [-2, trans(dict(en="Strongly oppose", fr="Fortement opposé(e)", vi="Hoàn toàn phản đối"), lang)],
         [-1, trans(dict(en="Somewhat oppose", fr="Plutôt opposé(e)", vi="Hơi phản đối"), lang)],
         [0, trans(dict(en="Neither support nor oppose", fr="Ni favorable ni opposé(e)",
-                       vi="Không ủng hộ cũng không phản đối"), lang)],
+                       vi="Không phản đối cũng không ủng hộ"), lang)],
         [1, trans(dict(en="Somewhat support", fr="Plutôt favorable", vi="Hơi ủng hộ"), lang)],
-        [2, trans(dict(en="Strongly support", fr="Fortement favorable", vi="Ủng hộ mạnh mẽ"), lang)]
+        [2, trans(dict(en="Strongly support", fr="Fortement favorable", vi="Hoàn toàn ủng hộ"), lang)]
     ]
 
 
@@ -154,9 +154,9 @@ def expectations_policy_household_choices(player):
     return [
         [-2, trans(dict(en="Lose a lot", fr="Perdre beaucoup", vi="Mất rất nhiều"), lang)],
         [-1, trans(dict(en="Lose", fr="Perdre", vi="Mất"), lang)],
-        [0, trans(dict(en="Neither win or lose", fr="Ni gagner ni perdre", vi="Không được cũng không mất"), lang)],
-        [1, trans(dict(en="Win", fr="Gagner", vi="Được"), lang)],
-        [2, trans(dict(en="Win a lot", fr="Gagner beaucoup", vi="Được rất nhiều"), lang)],
+        [0, trans(dict(en="Neither win or lose", fr="Ni gagner ni perdre", vi="Không lãi cũng không lỗ"), lang)],
+        [1, trans(dict(en="Win", fr="Gagner", vi="Được lợi"), lang)],
+        [2, trans(dict(en="Win a lot", fr="Gagner beaucoup", vi="Được lợi rất nhiều"), lang)],
     ]
 
 
@@ -357,22 +357,22 @@ class Lexicon:
     expectations_policy_economy_label = dict(
         en="The solution I mentioned would have a positive effect on my country’s economy and employment",
         fr="La solution que j'ai mentionnée aurait un effet positif sur l'économie et l'emploi de mon pays",
-        vi="Giải pháp tôi đề cập sẽ có tác động tích cực đến nền kinh tế và việc làm của đất nước tôi"
+        vi="Giải pháp mà tôi đã nêu sẽ có tác động tích cực đến kinh tế và tình hình việc làm ở nước tôi."
     )
     expectations_policy_cc_label = dict(
         en="The solution I mentioned would help limit and/or mitigate the consequences of climate change",
         fr="La solution que j'ai mentionnée aiderait à limiter et/ou atténuer les conséquences du changement climatique",
-        vi="Giải pháp tôi đề cập sẽ giúp hạn chế và/hoặc giảm thiểu hậu quả của biến đổi khí hậu"
+        vi="Giải pháp mà tôi đã nêu sẽ giúp hạn chế và/hoặc giảm nhẹ các hậu quả của biến đổi khí hậu."
     )
     expectations_policy_household_label = dict(
         en="My household will win or lose financially from the solution I mentioned",
         fr="Mon foyer gagnera ou perdra financièrement de la solution que j'ai mentionnée",
-        vi="Hộ gia đình tôi sẽ thắng hay thua về mặt tài chính từ giải pháp tôi đề cập"
+        vi="Gia đình của tôi sẽ được lợi hoặc chịu thiệt về tài chính từ giải pháp mà tôi đã nêu."
     )
     agreement_policy_label = dict(
         en="Do you support or oppose the solution you provided?",
         fr="Êtes-vous favorable ou opposé(e) à la solution que vous avez fournie ?",
-        vi="Bạn ủng hộ hay phản đối giải pháp bạn đã đưa ra?"
+        vi="Bạn ủng hộ hay phản đối giải pháp mà bạn đã đề xuất?"
     )
     climate_knowledge_label = dict(
         en="How knowledgeable do you consider yourself about climate change?",
