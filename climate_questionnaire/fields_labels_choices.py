@@ -168,9 +168,9 @@ def agreement_policy_choices(player):
 def climate_knowledge_choices(player):
     lang = player.session.vars['lang']
     return [
-        [0, trans(dict(en="Not at all", fr="Pas du tout", vi="Hoàn toàn không"), lang)],
+        [0, trans(dict(en="Not at all", fr="Pas du tout", vi="Không hề"), lang)],
         [1, trans(dict(en="A little", fr="Un peu", vi="Một chút"), lang)],
-        [2, trans(dict(en="Moderately", fr="Modérément", vi="Vừa phải"), lang)],
+        [2, trans(dict(en="Moderately", fr="Modérément", vi="Ở mức vừa phải"), lang)],
         [3, trans(dict(en="A lot", fr="Beaucoup", vi="Nhiều"), lang)],
         [4, trans(dict(en="A great deal", fr="Énormément", vi="Rất nhiều"), lang)]
     ]
@@ -377,7 +377,7 @@ class Lexicon:
     climate_knowledge_label = dict(
         en="How knowledgeable do you consider yourself about climate change?",
         fr="À quel point vous considérez-vous informé(e) sur le changement climatique ?",
-        vi="Bạn tự đánh giá mình có kiến thức về biến đổi khí hậu đến mức nào?"
+        vi="Bạn đánh giá kiến thức về biến đổi khí hậu của mình như thế nào?"
     )
     rank_coal_label = dict(
         en="Rank of Coal-fired power station",
