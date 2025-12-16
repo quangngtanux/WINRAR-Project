@@ -195,7 +195,7 @@ def climate_threat_choices(player):
         [2, trans(dict(
             en="Somewhat serious threat",
             fr="Une menace assez sérieuse",
-            vi="Mối đe dọa khá nghiêm trọng"
+            vi="Mối đe dọa tương đối nghiêm trọng"
         ), lang)],
         [1, trans(dict(
             en="Not a threat at all",
@@ -410,16 +410,16 @@ class Lexicon:
         fr=" XXX sur le changement climatique ?",
         vi="Trong 3 tháng vừa qua, bạn đã tiếp nhận thông tin và/hoặc tin tức <b>về biến đổi khí hậu</b> với tần suất như thế nào? Ở đây, “thông tin và tin tức” bao gồm tin tức quốc gia, quốc tế, khu vực/địa phương, cũng như các tin tức, sự kiện khác."
     )
-    use_tv_climate_label = dict(en="Television (e.g., national news, cable news)", fr="Télévision", vi="Truyền hình")
-    use_newspapers_climate_label = dict(en="Printed Newspapers", fr="Journaux", vi="Báo chí")
-    use_radio_climate_label = dict(en="Radio or podcasts", fr="Radio", vi="Đài phát thanh")
+    use_tv_climate_label = dict(en="Television (e.g., national news, cable news)", fr="Télévision", vi="Truyền hình (ví dụ như tin thời sự quốc gia, tin trên đài truyền hình cáp)")
+    use_newspapers_climate_label = dict(en="Printed Newspapers", fr="Journaux", vi="Báo in")
+    use_radio_climate_label = dict(en="Radio or podcasts", fr="Radio", vi="Radio hoặc podcasts")
     use_social_climate_label = dict(en="Social media platforms", fr="Réseaux sociaux", vi="Mạng xã hội")
-    use_online_climate_label = dict(en="News media websites or apps", fr="Sites web en ligne", vi="Trang web trực tuyến")
-    use_newsletters_climate_label = dict(en="Newsletters or email subscriptions", fr="Bulletins d'information", vi="Bản tin")
+    use_online_climate_label = dict(en="News media websites or apps", fr="Sites web en ligne", vi="Tin tức trên các trang web truyền thông hoặc các ứng dụng điện thoại")
+    use_newsletters_climate_label = dict(en="Newsletters or email subscriptions", fr="Bulletins d'information", vi="Bảng tin được gởi qua thư hoặc qua tài khoản mail được đăng ký")
     climate_threat_label = dict(
         en="Do you think climate change will be a threat to people in your country in the next 20 years?",
         fr="Pensez-vous que le changement climatique sera une menace XXX",
-        vi="Bạn có nghĩ rằng biến đổi khí hậu sẽ là một mối đe dọa... XXX"
+        vi="Bạn có nghĩ rằng biến đổi khí hậu sẽ là một mối đe dọa đối với người dân ở Việt Nam trong 20 năm tới không?"
     )
     expectations_droughts_label = dict(en="Severe droughts and heatwaves", fr="Sécheresses sévères", vi="Hạn hán nghiêm trọng XXX")
     expectations_eruptions_label = dict(en="More frequent volcanic eruptions", fr="Éruptions volcaniques", vi="Phun trào núi lửa")
