@@ -195,7 +195,7 @@ def climate_threat_choices(player):
         [2, trans(dict(
             en="Somewhat serious threat",
             fr="Une menace assez sérieuse",
-            vi="XXX"
+            vi="Mối đe dọa tương đối nghiêm trọng"
         ), lang)],
         [1, trans(dict(
             en="Not a threat at all",
