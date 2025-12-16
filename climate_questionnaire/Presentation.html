@@ -10,7 +10,7 @@
     {{ elif fr }}
     Bienvenue dans ce questionnaire
     {{ elif vi }}
-    Chào mừng bạn đến với bảng câu hỏi
+    Chào mừng bạn tham gia buổi khảo sát
     {{ endif }}
 </div>
 {{ endblock }}
@@ -116,43 +116,36 @@
 
                     {{ elif vi }}
                     <article lang="vi">
-                        <h3>Tuyên bố thông tin người tham gia</h3>
+                        <h3>Thông tin dành cho người tham gia</h3>
                         <br>
                         <p>
                             <b>Nghiên cứu bao gồm những gì?</b>
-                            Nghiên cứu này bao gồm một nhiệm vụ đơn giản và các bảng câu hỏi ngắn.
-
-                            Câu trả lời của bạn sẽ hoàn toàn ẩn danh.
-
-                            Không có câu trả lời đúng hay sai; chúng tôi chỉ đơn giản quan tâm đến quan điểm trung thực
-                            của bạn, dù chúng là gì.
+                            Ở nghiên cứu này, bạn sẽ thực hiện một nhiệm vụ đơn giản và một bảng câu hỏi ngắn. Câu trả lời của bạn sẽ hoàn toàn ẩn danh. 
+                            Không có câu trả lời đúng hay sai; chúng tôi rất muốn được lắng nghe ý kiến của các bạn về vấn đề. 
                             <br><br>
 
-                            <b>Ai đang thực hiện nghiên cứu?</b>
-                            Nghiên cứu đang được thực hiện bởi một nhóm nghiên cứu tại các trường đại học khác nhau ở
-                            Pháp (Trường Kinh doanh Paris, Đại học Montpellier). Mọi thắc mắc, bạn có thể liên hệ
-                            a.guido@psbedu.paris. <br><br>
+                            <b>Nghiên cứu này được thực hiện bởi ai?</b>
+                            Nghiên cứu này được thực hiện bởi một nhóm nhà nghiên cứu thuộc các trường đại học khác nhau tại Pháp (Paris School of Business, Đại học Montpellier). 
+                            Nếu có bất kỳ câu hỏi nào, bạn có thể liên hệ qua email: a.guido@psbedu.paris. <br><br>
 
-                            <b>Nghiên cứu sẽ mất bao nhiêu thời gian?</b>
-                            Bảng câu hỏi kéo dài khoảng 5 đến 10 phút, và bạn có thể dừng lại bất cứ lúc nào. <br><br>
+                            <b>Nghiên cứu này mất bao lâu?</b>
+                            Bảng hỏi kéo dài khoảng 5 đến 10 phút, và bạn có thể dừng lại bất kỳ lúc nào. <br><br>
 
                             <b>Nghiên cứu có lợi cho tôi không?</b>
-                            Những người trả lời hoàn thành nghiên cứu sẽ nhận được thù lao đã đăng vào tài khoản
-                            Prolific của họ. Nghiên cứu này có thể bao gồm các khoản thanh toán thưởng.<br><br>
+                            Khi tham gia nghiên cứu này, bạn sẽ được nhận thêm thù lao.<br><br>
 
-                            <b>Còn dữ liệu của tôi thì sao?</b>
-                            Tất cả các khía cạnh của nghiên cứu, bao gồm cả kết quả, sẽ được ẩn danh và chỉ các nhà
-                            nghiên cứu mới có quyền truy cập vào tất cả các câu trả lời.
+                            <b>Dữ liệu của tôi thì sao?</b>
+                            Tất cả các khía cạnh của nghiên cứu, bao gồm cả kết quả, đều sẽ ở dạng ẩn danh và chỉ các nhà nghiên cứu mới được quyền truy cập vào toàn bộ câu trả lời.
+                            
                         </p>
                         <p>
-                            Để tiếp tục, vui lòng nhấp vào "Tham gia".
+                            Để tiếp tục, vui lòng nhấp vào “Bắt đầu bảng câu hỏi”.
                         </p>
 
                         <hr class="my-4">
 
                         <p class="text-muted-small">
-                            Nếu bạn không muốn tham gia, bạn có thể nhấp vào nút
-                            <i>Bỏ qua</i> bên dưới.
+                            Nếu bạn không muốn tham gia, bạn có thể nhấp vào nút “Không tham gia” bên dưới.
                         </p>
                     </article>
                     {{ endif }}
@@ -167,7 +160,7 @@
             </button>
 
             <button class="btn btn-primary" name="skip" value="False">
-                {{ if en }} Participate {{ elif fr }} Participer {{ elif vi }} Tham gia {{ endif }}
+                {{ if en }} Participate {{ elif fr }} Participer {{ elif vi }} Bắt đầu bảng câu hỏi {{ endif }}
                 <i class="bi bi-arrow-right ms-1"></i>
             </button>
         </div>
