@@ -382,17 +382,17 @@ class Lexicon:
     rank_coal_label = dict(
         en="Rank of Coal-fired power station",
         fr="Classement centrale charbon",
-        vi="Xếp hạng nhà máy điện than"
+        vi="Xếp hạng của nhà máy điện than"
     )
     rank_gas_label = dict(
         en="Rank of Gas-fired power plant",
         fr="Classement centrale gaz",
-        vi="Xếp hạng nhà máy điện khí"
+        vi="Xếp hạng của nhà máy điện khí"
     )
     rank_nuclear_label = dict(
         en="Rank of Nuclear power plant",
         fr="Classement centrale nucléaire",
-        vi="Xếp hạng nhà máy điện hạt nhân"
+        vi="Xếp hạng của nhà máy điện hạt nhân"
     )
     info_freq_label = dict(
         en="Over the past 3 months, how often did you acquire information and/or news? For information and news we refer to national, international, and regional/local news, as well as other news facts.",
