@@ -344,9 +344,7 @@ class Lexicon:
         fr="Sur une échelle de 0 (très peu confiant) à 100 (très confiant), à quel point êtes-vous confiant "
            "concernant la réponse que vous avez fournie dans la question précédente sur les mesures et solutions que "
            "votre gouvernement devrait envisager pour lutter contre le changement climatique ?",
-        vi="Trên thang điểm từ 0 (rất không tự tin) đến 100 (rất tự tin), bạn tự tin đến mức nào về câu trả lời bạn đã "
-           "đưa ra trong câu hỏi trước về các biện pháp và giải pháp mà chính phủ của bạn nên xem xét để chống lại biến "
-           "đổi khí hậu?"
+        vi="Trên thang điểm từ 0 (rất không tự tin) đến 100 (rất tự tin), bạn tự tin đến mức nào về câu trả lời bạn đã đưa ra ở câu hỏi trước liên quan đến các biện pháp và giải pháp mà chính phủ nên xem xét để chống biến đổi khí hậu?"
     )
     policy_fight_label = dict(
         en="In your opinion, do you think your country should fight climate change?",
