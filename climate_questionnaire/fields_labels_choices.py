@@ -397,14 +397,14 @@ class Lexicon:
     info_freq_label = dict(
         en="Over the past 3 months, how often did you acquire information and/or news? For information and news we refer to national, international, and regional/local news, as well as other news facts.",
         fr="Au cours des 3 derniers mois XXX",
-        vi="Trong 3 tháng qua, bạn có thường xuyên tiếp nhận thông tin XXX"
+        vi="Trong 3 tháng vừa qua, bạn đã tiếp nhận thông tin và/hoặc tin tức với tần suất như thế nào? Ở đây, “thông tin và tin tức” bao gồm tin tức quốc gia, quốc tế, khu vực/địa phương, cũng như các tin tức, sự kiện khác."
     )
-    use_tv_label = dict(en="Television (e.g., national news, cable news)", fr="Télévision", vi="Truyền hình")
-    use_newspapers_label = dict(en="Printed Newspapers", fr="Journaux", vi="Báo chí")
-    use_radio_label = dict(en="Radio or podcasts", fr="Radio", vi="Đài phát thanh")
+    use_tv_label = dict(en="Television (e.g., national news, cable news)", fr="Télévision", vi="Truyền hình (ví dụ như tin thời sự quốc gia, tin trên đài truyền hình cáp)")
+    use_newspapers_label = dict(en="Printed Newspapers", fr="Journaux", vi="Báo in")
+    use_radio_label = dict(en="Radio or podcasts", fr="Radio", vi="Radio hoặc podcasts")
     use_social_label = dict(en="Social media platforms", fr="Réseaux sociaux", vi="Mạng xã hội")
-    use_online_label = dict(en="News media websites or apps", fr="Sites web en ligne", vi="Trang web trực tuyến")
-    use_newsletters_label = dict(en="Newsletters or email subscriptions", fr="Bulletins d'information", vi="Bản tin")
+    use_online_label = dict(en="News media websites or apps", fr="Sites web en ligne", vi="Tin tức trên các trang web truyền thông hoặc các ứng dụng điện thoại")
+    use_newsletters_label = dict(en="Newsletters or email subscriptions", fr="Bulletins d'information", vi="Bảng tin được gởi qua thư hoặc qua tài khoản mail được đăng ký")
     climate_info_freq_label = dict(
         en="Over the past 3 months, how often did you acquire information and/or news about <b>climate change</b>? For information and news we refer to national, international, and regional/local news, as well as other news facts.",
         fr=" XXX sur le changement climatique ?",
