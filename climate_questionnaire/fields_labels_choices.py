@@ -335,7 +335,7 @@ class Lexicon:
         fr="Sur une échelle de 0 (très peu confiant) à 100 (très confiant), à quel point êtes-vous confiant "
            "concernant l'explication que vous avez fournie dans la question précédente ?",
         vi="Trên thang điểm từ 0 (rất không tự tin) đến 100 (rất tự tin), bạn tự tin đến mức nào về lời giải thích "
-           "bạn đã đưa ra trong câu hỏi trước?"
+           "mà bạn đã đưa ra ở câu hỏi trước?"
     )
     confidence_policy_label = dict(
         en="On a scale from 0 (very unconfident) to 100 (very confident), how confident are you about the answer you "
