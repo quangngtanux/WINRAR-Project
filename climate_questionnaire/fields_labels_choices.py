@@ -351,10 +351,10 @@ class Lexicon:
     policy_fight_label = dict(
         en="In your opinion, do you think your country should fight climate change?",
         fr="Selon vous, votre pays devrait-il lutter contre le changement climatique ?",
-        vi="Theo bạn, đất nước của bạn có nên chống lại biến đổi khí hậu không?"
+        vi="Theo bạn, đất nước bạn có nên đấu tranh chống biến đổi khí hậu không?"
     )
     policy_narrative_label = dict(
-        en="Why?", fr="Pourquoi ?", vi="Tại sao?"
+        en="Why?", fr="Pourquoi XXX ?", vi="Tại sao?"
     )
     expectations_policy_economy_label = dict(
         en="The solution I mentioned would have a positive effect on my country’s economy and employment",
