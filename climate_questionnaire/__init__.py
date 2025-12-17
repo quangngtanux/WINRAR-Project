@@ -39,7 +39,7 @@ def creating_session(subsession: Subsession):
     subsession.session.vars[app_name]["amounts"] = amounts.get(subsession.session.vars["lang"])
 
     players = subsession.get_players()
-    k = len(players) // 10  # 10% of participants
+    k = max(1, len(players) // 10)  # 10% of participants with a minimum of 1
     subsession.session.vars[app_name]["num_selected"] = k
     selected_players = random.sample(players, k=k)
     for p in players:
@@ -328,6 +328,8 @@ class NarrativeSharing(MyPage):
         existing = MyPage.vars_for_template(player)
         amounts = player.session.vars[app_name]["amounts"]
         existing.update(
+            num_selected=player.session.vars[app_name]["num_selected"],
+            amount_example=amounts[0],
             fields_amounts={f'choice_{i}': am for i, am in enumerate(amounts, start=1)},
         )
         return existing
