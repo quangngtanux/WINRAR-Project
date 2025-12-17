@@ -34,15 +34,15 @@
                 <li>Option B: Receive a given monetary amount</li>
             </ul>
             <p>
-                For every tenth participant, we will randomly select one of the decisions (one row of the table below),
-                and implement it.
+                For {{ num_selected }} participant{{ if num_selected > 1 }}s{{ endif }} in this session, we will
+                randomly select one of the decisions (one row of the table below), and implement it.
             </p>
             <p>
                 For example, if you select "Option A" to the first row, and that row is randomly selected, we will give
                 your opinion to future participants. If you select "Option B" instead, and that row is selected, you
-                will receive {{ 0.01|cu }}.
+                will receive {{ amount_example|cu }}.
             </p>
-            <p>Payments will be done at the end of the survey.</p>
+            <p>Payments will be done at the end of the experiment.</p>
             <p>Indicate below the option you prefer for each decision.</p>
         </article>
 
@@ -66,13 +66,13 @@
                 <li>Option B : Recevoir un montant monétaire donné</li>
             </ul>
             <p>
-                Pour chaque dixième participant, nous sélectionnerons au hasard l'une des décisions (une ligne du
-                tableau ci-dessous) et l'appliquerons.
+                Pour {{ num_selected }} participant{{ if num_selected > 1 }}s{{ endif }} dans cette session, nous
+                sélectionnerons au hasard l'une des décisions (une ligne du tableau ci-dessous) et l'appliquerons.
             </p>
             <p>
                 Par exemple, si vous sélectionnez "Option A" pour la première ligne, et que cette ligne est sélectionnée
                 au hasard, nous donnerons votre avis aux futurs participants. Si vous sélectionnez "Option B" à la
-                place, et que cette ligne est sélectionnée, vous recevrez {{ 0.01|cu }}.
+                place, et que cette ligne est sélectionnée, vous recevrez {{ amount_example|cu }}.
             </p>
             <p>Les paiements seront effectués à la fin de l'étude.</p>
             <p>Indiquez ci-dessous l'option que vous préférez pour chaque décision.</p>
@@ -80,9 +80,9 @@
 
         {{ elif vi }}
         <article lang="vi">
-            <p> Cảm ơn bạn đã chia sẻ ý kiến của mình về các dữ kiện giải thích biến đổi khí hậu. </p>
+            <p>Cảm ơn bạn đã cho biết ý kiến về các dữ kiện giải thích biến đổi khí hậu.</p>
             <p>
-                Bây giờ, chúng tôi cho bạn cơ hội <b>chia sẻ</b> ý kiến của mình về biến đổi khí hậu với <b>những người
+                Bây giờ chúng tôi cho bạn cơ hội <b>chia sẻ</b> ý kiến của mình về biến đổi khí hậu với <b>những người
                 tham gia trong một nghiên cứu tương lai</b>.
             </p>
             <p>
@@ -94,24 +94,25 @@
             </p>
             <ul>
                 <li>Lựa chọn A: Chuyển ý kiến của tôi cho những người tham gia trong tương lai</li>
-                <li>Lựa chọn B: Nhận một khoản tiền nhất định</li>
+                <li>Lựa chọn B: Nhận một khoản tiền cố định</li>
             </ul>
             <p>
-                Với mỗi người tham gia thứ mười, chúng tôi sẽ chọn ngẫu nhiên một trong các quyết định (một dòng trong
-                bảng dưới đây) và thực hiện quyết định đó.
+                Trong phiên này, đối với {{ num_selected }} người tham gia, chúng tôi sẽ chọn ngẫu nhiên một trong các
+                quyết
+                định (một dòng trong bảng dưới đây) và thực hiện quyết định đó.
             </p>
             <p>
-                Ví dụ, nếu bạn chọn “Lựa chọn A” cho dòng thứ nhất và dòng này được chọn ngẫu nhiên, chúng tôi sẽ chuyển
-                ý kiến của bạn cho những người tham gia trong tương lai.
-                Nếu bạn chọn “Lựa chọn B” cho dòng đó và dòng này được chọn, bạn sẽ nhận được {{ 0.01|cu }}.
+                Ví dụ, nếu bạn chọn "Lựa chọn A" cho dòng đầu tiên và dòng đó được chọn ngẫu nhiên, chúng tôi sẽ chuyển
+                ý kiến của bạn cho những người tham gia trong tương lai. Nếu bạn chọn "Lựa chọn B" và dòng đó được chọn,
+                bạn sẽ nhận được {{ amount_example|cu }}.
             </p>
-            <p>Số tiền bạn nhận được sẽ được thanh toán vào cuối khảo sát.</p>
-            <p>Vui lòng cho biết lựa chọn nào bạn sẽ ưu tiên chọn cho mỗi quyết định dưới đây.</p>
-
+            <p>Số tiền sẽ được chi trả vào cuối khảo sát.</p>
+            <p>Vui lòng cho biết lựa chọn bạn ưu tiên cho mỗi quyết định dưới đây.</p>
         </article>
         {{ endif }}
 
-        {#<table class="mpl-table">
+        {#
+        <table class="mpl-table">
             <tr>
                 <td class="header">
                     {{ if en }} Option A
@@ -246,7 +247,8 @@
                     {{ endif }}
                 </td>
             </tr>
-        </table>#}
+        </table>
+        #}
 
         <table class="table table-sm align-middle w-auto mx-auto">
             <thead>
