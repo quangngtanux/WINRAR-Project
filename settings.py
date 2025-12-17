@@ -80,7 +80,7 @@ SESSION_CONFIGS = [
         real_world_currency_per_point=0.1 * 10000,
         participation_fee=5.00 * 10000,
         country="Vietnam",
-        language="en",
+        language="vi",
         treatment='cooperation',
         reward=False,
         doc="<p class='text-warning fw-bold'>The minimum is 6 participants.</p>"
@@ -93,7 +93,7 @@ SESSION_CONFIGS = [
         real_world_currency_per_point=0.1 * 10000,
         participation_fee=5.00 * 10000,
         country="Vietnam",
-        language="en",
+        language="vi",
         treatment='cooperation',
         reward=False,
         doc="<p class='text-warning fw-bold'>The minimum is 6 participants.</p>"
