@@ -392,8 +392,7 @@ class MediaConsumption(MyPage):
             ),
             fields_radios=['use_tv', 'use_newspapers', 'use_radio', 'use_social', 'use_online', 'use_newsletters'],
             fields_radios_climate=['use_tv_climate', 'use_newspapers_climate', 'use_radio_climate',
-                                   'use_social_climate',
-                                   'use_online_climate', 'use_newsletters_climate']
+                                   'use_social_climate', 'use_online_climate', 'use_newsletters_climate']
         )
         return existing
 

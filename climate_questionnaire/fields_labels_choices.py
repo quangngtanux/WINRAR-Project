@@ -325,9 +325,13 @@ class Lexicon:
             "Il n'y a pas de bonne ou de mauvaise réponse, répondez selon votre opinion sincère et personnelle. <br> "
             "[min. 50 mots]"),
         vi=(
-            "Theo bạn, nguyên nhân của các hiện tượng được miêu tả trong đoạn văn trước đó là gì? (chẳng hạn như các số liệu về mức tăng nhiệt độ trung bình toàn cầu và các hiện tượng thời tiết cực đoan)? <br><br>"
-            "Vui lòng mô tả các <b>nguyên nhân</b> của những hiện tượng biến đổi khí hậu, và <b>giải thích</b> tại sao những nguyên nhân này góp phần tạo ra các hiện tượng đó, cũng như các nguyên nhân này có thể liên hệ với nhau như thế nào. <br><br> "
-            "Hãy giải thích lập luận của bạn bằng các câu hoàn chỉnh. Không có câu trả lời đúng hay sai; hãy trả lời theo ý kiến cá nhân theo những gì bạn nghĩ của bạn. <br> [tối thiểu 50 từ]")
+            "Theo bạn, nguyên nhân của các hiện tượng được miêu tả trong đoạn văn trước đó là gì? (chẳng hạn như các "
+            "số liệu về mức tăng nhiệt độ trung bình toàn cầu và các hiện tượng thời tiết cực đoan)? <br><br>"
+            "Vui lòng mô tả các <b>nguyên nhân</b> của những hiện tượng biến đổi khí hậu, và <b>giải thích</b> tại "
+            "sao những nguyên nhân này góp phần tạo ra các hiện tượng đó, cũng như các nguyên nhân này có thể liên "
+            "hệ với nhau như thế nào. <br><br> "
+            "Hãy giải thích lập luận của bạn bằng các câu hoàn chỉnh. Không có câu trả lời đúng hay sai; hãy trả "
+            "lời theo ý kiến cá nhân theo những gì bạn nghĩ của bạn. <br> [tối thiểu 50 từ]")
     )
     narrative_confidence_label = dict(
         en="On a scale from 0 (very unconfident) to 100 (very confident), how confident are you about the explanation "
@@ -344,7 +348,9 @@ class Lexicon:
         fr="Sur une échelle de 0 (très peu confiant) à 100 (très confiant), à quel point êtes-vous confiant "
            "concernant la réponse que vous avez fournie dans la question précédente sur les mesures et solutions que "
            "votre gouvernement devrait envisager pour lutter contre le changement climatique ?",
-        vi="Trên thang điểm từ 0 (rất không tự tin) đến 100 (rất tự tin), bạn tự tin đến mức nào về câu trả lời bạn đã đưa ra ở câu hỏi trước liên quan đến các biện pháp và giải pháp mà chính phủ nên xem xét để chống biến đổi khí hậu?"
+        vi="Trên thang điểm từ 0 (rất không tự tin) đến 100 (rất tự tin), bạn tự tin đến mức nào về câu trả lời bạn "
+           "đã đưa ra ở câu hỏi trước liên quan đến các biện pháp và giải pháp mà chính phủ nên xem xét để chống biến "
+           "đổi khí hậu?"
     )
     policy_fight_label = dict(
         en="In your opinion, do you think your country should fight climate change?",
@@ -395,26 +401,47 @@ class Lexicon:
         vi="Xếp hạng của nhà máy điện hạt nhân"
     )
     info_freq_label = dict(
-        en="Over the past 3 months, how often did you acquire information and/or news? For information and news we refer to national, international, and regional/local news, as well as other news facts.",
+        en="Over the past 3 months, how often did you acquire information and/or news? For information and "
+           "news we refer to national, international, and regional/local news, as well as other news facts.",
         fr="Au cours des 3 derniers mois XXX",
-        vi="Trong 3 tháng vừa qua, bạn đã tiếp nhận thông tin và/hoặc tin tức với tần suất như thế nào? Ở đây, “thông tin và tin tức” bao gồm tin tức quốc gia, quốc tế, khu vực/địa phương, cũng như các tin tức, sự kiện khác."
+        vi="Trong 3 tháng vừa qua, bạn đã tiếp nhận thông tin và/hoặc tin tức với tần suất như thế nào? Ở đây, "
+           "“thông tin và tin tức” bao gồm tin tức quốc gia, quốc tế, khu vực/địa phương, cũng như các tin tức, "
+           "sự kiện khác."
     )
-    use_tv_label = dict(en="Television (e.g., national news, cable news)", fr="Télévision", vi="Truyền hình (ví dụ như tin thời sự quốc gia, tin trên đài truyền hình cáp)")
+    use_tv_label = dict(
+        en="Television (e.g., national news, cable news)",
+        fr="Télévision",
+        vi="Truyền hình (ví dụ như tin thời sự quốc gia, tin trên đài truyền hình cáp)")
     use_newspapers_label = dict(en="Printed Newspapers", fr="Journaux", vi="Báo in")
     use_radio_label = dict(en="Radio or podcasts", fr="Radio", vi="Radio hoặc podcasts")
     use_social_label = dict(en="Social media platforms", fr="Réseaux sociaux", vi="Mạng xã hội")
-    use_online_label = dict(en="News media websites or apps", fr="Sites web en ligne", vi="Tin tức trên các trang web truyền thông hoặc các ứng dụng điện thoại")
-    use_newsletters_label = dict(en="Newsletters or email subscriptions", fr="Bulletins d'information", vi="Bảng tin được gởi qua thư hoặc qua tài khoản mail được đăng ký")
+    use_online_label = dict(
+        en="News media websites or apps",
+        fr="Sites web en ligne",
+        vi="Tin tức trên các trang web truyền thông hoặc các ứng dụng điện thoại")
+    use_newsletters_label = dict(
+        en="Newsletters or email subscriptions",
+        fr="Bulletins d'information",
+        vi="Bảng tin được gởi qua thư hoặc qua tài khoản mail được đăng ký")
     climate_info_freq_label = dict(
-        en="Over the past 3 months, how often did you acquire information and/or news about <b>climate change</b>? For information and news we refer to national, international, and regional/local news, as well as other news facts.",
+        en="Over the past 3 months, how often did you acquire information and/or news about <b>climate change</b>? "
+           "For information and news we refer to national, international, and regional/local news, as well as other news facts.",
         fr=" XXX sur le changement climatique ?",
-        vi="Trong 3 tháng vừa qua, bạn đã tiếp nhận thông tin và/hoặc tin tức <b>về biến đổi khí hậu</b> với tần suất như thế nào? Ở đây, “thông tin và tin tức” bao gồm tin tức quốc gia, quốc tế, khu vực/địa phương, cũng như các tin tức, sự kiện khác."
+        vi="Trong 3 tháng vừa qua, bạn đã tiếp nhận thông tin và/hoặc tin tức <b>về biến đổi khí hậu</b> với tần "
+           "suất như thế nào? Ở đây, “thông tin và tin tức” bao gồm tin tức quốc gia, quốc tế, khu vực/địa phương, "
+           "cũng như các tin tức, sự kiện khác."
     )
-    use_tv_climate_label = dict(en="Television (e.g., national news, cable news)", fr="Télévision", vi="Truyền hình (ví dụ như tin thời sự quốc gia, tin trên đài truyền hình cáp)")
+    use_tv_climate_label = dict(
+        en="Television (e.g., national news, cable news)",
+        fr="Télévision",
+        vi="Truyền hình (ví dụ như tin thời sự quốc gia, tin trên đài truyền hình cáp)")
     use_newspapers_climate_label = dict(en="Printed Newspapers", fr="Journaux", vi="Báo in")
     use_radio_climate_label = dict(en="Radio or podcasts", fr="Radio", vi="Radio hoặc podcasts")
     use_social_climate_label = dict(en="Social media platforms", fr="Réseaux sociaux", vi="Mạng xã hội")
-    use_online_climate_label = dict(en="News media websites or apps", fr="Sites web en ligne", vi="Tin tức trên các trang web truyền thông hoặc các ứng dụng điện thoại")
+    use_online_climate_label = dict(
+        en="News media websites or apps",
+        fr="Sites web en ligne",
+        vi="Tin tức trên các trang web truyền thông hoặc các ứng dụng điện thoại")
     use_newsletters_climate_label = dict(en="Newsletters or email subscriptions", fr="Bulletins d'information", vi="Bảng tin được gởi qua thư hoặc qua tài khoản mail được đăng ký")
     climate_threat_label = dict(
         en="Do you think climate change will be a threat to people in your country in the next 20 years?",
@@ -439,7 +466,9 @@ class Lexicon:
                             "income on average (after taxes and deductions)? Please include salaries, pensions, family allowances, "
                             "unemployment benefits, or any other regular income.",
                         fr="Question revenu...",
-                        vi="Khi nghĩ về thu nhập của gia đình bố mẹ bạn, bạn ước tính thu nhập ròng trung bình hàng tháng của họ là bao nhiêu (sau khi trừ thuế và các khoản khấu trừ)? Vui lòng bao gồm lương, lương hưu, trợ cấp gia đình, trợ cấp thất nghiệp hoặc bất kỳ nguồn thu nhập định kỳ nào khác.")
+                        vi="Khi nghĩ về thu nhập của gia đình bố mẹ bạn, bạn ước tính thu nhập ròng trung bình hàng "
+                           "tháng của họ là bao nhiêu (sau khi trừ thuế và các khoản khấu trừ)? Vui lòng bao gồm lương, "
+                           "lương hưu, trợ cấp gia đình, trợ cấp thất nghiệp hoặc bất kỳ nguồn thu nhập định kỳ nào khác.")
     education_label = dict(en="What is the highest education level that you have achieved?",
                            fr="Question éducation...",
                            vi="Bạn đã đạt được trình độ học vấn cao nhất là gì?")
