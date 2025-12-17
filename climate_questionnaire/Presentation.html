@@ -6,11 +6,11 @@
 {{ block title }}
 <div class="text-center mb-4">
     {{ if en }}
-    Welcome to this survey
+    Invitation to an additional study
     {{ elif fr }}
-    Bienvenue dans ce questionnaire
+    Invitation à une étude supplémentaire
     {{ elif vi }}
-    Chào mừng bạn tham gia buổi khảo sát
+    Mời tham gia một nghiên cứu bổ sung
     {{ endif }}
 </div>
 {{ endblock }}
@@ -18,6 +18,16 @@
 {{ block content }}
 <div class="row justify-content-center">
     <div class="col-md-10 col-lg-8">
+
+        <div class="alert alert-info mb-4 text-center" role="alert">
+            {{ if en }}
+            You have completed the main part of the experiment. We now offer you the opportunity to participate in a short, <b>optional</b> questionnaire.
+            {{ elif fr }}
+            Vous avez terminé la partie principale de l'expérience. Nous vous proposons maintenant de participer à un court questionnaire <b>facultatif</b>.
+            {{ elif vi }}
+            Bạn đã hoàn thành phần chính của thí nghiệm. Bây giờ chúng tôi mời bạn tham gia một bảng câu hỏi ngắn và <b>không bắt buộc</b>.
+            {{ endif }}
+        </div>
 
         <div class="card experiment-card mb-4">
             <div class="card-body p-4">
@@ -29,60 +39,46 @@
                 <div class="text-start">
                     {{ if en }}
                     <article lang="en">
-                        <h3>Participant Information Statement</h3>
-                        <br>
+                        <h4 class="text-center mb-4">Information Statement</h4>
+
                         <p>
                             <b>What does the study involve?</b>
-                            This study consists of a simple task and short questionnaires.
-
+                            This additional study consists of simple questions regarding your views.
                             Your response will remain completely anonymous.
-
-                            There are no right or wrong answers; we are simply interested in your honest views, whatever
-                            they may be.
+                            There are no right or wrong answers; we are simply interested in your honest views.
                             <br><br>
 
                             <b>Who is carrying out the study?</b>
-                            The study is being conducted by a team of research at different universities in France
-                            (Paris
-                            School of Business, University of Montpellier). For any question, you can contact
+                            The study is being conducted by a team of researchers at different universities in France
+                            (Paris School of Business, University of Montpellier). For any question, you can contact
                             a.guido@psbedu.paris. <br><br>
 
-                            <b>How much time will the study take?</b>
-                            The questionnaire lasts approximately 5 to 10 minutes, and you can stop at any time.
+                            <b>How much time will it take?</b>
+                            It lasts approximately 5 to 10 minutes, and you can stop at any time.
                             <br><br>
 
                             <b>Will the study benefit me?</b>
                             Respondents who complete the study will receive the posted remuneration into their Prolific
                             account. This study may include bonus payments.<br><br>
-
-                            <b>What about my data?</b>
-                            All aspects of the study, including results, will be anonymous and only the researchers will
-                            have access to all the responses.
-                        </p>
-                        <p>
-                            To continue, please click on "Start the questionnaire".
                         </p>
 
                         <hr class="my-4">
 
-                        <p class="text-muted-small">
-                            If you do not wish to participate, you can click on the
-                            <i>Skip</i> button below.
+                        <p class="text-center">
+                            <b>Do you wish to participate?</b>
                         </p>
                     </article>
 
                     {{ elif fr }}
                     <article lang="fr">
-                        <h3>Déclaration d'information du participant</h3>
-                        <br>
+                        <h4 class="text-center mb-4">Déclaration d'information</h4>
+
                         <p>
                             <b>En quoi consiste l'étude ?</b>
-                            Cette étude consiste en une tâche simple et de courts questionnaires.
-
+                            Cette étude supplémentaire consiste en de simples questions sur vos opinions.
                             Votre réponse restera entièrement anonyme.
-
                             Il n'y a pas de bonnes ou de mauvaises réponses ; nous sommes simplement intéressés par vos
-                            opinions honnêtes, quelles qu'elles soient.
+                            opinions honnêtes.
                             <br><br>
 
                             <b>Qui mène l'étude ?</b>
@@ -90,62 +86,48 @@
                             School of Business, Université de Montpellier). Pour toute question, vous pouvez contacter
                             a.guido@psbedu.paris. <br><br>
 
-                            <b>Combien de temps durera l'étude ?</b>
-                            Le questionnaire dure environ 5 à 10 minutes, et vous pouvez vous arrêter à tout moment.
+                            <b>Combien de temps cela prendra-t-il ?</b>
+                            Cela dure environ 5 à 10 minutes, et vous pouvez vous arrêter à tout moment.
                             <br><br>
 
                             <b>L'étude me sera-t-elle bénéfique ?</b>
                             Les répondants qui terminent l'étude recevront la rémunération affichée sur leur compte
                             Prolific. Cette étude peut inclure des paiements bonus.<br><br>
-
-                            <b>Qu'en est-il de mes données ?</b>
-                            Tous les aspects de l'étude, y compris les résultats, seront anonymes et seuls les
-                            chercheurs auront accès à toutes les réponses.
-                        </p>
-                        <p>
-                            Pour continuer, veuillez cliquer sur "Participer".
                         </p>
 
                         <hr class="my-4">
 
-                        <p class="text-muted-small">
-                            Si vous ne souhaitez pas participer, vous pouvez cliquer sur le bouton
-                            <i>Passer</i> ci-dessous.
+                        <p class="text-center">
+                            <b>Souhaitez-vous participer ?</b>
                         </p>
                     </article>
 
                     {{ elif vi }}
                     <article lang="vi">
-                        <h3>Thông tin dành cho người tham gia</h3>
-                        <br>
+                        <h4 class="text-center mb-4">Thông tin tham gia</h4>
+
                         <p>
                             <b>Nghiên cứu bao gồm những gì?</b>
-                            Ở nghiên cứu này, bạn sẽ thực hiện một nhiệm vụ đơn giản và một bảng câu hỏi ngắn. Câu trả lời của bạn sẽ hoàn toàn ẩn danh. 
-                            Không có câu trả lời đúng hay sai; chúng tôi rất muốn được lắng nghe ý kiến của các bạn về vấn đề. 
+                            Nghiên cứu bổ sung này bao gồm các câu hỏi đơn giản về quan điểm của bạn.
+                            Câu trả lời của bạn sẽ hoàn toàn ẩn danh.
+                            Không có câu trả lời đúng hay sai; chúng tôi chỉ quan tâm đến ý kiến trung thực của bạn.
                             <br><br>
 
                             <b>Nghiên cứu này được thực hiện bởi ai?</b>
-                            Nghiên cứu này được thực hiện bởi một nhóm nhà nghiên cứu thuộc các trường đại học khác nhau tại Pháp (Paris School of Business, Đại học Montpellier). 
+                            Nghiên cứu này được thực hiện bởi một nhóm nhà nghiên cứu thuộc các trường đại học khác nhau tại Pháp (Paris School of Business, Đại học Montpellier).
                             Nếu có bất kỳ câu hỏi nào, bạn có thể liên hệ qua email: a.guido@psbedu.paris. <br><br>
 
                             <b>Nghiên cứu này mất bao lâu?</b>
-                            Bảng hỏi kéo dài khoảng 5 đến 10 phút, và bạn có thể dừng lại bất kỳ lúc nào. <br><br>
+                            Nó kéo dài khoảng 5 đến 10 phút, và bạn có thể dừng lại bất kỳ lúc nào. <br><br>
 
                             <b>Nghiên cứu có lợi cho tôi không?</b>
-                            Khi tham gia nghiên cứu này, bạn sẽ được nhận thêm thù lao.<br><br>
-
-                            <b>Dữ liệu của tôi thì sao?</b>
-                            Tất cả các khía cạnh của nghiên cứu, bao gồm cả kết quả, đều sẽ ở dạng ẩn danh và chỉ các nhà nghiên cứu mới được quyền truy cập vào toàn bộ câu trả lời.
-                            
-                        </p>
-                        <p>
-                            Để tiếp tục, vui lòng nhấp vào “Bắt đầu bảng câu hỏi”.
+                            Những người hoàn thành nghiên cứu sẽ nhận được thù lao được công bố vào tài khoản Prolific của họ. Nghiên cứu này có thể bao gồm các khoản thanh toán thưởng.<br><br>
                         </p>
 
                         <hr class="my-4">
 
-                        <p class="text-muted-small">
-                            Nếu bạn không muốn tham gia, bạn có thể nhấp vào nút “Không tham gia” bên dưới.
+                        <p class="text-center">
+                            <b>Bạn có muốn tham gia không?</b>
                         </p>
                     </article>
                     {{ endif }}
@@ -154,13 +136,13 @@
         </div>
 
         <div class="d-flex justify-content-between align-items-center">
-            <button class="btn btn-outline-danger" name="skip" value="True">
+            <button class="btn btn-outline-secondary" name="skip" value="True">
                 <i class="bi bi-x-circle me-1"></i>
-                {{ if en }} Do not participate {{ elif fr }} Ne pas participer {{ elif vi }} Không tham gia {{ endif }}
+                {{ if en }} No, skip this part {{ elif fr }} Non, passer cette étape {{ elif vi }} Không, bỏ qua phần này {{ endif }}
             </button>
 
             <button class="btn btn-primary" name="skip" value="False">
-                {{ if en }} Participate {{ elif fr }} Participer {{ elif vi }} Bắt đầu bảng câu hỏi {{ endif }}
+                {{ if en }} Yes, participate {{ elif fr }} Oui, participer {{ elif vi }} Có, tham gia {{ endif }}
                 <i class="bi bi-arrow-right ms-1"></i>
             </button>
         </div>
@@ -173,7 +155,6 @@
 <script>
     function fill_auto() {
         setTimeout(function () {
-            // Logique aléatoire pour tester les deux boutons
             if (Math.random() > 0.5) {
                 document.querySelector('button[name="skip"][value="True"]').click();
             } else {

@@ -3,11 +3,13 @@ import random
 from otree.api import *
 
 from .fields_labels_choices import *
+from pathlib import Path
 
 doc = """
 Narratives on Climate Change
 """
 
+app_name = Path(__file__).parent.name
 
 # ======================================================================================================================
 class C(BaseConstants):
@@ -66,7 +68,7 @@ class Player(BasePlayer):
     is_selected = models.BooleanField(initial=False)
     random_row = models.IntegerField(initial=None)
     random_amount = models.FloatField(initial=None)
-    payoff_mpl = models.FloatField()
+    # payoff_mpl = models.FloatField()
 
     # Policy narrative -------------------------------------------------------------------------------------------------
     policy_fight = models.IntegerField(widget=widgets.RadioSelectHorizontal)
@@ -140,18 +142,72 @@ class Player(BasePlayer):
     education = models.IntegerField()
 
     def set_payoff_mpl(self):
-        if self.is_selected == 1:
+        lang = self.session.vars["lang"]
+        txt_final = ""
+        if self.is_selected:
             choice_vars = [self.choice_1, self.choice_2, self.choice_3, self.choice_4,
                            self.choice_5, self.choice_6, self.choice_7]
+
             # Safety check for bot or missing data
             if self.random_row is not None and self.random_row < len(choice_vars):
                 chosen_choice = choice_vars[self.random_row]
+
+                # Explanation text
+                # We add 1 to the row index to match human counting (1-based)
+                row_display = self.random_row + 1
+
+                txt_final += trans(dict(
+                    en=f"For the incentivized task of the questionnaire, row #{row_display} of the questionnaire was "
+                       f"randomly selected. ",
+                    fr=f"Pour la tâche incitative du questionnaire, la ligne n°{row_display} du questionnaire a été "
+                       f"sélectionnée au hasard. ",
+                    vi=f"Đối với nhiệm vụ có khuyến khích của bảng câu hỏi, hàng số {row_display} của bảng câu hỏi "
+                       f"đã được chọn ngẫu nhiên. "
+                ), lang)
+
                 if chosen_choice == "B":
-                    self.payoff_mpl = self.random_amount
+                    self.payoff = cu(self.random_amount)
+                    txt_final += trans(dict(
+                        en=f"For this row, you chose Option B (Receive a monetary amount). Therefore, your opinion "
+                           f"will not be shared, and you receive {self.payoff}.",
+                        fr=f"Pour cette ligne, vous avez choisi l'Option B (Recevoir un montant monétaire). "
+                           f"Par conséquent, votre opinion ne sera pas partagée, et vous recevez {self.payoff}.",
+                        vi=f"Đối với hàng này, bạn đã chọn Phương án B (Nhận một khoản tiền). Do đó, ý kiến của bạn "
+                           f"sẽ không được chia sẻ, và bạn nhận được {self.payoff}."
+                    ), lang)
                 else:
-                    self.payoff_mpl = 0
+                    self.payoff = cu(0)
+                    txt_final += trans(dict(
+                        en="For this row, you chose Option A (Give my opinion). "
+                           f"Therefore, your opinion will be shared with future participants, and you "
+                           f"receive {self.payoff}.",
+                        fr="Pour cette ligne, vous avez choisi l'Option A (Donner mon opinion). "
+                           f"Par conséquent, votre opinion sera partagée avec les futurs participants, et vous "
+                           f"recevez {self.payoff}.",
+                        vi="Đối với hàng này, bạn đã chọn Phương án A (Đưa ra ý kiến của tôi). "
+                           "Do đó, ý kiến của bạn sẽ được chia sẻ với những người tham gia trong tương lai, và bạn "
+                           f"nhận được {self.payoff}."
+                    ), lang)
             else:
-                self.payoff_mpl = 0
+                self.payoff = cu(0)
+                txt_final = trans(dict(
+                    en="An error occurred during the selection process of the incentivized task of the questionnaire.",
+                    fr="Une erreur s'est produite lors du processus de sélection de la tâche incitative du "
+                       "questionnaire.",
+                    vi="Đã xảy ra lỗi trong quá trình lựa chọn nhiệm vụ có khuyến khích của bảng câu hỏi."
+                ), lang)
+
+        else:
+            txt_final = trans(dict(
+                en="You were not selected for the incentivized task payment of the questionnaire.",
+                fr="Vous n'avez pas été sélectionné pour le paiement de la tâche incitative du questionnaire.",
+                vi="Bạn không được chọn để thanh toán cho nhiệm vụ có khuyến khích của bảng câu hỏi."
+            ), lang)
+
+        app_dict = self.participant.vars.setdefault(app_name, {})
+        app_dict["is_selected"] = self.is_selected
+        app_dict["txt_final"] = txt_final
+        app_dict["payoff"] = self.payoff
 
 
 # ======================================================================================================================
@@ -177,17 +233,20 @@ class Presentation(MyPage):
     form_model = 'player'
     form_fields = ["skip"]
 
+
+    @staticmethod
+    def before_next_page(player: Player, timeout_happened):
+        if timeout_happened:
+            player.skip = random.choice([True, False])
+        app_dict = player.participant.vars.setdefault(app_name, {})
+        app_dict["skip"] = player.skip
+
     @staticmethod
     def app_after_this_page(player, upcoming_apps):
         if player.skip:
             return upcoming_apps[-1]
         else:
             return None
-
-    @staticmethod
-    def before_next_page(player: Player, timeout_happened):
-        if timeout_happened:
-            player.skip = random.choice([True, False])
 
 
 class NarrativeElicitation_text(MyPage):

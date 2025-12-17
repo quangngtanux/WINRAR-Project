@@ -1,6 +1,8 @@
 {{ block title }}
 {{ if en }}
 End of Part 2
+{{ elif fr }}
+Fin de la Partie 2
 {{ elif vi }}
 Kết thúc Phần 2
 {{ endif }}
@@ -10,15 +12,15 @@ Kết thúc Phần 2
 
 <div class="card bg-light mb-3">
     <div class="card-body">
-        {{ if en }}
         <p>
+            {{ if en }}
             You have completed Part 2 of the experiment. Results will be displayed at the end of the experiment.
-        </p>
-        {{ elif vi }}
-        <p>
+            {{ elif fr }}
+            Vous avez terminé la partie 2 de l'expérience. Les résultats seront affichés à la fin de l'expérience.
+            {{ elif vi }}
             Bạn đã hoàn thành phần 2 của thí nghiệm. Kết quả sẽ được hiển thị vào cuối thí nghiệm.
+            {{ endif }}
         </p>
-        {{ endif }}
     </div>
 </div>
 

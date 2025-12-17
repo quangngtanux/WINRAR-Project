@@ -64,6 +64,11 @@
                     {{ endif }}
                 </p>
 
+                <p>
+                {{ participant.vars.climate_questionnaire.txt_final|safe }}
+                </p>
+                {{ endif }}
+
                 <div class="mt-5 d-grid gap-2 col-md-6 mx-auto">
                     {{ if vi }}
                     <button class="btn btn-primary otree-btn-next">Tiếp tục</button>
@@ -71,7 +76,6 @@
                     {{ next_button }}
                     {{ endif }}
                 </div>
-                {{ endif }}
 
             </div>
         </div>

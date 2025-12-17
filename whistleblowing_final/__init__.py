@@ -36,6 +36,7 @@ def vars_for_admin_report(subsession: Subsession):
                 game_payoff=p.game_payoff,
                 endowment=Config.ENDOWMENT,
                 payoff_ecu=p.payoff_ecu,
+                climate_quest_payoff=p.climate_quest_payoff,
                 payoff=p.participant.payoff,
                 payoff_with_fee=p.participant.payoff_plus_participation_fee()
             )
@@ -50,6 +51,7 @@ class Group(BaseGroup):
 class Player(BasePlayer):
     effort_payoff = models.FloatField(initial=0)
     game_payoff = models.FloatField(initial=0)
+    climate_quest_payoff = models.FloatField(initial=0)
     payoff_ecu = models.FloatField(initial=0)
 
     def compute_payoffs(self):
@@ -57,31 +59,61 @@ class Player(BasePlayer):
         self.game_payoff = self.participant.vars["whistleblowing_game"]["payoff_ecu"]
         self.payoff_ecu = Config.ENDOWMENT + self.effort_payoff + self.game_payoff
         self.payoff = self.payoff_ecu * self.session.config["real_world_currency_per_point"]
+        self.climate_quest_payoff = self.participant.vars.get("climate_questionnaire", {}).get("payoff", 0)
+        self.payoff += self.climate_quest_payoff
         self.participant.payoff = self.payoff
 
-        txt_final = trans(dict(
-            en=f"Your final payoff for this experiment is equal to {Config.ENDOWMENT} (endowment) + "
-               f"{self.effort_payoff} (part 1) "
-               f"{'+' if self.game_payoff >= 0 else ''} {self.game_payoff} (part 2) = "
-               f"{self.payoff_ecu} ECU, which corresponds to {self.payoff}. "
-               f"With the show-up fee, your total payoff is {self.participant.payoff_plus_participation_fee()}.",
-            fr=f"Votre gain pour cette expérience est égal à {Config.ENDOWMENT} (dotation) + "
-               f"{self.effort_payoff} (partie 1) "
-               f"{'+' if self.game_payoff >= 0 else ''} {self.game_payoff} (partie 2) = "
-               f"{self.payoff_ecu} ECU, soit {self.payoff}. Avec le forfait de participation, votre gain total est de "
-               f"{self.participant.payoff_plus_participation_fee()}.",
-            vi=f"Số tiền bạn nhận được từ thí nghiệm này bằng {Config.ENDOWMENT} (tiền đặt cọc) + "
-               f"{self.effort_payoff} (phần 1) "
-               f"{'+' if self.game_payoff >= 0 else ''} {self.game_payoff} (phần 2) = "
-               f"{self.payoff_ecu} ECU, tương đương với {self.payoff}. "
-               f"Cộng với phí tham gia, tổng số tiền bạn nhận được là "
-               f"{self.participant.payoff_plus_participation_fee()}.",
-        ), self.session.vars["lang"])
+        climate_quest_skipped = self.participant.vars.get("climate_questionnaire", {}).get("skip", True)
+        climate_quest_selected = self.participant.vars.get("climate_questionnaire", {}).get("is_selected", False)
+
+        if climate_quest_skipped or not climate_quest_selected:
+            txt_final = trans(dict(
+                en=f"Your final payoff for this experiment is equal to {Config.ENDOWMENT} (endowment) + "
+                   f"{self.effort_payoff} (part 1) "
+                   f"{'+' if self.game_payoff >= 0 else ''} {self.game_payoff} (part 2) = "
+                   f"{self.payoff_ecu} ECU, which corresponds to {self.payoff}. "
+                   f"With the show-up fee, your total payoff is {self.participant.payoff_plus_participation_fee()}.",
+                fr=f"Votre gain pour cette expérience est égal à {Config.ENDOWMENT} (dotation) + "
+                   f"{self.effort_payoff} (partie 1) "
+                   f"{'+' if self.game_payoff >= 0 else ''} {self.game_payoff} (partie 2) = "
+                   f"{self.payoff_ecu} ECU, soit {self.payoff}. Avec le forfait de participation, votre gain total est de "
+                   f"{self.participant.payoff_plus_participation_fee()}.",
+                vi=f"Số tiền bạn nhận được từ thí nghiệm này bằng {Config.ENDOWMENT} (tiền đặt cọc) + "
+                   f"{self.effort_payoff} (phần 1) "
+                   f"{'+' if self.game_payoff >= 0 else ''} {self.game_payoff} (phần 2) = "
+                   f"{self.payoff_ecu} ECU, tương đương với {self.payoff}. "
+                   f"Cộng với phí tham gia, tổng số tiền bạn nhận được là "
+                   f"{self.participant.payoff_plus_participation_fee()}.",
+            ), self.session.vars["lang"])
+        else:
+            txt_final = trans(dict(
+                en=f"Your final payoff for this experiment is equal to {Config.ENDOWMENT} (endowment) + "
+                   f"{self.effort_payoff} (part 1) "
+                   f"{'+' if self.game_payoff >= 0 else ''} {self.game_payoff} (part 2) = "
+                   f"{self.payoff_ecu} ECU + {self.climate_quest_payoff} (optional questionnaire), which corresponds to "
+                   f"{self.payoff}. "
+                   f"With the show-up fee, your total payoff is {self.participant.payoff_plus_participation_fee()}.",
+                fr=f"Votre gain pour cette expérience est égal à {Config.ENDOWMENT} (dotation) + "
+                   f"{self.effort_payoff} (partie 1) "
+                   f"{'+' if self.game_payoff >= 0 else ''} {self.game_payoff} (partie 2) = "
+                   f"{self.payoff_ecu} ECU + {self.climate_quest_payoff} (questionnaire optionnel= , soit "
+                   f"{self.payoff}. Avec le forfait de participation, votre gain total est de "
+                   f"{self.participant.payoff_plus_participation_fee()}.",
+                vi=f"Số tiền bạn nhận được từ thí nghiệm này bằng {Config.ENDOWMENT} (tiền đặt cọc) + "
+                   f"{self.effort_payoff} (phần 1) "
+                   f"{'+' if self.game_payoff >= 0 else ''} {self.game_payoff} (phần 2) = "
+                   f"{self.payoff_ecu} ECU + {self.climate_quest_payoff} (bảng câu hỏi tùy chọn), tương đương với "
+                   f"{self.payoff}. "
+                   f"Cộng với phí tham gia, tổng số tiền bạn nhận được là "
+                   f"{self.participant.payoff_plus_participation_fee()}.",
+            ), self.session.vars["lang"])
+
         self.participant.vars["whistleblowing_final"] = dict(
             txt_final=txt_final,
             payoff_ecu=self.payoff_ecu,
             payoff=self.payoff,
         )
+
         return txt_final
 
 
