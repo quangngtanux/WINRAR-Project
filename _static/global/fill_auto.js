@@ -19,7 +19,7 @@ function fill_auto(with_submit=true){
             t.dispatchEvent(new Event("input"));
             t.dispatchEvent(new Event("change"));
         } else {
-            t.value = "message automatique";
+            t.value += "message automatique";
             t.dispatchEvent(new Event("input"));
             t.dispatchEvent(new Event("change"));
 
@@ -29,7 +29,7 @@ function fill_auto(with_submit=true){
     // long string field
     let the_long_area = document.querySelectorAll("textarea");
     for (let a of the_long_area) {
-        a.value = "message automatique";
+        a.value += "message automatique";
         a.dispatchEvent(new Event("change"));
     }
 
