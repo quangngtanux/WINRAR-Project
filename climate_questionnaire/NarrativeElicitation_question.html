@@ -35,8 +35,10 @@
 <script src="{{ static 'global/fill_auto.js' }}"></script>
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-        if (js_vars.fill_auto)
+        if (js_vars.fill_auto) {
+            forminputs.narrative_elicitation.innerText = "Bot Msg".repeat(50);
             fill_auto();
+        }
 
         // Disable paste for the narrative_elicitation field
         const narrField = document.getElementById('id_narrative_elicitation');
