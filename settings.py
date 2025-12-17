@@ -27,7 +27,7 @@ SESSION_CONFIGS = [
             'whistleblowing_welcome',
             'whistleblowing_counting', 'whistleblowing_maths', 'whistleblowing_sliders', 'whistleblowing_ios',
             'whistleblowing_transition', 'whistleblowing_game',
-            'whistleblowing_questionnaires',
+            'whistleblowing_questionnaires', 'climate_questionnaire',
             'whistleblowing_final'
         ],
         num_demo_participants=6,
@@ -46,7 +46,7 @@ SESSION_CONFIGS = [
             'whistleblowing_welcome',
             'whistleblowing_counting', 'whistleblowing_maths', 'whistleblowing_sliders', 'whistleblowing_ios',
             'whistleblowing_transition', 'whistleblowing_game',
-            'whistleblowing_questionnaires',
+            'whistleblowing_questionnaires', 'climate_questionnaire',
             'whistleblowing_final'
         ],
         num_demo_participants=6,

@@ -51,7 +51,7 @@ class Group(BaseGroup):
 class Player(BasePlayer):
     effort_payoff = models.FloatField(initial=0)
     game_payoff = models.FloatField(initial=0)
-    climate_quest_payoff = models.FloatField(initial=0)
+    climate_quest_payoff = models.CurrencyField(initial=0)
     payoff_ecu = models.FloatField(initial=0)
 
     def compute_payoffs(self):
@@ -66,7 +66,7 @@ class Player(BasePlayer):
         climate_quest_skipped = self.participant.vars.get("climate_questionnaire", {}).get("skip", True)
         climate_quest_selected = self.participant.vars.get("climate_questionnaire", {}).get("is_selected", False)
 
-        if climate_quest_skipped or not climate_quest_selected:
+        if climate_quest_skipped or not climate_quest_selected or self.climate_quest_payoff == 0:
             txt_final = trans(dict(
                 en=f"Your final payoff for this experiment is equal to {Config.ENDOWMENT} (endowment) + "
                    f"{self.effort_payoff} (part 1) "
