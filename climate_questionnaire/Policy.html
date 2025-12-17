@@ -79,14 +79,15 @@
         </p>
         {{ elif vi }}
         <p>
-            Dựa trên lời giải thích của bạn, theo bạn chính phủ nên xem xét những <b>biện pháp</b> và <b>giải pháp</b> nào để chống biến đổi khí hậu?
+            Dựa trên lời giải thích của bạn, theo bạn chính phủ nên xem xét những <b>biện pháp</b> và <b>giải pháp</b>
+            nào để chống biến đổi khí hậu?
         </p>
         <p>
-            Nếu bạn cho rằng không nên thực hiện hành động nào để chống biến đổi khí hậu, hãy giải thích lý do bạn nghĩ như vậy. [tối thiểu 25 từ]
+            Nếu bạn cho rằng không nên thực hiện hành động nào để chống biến đổi khí hậu, hãy giải thích lý do bạn nghĩ
+            như vậy. [tối thiểu 25 từ]
         </p>
 
         {{ endif }}
-
 
         {{ formfield "policy_narrative" label=""}}
 
@@ -104,11 +105,14 @@
 {{ block scripts }}
 <script src="{{ static 'global/fill_auto.js' }}"></script>
 <script>
+    function fill_auto_local() {
+        forminputs.policy_narrative.value = "Bot Msg ".repeat(50);
+        fill_auto();
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
-        if (js_vars.fill_auto) {
-            forminputs.policy_narrative.innerText = "Bot Msg".repeat(50);
-            fill_auto();
-        }
+        if (js_vars.fill_auto)
+            fill_auto_local();
 
         // Disable paste for the policy field
         const narrField = document.getElementById('id_policy_narrative');

@@ -16,8 +16,6 @@ class C(BaseConstants):
     NAME_IN_URL = 'clquest'
     PLAYERS_PER_GROUP = None
     NUM_ROUNDS = 1
-    ROW_INDICES = [0, 1, 2, 3]
-    AMOUNTS = [0.01, 0.25, 0.5, 1]
 
 
 class Subsession(BaseSubsession):
@@ -29,14 +27,26 @@ def creating_session(subsession: Subsession):
         lang = subsession.session.config.get("language", "en")
         subsession.session.vars["lang"] = lang
         subsession.session.vars["lang_dict"] = dict(en=lang == "en", fr=lang == "fr", vi=lang == "vi")
+
+    if app_name not in subsession.session.vars:
+        subsession.session.vars[app_name] = dict()
+
+    amounts = dict(
+        en=[0.01, 0.25, 0.5, 1, 1.5, 2, 2.5],
+        fr=[0.01, 0.25, 0.5, 1, 1.5, 2, 2.5],
+        vi=[50, 1500, 3000, 5000, 10500, 14000, 17000]
+    )
+    subsession.session.vars[app_name]["amounts"] = amounts.get(subsession.session.vars["lang"])
+
     players = subsession.get_players()
-    k = min(10, len(players))
+    k = len(players) // 10  # 10% of participants
+    subsession.session.vars[app_name]["num_selected"] = k
     selected_players = random.sample(players, k=k)
     for p in players:
         p.is_selected = (p in selected_players)
         if p.is_selected:
-            p.random_row = random.choice(C.ROW_INDICES)
-            p.random_amount = C.AMOUNTS[p.random_row]
+            p.random_row = random.choice(range(len(amounts)))
+            p.random_amount = subsession.session.vars[app_name]["amounts"][p.random_row]
 
 
 class Group(BaseGroup):
@@ -143,6 +153,7 @@ class Player(BasePlayer):
 
     def set_payoff_mpl(self):
         lang = self.session.vars["lang"]
+        amounts = self.session.vars[app_name]["amounts"]
         txt_final = ""
         if self.is_selected:
             choice_vars = [self.choice_1, self.choice_2, self.choice_3, self.choice_4,
@@ -311,6 +322,15 @@ class NarrativeSharing(MyPage):
         'choice_1', 'choice_2', 'choice_3',
         'choice_4', 'choice_5', 'choice_6', 'choice_7'
     ]
+
+    @staticmethod
+    def vars_for_template(player: Player):
+        existing = MyPage.vars_for_template(player)
+        amounts = player.session.vars[app_name]["amounts"]
+        existing.update(
+            fields_amounts={f'choice_{i}': am for i, am in enumerate(amounts, start=1)},
+        )
+        return existing
 
     @staticmethod
     def before_next_page(player: Player, timeout_happened):
@@ -561,8 +581,7 @@ class End(MyPage):
 
 page_sequence = [
     Presentation,
-    NarrativeElicitation_text, NarrativeElicitation_question, NarrativeElicitation_question_certain,
-    circadian, NarrativeSharing,
+    NarrativeElicitation_text, NarrativeElicitation_question, NarrativeElicitation_question_certain, NarrativeSharing,
     Policy, Policy_question_certain, Policy_expectations,
     ClimateKnowledge, MediaConsumption,
     ClimateExpectations,

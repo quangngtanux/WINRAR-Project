@@ -21,11 +21,14 @@
 
         <div class="alert alert-info mb-4 text-center" role="alert">
             {{ if en }}
-            You have completed the main part of the experiment. We now offer you the opportunity to participate in a short, <b>optional</b> questionnaire.
+            You have completed the main part of the experiment. We now offer you the opportunity to participate in a
+            short, <b>optional</b> questionnaire.
             {{ elif fr }}
-            Vous avez terminé la partie principale de l'expérience. Nous vous proposons maintenant de participer à un court questionnaire <b>facultatif</b>.
+            Vous avez terminé la partie principale de l'expérience. Nous vous proposons maintenant de participer à un
+            court questionnaire <b>facultatif</b>.
             {{ elif vi }}
-            Bạn đã hoàn thành phần chính của thí nghiệm. Bây giờ chúng tôi mời bạn tham gia một bảng câu hỏi ngắn và <b>không bắt buộc</b>.
+            Bạn đã hoàn thành phần chính của thí nghiệm. Bây giờ chúng tôi mời bạn tham gia một bảng câu hỏi ngắn và <b>không
+            bắt buộc</b>.
             {{ endif }}
         </div>
 
@@ -46,20 +49,21 @@
                             This additional study consists of simple questions regarding your views.
                             Your response will remain completely anonymous.
                             There are no right or wrong answers; we are simply interested in your honest views.
-                            <br><br>
+                        </p>
 
+                        <p>
                             <b>Who is carrying out the study?</b>
                             The study is being conducted by a team of researchers at different universities in France
                             (Paris School of Business, University of Montpellier). For any question, you can contact
-                            a.guido@psbedu.paris. <br><br>
+                            a.guido@psbedu.paris.
+                        </p>
 
+                        <p>
                             <b>How much time will it take?</b>
-                            It lasts approximately 5 to 10 minutes, and you can stop at any time.
-                            <br><br>
-
-                            <b>Will the study benefit me?</b>
-                            Respondents who complete the study will receive the posted remuneration into their Prolific
-                            account. This study may include bonus payments.<br><br>
+                            It lasts approximately 5 to 10 minutes.
+                        </p>
+                        <p>
+                            <b>This study may include bonus payments.</b>
                         </p>
 
                         <hr class="my-4">
@@ -79,20 +83,21 @@
                             Votre réponse restera entièrement anonyme.
                             Il n'y a pas de bonnes ou de mauvaises réponses ; nous sommes simplement intéressés par vos
                             opinions honnêtes.
-                            <br><br>
+                        </p>
 
+                        <p>
                             <b>Qui mène l'étude ?</b>
                             L'étude est menée par une équipe de chercheurs de différentes universités en France (Paris
                             School of Business, Université de Montpellier). Pour toute question, vous pouvez contacter
                             a.guido@psbedu.paris. <br><br>
-
+                        </p>
+                        <p>
                             <b>Combien de temps cela prendra-t-il ?</b>
-                            Cela dure environ 5 à 10 minutes, et vous pouvez vous arrêter à tout moment.
-                            <br><br>
+                            Cela dure 5 à 10 minutes.
+                        </p>
 
-                            <b>L'étude me sera-t-elle bénéfique ?</b>
-                            Les répondants qui terminent l'étude recevront la rémunération affichée sur leur compte
-                            Prolific. Cette étude peut inclure des paiements bonus.<br><br>
+                        <p>
+                            <b>Cette étude peut inclure un bonus.</b>
                         </p>
 
                         <hr class="my-4">
@@ -114,14 +119,17 @@
                             <br><br>
 
                             <b>Nghiên cứu này được thực hiện bởi ai?</b>
-                            Nghiên cứu này được thực hiện bởi một nhóm nhà nghiên cứu thuộc các trường đại học khác nhau tại Pháp (Paris School of Business, Đại học Montpellier).
+                            Nghiên cứu này được thực hiện bởi một nhóm nhà nghiên cứu thuộc các trường đại học khác nhau
+                            tại Pháp (Paris School of Business, Đại học Montpellier).
                             Nếu có bất kỳ câu hỏi nào, bạn có thể liên hệ qua email: a.guido@psbedu.paris. <br><br>
 
+                        <p>
                             <b>Nghiên cứu này mất bao lâu?</b>
-                            Nó kéo dài khoảng 5 đến 10 phút, và bạn có thể dừng lại bất kỳ lúc nào. <br><br>
+                            Nó kéo dài khoảng 5 đến 10 phút.
+                        </p>
 
-                            <b>Nghiên cứu có lợi cho tôi không?</b>
-                            Những người hoàn thành nghiên cứu sẽ nhận được thù lao được công bố vào tài khoản Prolific của họ. Nghiên cứu này có thể bao gồm các khoản thanh toán thưởng.<br><br>
+                        <p>
+                            <b>Nghiên cứu này có thể bao gồm các khoản thanh toán thưởng.</b>
                         </p>
 
                         <hr class="my-4">
@@ -138,7 +146,8 @@
         <div class="d-flex justify-content-between align-items-center">
             <button class="btn btn-outline-secondary" name="skip" value="True">
                 <i class="bi bi-x-circle me-1"></i>
-                {{ if en }} No, skip this part {{ elif fr }} Non, passer cette étape {{ elif vi }} Không, bỏ qua phần này {{ endif }}
+                {{ if en }} No, skip this part {{ elif fr }} Non, passer cette étape {{ elif vi }} Không, bỏ qua phần
+                này {{ endif }}
             </button>
 
             <button class="btn btn-primary" name="skip" value="False">

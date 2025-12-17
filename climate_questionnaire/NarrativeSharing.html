@@ -3,24 +3,6 @@
     textarea {
         height: 400px;
     }
-
-    table.mpl-table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 20px;
-    }
-
-    table.mpl-table td {
-        padding: 8px 10px;
-        vertical-align: middle;
-        text-align: center;
-    }
-
-    .header {
-        font-weight: bold;
-        text-align: center;
-        padding-bottom: 10px;
-    }
 </style>
 {{ endblock }}
 
@@ -129,7 +111,7 @@
         </article>
         {{ endif }}
 
-        <table class="mpl-table">
+        {#<table class="mpl-table">
             <tr>
                 <td class="header">
                     {{ if en }} Option A
@@ -264,6 +246,45 @@
                     {{ endif }}
                 </td>
             </tr>
+        </table>#}
+
+        <table class="table table-sm align-middle w-auto mx-auto">
+            <thead>
+            <tr>
+                <th class="w-25">
+                    {{ if en }} Option A
+                    {{ elif fr }} Option A
+                    {{ elif vi }} Lựa chọn A
+                    {{ endif }}
+                </th>
+                <th class="w-50 text-center"></th>
+                <th class="w-25">
+                    {{ if en }} Option B
+                    {{ elif fr }} Option B
+                    {{ elif vi }} Lựa chọn B
+                    {{ endif }}
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            {{ for field, amount in fields_amounts.items }}
+            <tr>
+                <td>
+                    {{ if en }} Share my opinion
+                    {{ elif fr }} Partager mon opinion
+                    {{ elif vi }} Chia sẻ ý kiến của tôi
+                    {{ endif }}
+                </td>
+                <td class="text-center">{{ formfield field label="" }}</td>
+                <td>
+                    {{ if en }} {{ amount|cu }} for me
+                    {{ elif fr }} {{ amount|cu }} pour moi
+                    {{ elif vi }} {{ amount|cu }} cho tôi
+                    {{ endif }}
+                </td>
+            </tr>
+            {{ endfor }}
+            </tbody>
         </table>
     </div>
 </div>

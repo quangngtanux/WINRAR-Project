@@ -13,13 +13,13 @@
 
 <div class="card bg-light mb-3">
     <div class="card-body">
-    {{ formfield "climate_exists" label=fields_labels.climate_exists }}
+        {{ formfield "climate_exists" label=fields_labels.climate_exists }}
     </div>
 </div>
 
 <div class="card bg-light mb-3">
     <div class="card-body">
-    {{ formfield "narrative_elicitation" label=fields_labels.narrative_elicitation }}
+        {{ formfield "narrative_elicitation" label=fields_labels.narrative_elicitation }}
     </div>
 </div>
 
@@ -34,11 +34,14 @@
 {{ block scripts }}
 <script src="{{ static 'global/fill_auto.js' }}"></script>
 <script>
+    function fill_auto_local() {
+        forminputs.narrative_elicitation.value = "Bot Msg ".repeat(50);
+        fill_auto();
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
-        if (js_vars.fill_auto) {
-            forminputs.narrative_elicitation.innerText = "Bot Msg".repeat(50);
-            fill_auto();
-        }
+        if (js_vars.fill_auto)
+            fill_auto_local();
 
         // Disable paste for the narrative_elicitation field
         const narrField = document.getElementById('id_narrative_elicitation');
