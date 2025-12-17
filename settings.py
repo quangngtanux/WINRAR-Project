@@ -21,8 +21,8 @@ REAL_WORLD_CURRENCY_DECIMAL_PLACES = 2
 
 SESSION_CONFIGS = [
     dict(
-        name='whistleblowing_no_reward',
-        display_name='Whistleblowing - No Reward',
+        name='whistleblowing_no_reward_vi',
+        display_name='Whistleblowing - No Reward - Vietnamese',
         app_sequence=[
             'whistleblowing_welcome',
             'whistleblowing_counting', 'whistleblowing_maths', 'whistleblowing_sliders', 'whistleblowing_ios',
@@ -31,8 +31,8 @@ SESSION_CONFIGS = [
             'whistleblowing_final'
         ],
         num_demo_participants=6,
-        real_world_currency_per_point=0.1,
-        participation_fee=5.00,
+        real_world_currency_per_point=0.1 * 10000,
+        participation_fee=5 * 10000,
         country="Vietnam",
         language="vi",
         treatment='cooperation',
@@ -40,8 +40,8 @@ SESSION_CONFIGS = [
         doc="<p class='text-warning fw-bold'>The minimum is 6 participants.</p>"
     ),
     dict(
-        name='whistleblowing_with_reward',
-        display_name="Whistleblowing - With Reward",
+        name='whistleblowing_with_reward_vi',
+        display_name="Whistleblowing - With Reward - Vietnamese",
         app_sequence=[
             'whistleblowing_welcome',
             'whistleblowing_counting', 'whistleblowing_maths', 'whistleblowing_sliders', 'whistleblowing_ios',
@@ -50,8 +50,8 @@ SESSION_CONFIGS = [
             'whistleblowing_final'
         ],
         num_demo_participants=6,
-        real_world_currency_per_point=0.1,
-        participation_fee=5.00,
+        real_world_currency_per_point=0.1 * 30000,
+        participation_fee=5 * 10000,
         country="Vietnam",
         language="vi",
         treatment='cooperation',
@@ -63,8 +63,8 @@ SESSION_CONFIGS = [
         display_name="Whistleblowing - Game only - With Reward",
         app_sequence=['whistleblowing_game'],
         num_demo_participants=6,
-        real_world_currency_per_point=0.1,
-        participation_fee=5.00,
+        real_world_currency_per_point=0.1 * 30000,
+        participation_fee=5.00 * 10000,
         country="Vietnam",
         language="vi",
         treatment='cooperation',
@@ -77,8 +77,8 @@ SESSION_CONFIGS = [
         display_name="Whistleblowing - Questionnaire Only",
         app_sequence=['whistleblowing_questionnaires'],
         num_demo_participants=6,
-        real_world_currency_per_point=0.1,
-        participation_fee=5.00,
+        real_world_currency_per_point=0.1 * 10000,
+        participation_fee=5.00 * 10000,
         country="Vietnam",
         language="en",
         treatment='cooperation',
@@ -90,8 +90,8 @@ SESSION_CONFIGS = [
         display_name="Whistleblowing - Climate Questionnaire Only",
         app_sequence=['climate_questionnaire'],
         num_demo_participants=6,
-        real_world_currency_per_point=0.1,
-        participation_fee=5.00,
+        real_world_currency_per_point=0.1 * 10000,
+        participation_fee=5.00 * 10000,
         country="Vietnam",
         language="en",
         treatment='cooperation',
